@@ -6,5 +6,5 @@
   "UniqueID": "thespbgamer.ZoomLevel",
   "EntryDll": "ZoomLevel.dll",
   "MinimumApiVersion": "3.8.0",
-  "UpdateKeys": [ "Nexus:7363" ]
+  "UpdateKeys": [ "GitHub:thespbgamer/ZoomLevel", "Nexus:7363" ]
 }
