@@ -1,0 +1,6 @@
+C:\Users\Utilizador\Source\Repos\ZoomLevel\ZoomLevel\bin\Debug\ZoomLevel.dll
+C:\Users\Utilizador\Source\Repos\ZoomLevel\ZoomLevel\bin\Debug\ZoomLevel.pdb
+C:\Users\Utilizador\Source\Repos\ZoomLevel\ZoomLevel\obj\Debug\ZoomLevel.csprojAssemblyReference.cache
+C:\Users\Utilizador\Source\Repos\ZoomLevel\ZoomLevel\obj\Debug\ZoomLevel.csproj.CoreCompileInputs.cache
+C:\Users\Utilizador\Source\Repos\ZoomLevel\ZoomLevel\obj\Debug\ZoomLevel.dll
+C:\Users\Utilizador\Source\Repos\ZoomLevel\ZoomLevel\obj\Debug\ZoomLevel.pdb
