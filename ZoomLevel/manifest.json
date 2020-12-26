@@ -2,7 +2,7 @@
   "Name": "ZoomLevel",
   "Author": "thespbgamer",
   "Version": "1.0.0",
-  "Description": "<One or two sentences about the mod>",
+  "Description": "Stardew Valley mod that changes the zoom level with a keybind.",
   "UniqueID": "thespbgamer.ZoomLevel",
   "EntryDll": "ZoomLevel.dll",
   "MinimumApiVersion": "3.8.0",
