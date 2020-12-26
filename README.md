@@ -3,13 +3,13 @@ You can increase zoom level with , (comma) and decrease it with . (period).
 
 If you use a controller, you can also adjust it by pressing the  left stick to decrease the zoom and right stick to increases the zoom.
 
-#Install:
+# Install:
 
 1. Install the latest version of SMAPI.
 2. Unzip the mod folder into your Stardew Valley/Mods.
 3. Run the game using SMAPI.
 
-#Configuration:
+# Configuration:
 
 In the mod folder open the file config.json:
 
