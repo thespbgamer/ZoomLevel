@@ -24,7 +24,18 @@ namespace ZoomLevel
         {
             if (e.Button.TryGetKeyboard(out Keys _))
             {
-                if (e.Button == _config.IncreaseZoomKey)
+                if ((this.Helper.Input.IsDown(SButton.LeftShift) || this.Helper.Input.IsDown(SButton.RightShift)))
+                {
+                    if (e.Button == _config.IncreaseZoomKey)
+                    {
+                        ChangeUILevel(_config.ZoomLevelIncreaseValue);
+                    }
+                    else if (e.Button == _config.DecreaseZoomKey)
+                    {
+                        ChangeUILevel(_config.ZoomLevelDecreaseValue);
+                    }
+                }
+                else if (e.Button == _config.IncreaseZoomKey)
                 {
                     ChangeZoomLevel(_config.ZoomLevelIncreaseValue);
                 }
@@ -37,7 +48,20 @@ namespace ZoomLevel
             {
                 bool wasPreviousButtonPressZoom = false;
 
-                if (e.Button == _config.IncreaseZoomButton)
+                if ((this.Helper.Input.IsDown(Buttons.LeftStick.ToSButton())))
+                {
+                    if (e.Button == _config.IncreaseZoomButton)
+                    {
+                        ChangeUILevel(_config.ZoomLevelIncreaseValue);
+                        wasPreviousButtonPressZoom = true;
+                    }
+                    else if (e.Button == _config.DecreaseZoomButton)
+                    {
+                        ChangeUILevel(_config.ZoomLevelDecreaseValue);
+                        wasPreviousButtonPressZoom = true;
+                    }
+                }
+                else if (e.Button == _config.IncreaseZoomButton)
                 {
                     ChangeZoomLevel(_config.ZoomLevelIncreaseValue);
                     wasPreviousButtonPressZoom = true;
@@ -67,6 +91,21 @@ namespace ZoomLevel
             Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel <= _config.MaxZoomOutLevelValue ? _config.MaxZoomOutLevelValue : Game1.options.singlePlayerBaseZoomLevel;
 
             //this.Monitor.Log($"{Game1.options.singlePlayerBaseZoomLevel}.", LogLevel.Debug);
+            Program.gamePtr.refreshWindowSettings();
+        }
+
+        private void ChangeUILevel(float amount = 0)
+        {
+            //Changes UI Zoom Level
+            Game1.options.singlePlayerDesiredUIScale = (float)Math.Round(Game1.options.singlePlayerDesiredUIScale + amount, 2);
+
+            //Caps Max UI Zoom In Level
+            Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale >= _config.MaxZoomInLevelValue ? _config.MaxZoomInLevelValue : Game1.options.singlePlayerDesiredUIScale;
+
+            //Caps Max UI Zoom Out Level
+            Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale <= _config.MaxZoomOutLevelValue ? _config.MaxZoomOutLevelValue : Game1.options.singlePlayerDesiredUIScale;
+
+            //this.Monitor.Log($"{Game1.options.singlePlayerDesiredUIScale}.", LogLevel.Debug);
             Program.gamePtr.refreshWindowSettings();
         }
     }
