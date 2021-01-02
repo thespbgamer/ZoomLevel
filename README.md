@@ -26,3 +26,7 @@ In the mod folder open the file config.json:
 
 # Based on: 
 https://github.com/GuiNoya/SVMods/
+
+
+# Nexus Page: 
+https://www.nexusmods.com/stardewvalley/mods/7363
