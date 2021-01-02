@@ -1,6 +1,8 @@
 # ZoomLevel
 You can increase zoom level with , (comma) and decrease it with . (period).
+
 By holding Shift and using the controls above, you can change the UI Scale.
+
 
 If you use a controller, you can also adjust it by pressing the  left stick to decrease the zoom and right stick to increases the zoom.
 
