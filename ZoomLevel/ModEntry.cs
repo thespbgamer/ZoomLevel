@@ -44,7 +44,7 @@ namespace ZoomLevel
                     ChangeZoomLevel(_config.ZoomLevelDecreaseValue);
                 }
             }
-            else if (e.Button.TryGetController(out Buttons _))
+            else if (e.Button.TryGetController(out Buttons _) && _config.DisableControllerButton == false)
             {
                 bool wasPreviousButtonPressZoom = false;
 
