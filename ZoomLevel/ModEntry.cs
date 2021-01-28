@@ -48,7 +48,7 @@ namespace ZoomLevel
             {
                 bool wasPreviousButtonPressZoom = false;
 
-                if (Helper.Input.IsDown(Buttons.LeftTrigger.ToSButton()) && Helper.Input.IsDown(Buttons.RightTrigger.ToSButton()))
+                if (this.Helper.Input.IsDown(Buttons.LeftTrigger.ToSButton()) && this.Helper.Input.IsDown(Buttons.RightTrigger.ToSButton()))
                 {
                     if (e.Button == _config.IncreaseZoomButton)
                     {

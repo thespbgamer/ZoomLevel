@@ -5,6 +5,6 @@
   "Description": "Mod that changes the zoom level with a simple keybind.",
   "UniqueID": "thespbgamer.ZoomLevel",
   "EntryDll": "ZoomLevel.dll",
-  "MinimumApiVersion": "3.8.0",
+  "MinimumApiVersion": "3.9.0",
   "UpdateKeys": [ "GitHub:thespbgamer/ZoomLevel", "Nexus:7363" ]
 }
