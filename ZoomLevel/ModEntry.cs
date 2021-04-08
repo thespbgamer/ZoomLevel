@@ -67,14 +67,14 @@ namespace ZoomLevel
 
                 //Caps Max Zoom Out Level
                 Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel <= modConfigs.MaxZoomOutLevelValue ? modConfigs.MaxZoomOutLevelValue : Game1.options.singlePlayerBaseZoomLevel;
-            }
-            else
-            {
-                this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
-            }
 
-            //this.Monitor.Log($"{Game1.options.singlePlayerBaseZoomLevel}.", LogLevel.Debug);
-            Program.gamePtr.refreshWindowSettings();
+                //this.Monitor.Log($"{Game1.options.singlePlayerBaseZoomLevel}.", LogLevel.Debug);
+                Program.gamePtr.refreshWindowSettings();
+            }
+            else if (Context.IsSplitScreen)
+            {
+                //this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
+            }
         }
 
         private void ChangeUILevel(float amount = 0)
@@ -93,9 +93,9 @@ namespace ZoomLevel
                 //this.Monitor.Log($"{Game1.options.singlePlayerDesiredUIScale}.", LogLevel.Debug);
                 Program.gamePtr.refreshWindowSettings();
             }
-            else
+            else if (Context.IsSplitScreen)
             {
-                this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
+                //this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
             }
         }
     }
