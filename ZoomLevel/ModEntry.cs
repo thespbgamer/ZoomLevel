@@ -10,85 +10,68 @@ namespace ZoomLevel
 {
     public class ModEntry : Mod
     {
-        private ModConfig _config;
+        private ModConfig modConfigs;
 
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
-            _config = helper.ReadConfig<ModConfig>();
+            modConfigs = helper.ReadConfig<ModConfig>();
 
             helper.Events.Input.ButtonPressed += this.Events_Input_ButtonPressed;
         }
 
         private void Events_Input_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            if (e.Button.TryGetKeyboard(out Keys _))
+            if (!Context.IsWorldReady || !Context.IsPlayerFree) { return; }
+            bool wasThePreviousButtonPressSucessfull = false;
+
+            if (modConfigs.holdToChangeUIKeys.IsDown())
             {
-                if ((this.Helper.Input.IsDown(SButton.LeftShift) || this.Helper.Input.IsDown(SButton.RightShift)))
+                if (modConfigs.increaseZoomOrUI.JustPressed())
                 {
-                    if (e.Button == _config.IncreaseZoomKey)
-                    {
-                        ChangeUILevel(_config.ZoomLevelIncreaseValue);
-                    }
-                    else if (e.Button == _config.DecreaseZoomKey)
-                    {
-                        ChangeUILevel(_config.ZoomLevelDecreaseValue);
-                    }
+                    ChangeUILevel(modConfigs.ZoomLevelIncreaseValue);
+                    wasThePreviousButtonPressSucessfull = true;
                 }
-                else if (e.Button == _config.IncreaseZoomKey)
+                else if (modConfigs.decreaseZoomOrUI.JustPressed())
                 {
-                    ChangeZoomLevel(_config.ZoomLevelIncreaseValue);
-                }
-                else if (e.Button == _config.DecreaseZoomKey)
-                {
-                    ChangeZoomLevel(_config.ZoomLevelDecreaseValue);
+                    ChangeUILevel(modConfigs.ZoomLevelDecreaseValue);
+                    wasThePreviousButtonPressSucessfull = true;
                 }
             }
-            else if (e.Button.TryGetController(out Buttons _) && _config.DisableControllerButton == false)
+            else if (modConfigs.increaseZoomOrUI.JustPressed())
             {
-                bool wasPreviousButtonPressZoom = false;
+                ChangeZoomLevel(modConfigs.ZoomLevelIncreaseValue);
+                wasThePreviousButtonPressSucessfull = true;
+            }
+            else if (modConfigs.decreaseZoomOrUI.JustPressed())
+            {
+                ChangeZoomLevel(modConfigs.ZoomLevelDecreaseValue);
+                wasThePreviousButtonPressSucessfull = true;
+            }
 
-                if (this.Helper.Input.IsDown(Buttons.LeftTrigger.ToSButton()) && this.Helper.Input.IsDown(Buttons.RightTrigger.ToSButton()))
-                {
-                    if (e.Button == _config.IncreaseZoomButton)
-                    {
-                        ChangeUILevel(_config.ZoomLevelIncreaseValue);
-                        wasPreviousButtonPressZoom = true;
-                    }
-                    else if (e.Button == _config.DecreaseZoomButton)
-                    {
-                        ChangeUILevel(_config.ZoomLevelDecreaseValue);
-                        wasPreviousButtonPressZoom = true;
-                    }
-                }
-                else if (e.Button == _config.IncreaseZoomButton)
-                {
-                    ChangeZoomLevel(_config.ZoomLevelIncreaseValue);
-                    wasPreviousButtonPressZoom = true;
-                }
-                else if (e.Button == _config.DecreaseZoomButton)
-                {
-                    ChangeZoomLevel(_config.ZoomLevelDecreaseValue);
-                    wasPreviousButtonPressZoom = true;
-                }
-
-                if (_config.SuppressControllerButton == true && wasPreviousButtonPressZoom == true)
-                {
-                    Helper.Input.Suppress(e.Button);
-                }
+            if (modConfigs.SuppressControllerButton == true && wasThePreviousButtonPressSucessfull == true)
+            {
+                Helper.Input.Suppress(e.Button);
             }
         }
 
         private void ChangeZoomLevel(float amount = 0)
         {
-            //Changes ZoomLevel
-            Game1.options.singlePlayerBaseZoomLevel = (float)Math.Round(Game1.options.singlePlayerBaseZoomLevel + amount, 2);
+            if (!Context.IsSplitScreen)
+            {
+                //Changes ZoomLevel
+                Game1.options.singlePlayerBaseZoomLevel = (float)Math.Round(Game1.options.singlePlayerBaseZoomLevel + amount, 2);
 
-            //Caps Max Zoom In Level
-            Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel >= _config.MaxZoomInLevelValue ? _config.MaxZoomInLevelValue : Game1.options.singlePlayerBaseZoomLevel;
+                //Caps Max Zoom In Level
+                Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel >= modConfigs.MaxZoomInLevelValue ? modConfigs.MaxZoomInLevelValue : Game1.options.singlePlayerBaseZoomLevel;
 
-            //Caps Max Zoom Out Level
-            Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel <= _config.MaxZoomOutLevelValue ? _config.MaxZoomOutLevelValue : Game1.options.singlePlayerBaseZoomLevel;
+                //Caps Max Zoom Out Level
+                Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel <= modConfigs.MaxZoomOutLevelValue ? modConfigs.MaxZoomOutLevelValue : Game1.options.singlePlayerBaseZoomLevel;
+            }
+            else
+            {
+                this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
+            }
 
             //this.Monitor.Log($"{Game1.options.singlePlayerBaseZoomLevel}.", LogLevel.Debug);
             Program.gamePtr.refreshWindowSettings();
@@ -96,17 +79,24 @@ namespace ZoomLevel
 
         private void ChangeUILevel(float amount = 0)
         {
-            //Changes UI Zoom Level
-            Game1.options.singlePlayerDesiredUIScale = (float)Math.Round(Game1.options.singlePlayerDesiredUIScale + amount, 2);
+            if (!Context.IsSplitScreen)
+            {
+                //Changes UI Zoom Level
+                Game1.options.singlePlayerDesiredUIScale = (float)Math.Round(Game1.options.singlePlayerDesiredUIScale + amount, 2);
 
-            //Caps Max UI Zoom In Level
-            Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale >= _config.MaxZoomInLevelValue ? _config.MaxZoomInLevelValue : Game1.options.singlePlayerDesiredUIScale;
+                //Caps Max UI Zoom In Level
+                Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale >= modConfigs.MaxZoomInLevelValue ? modConfigs.MaxZoomInLevelValue : Game1.options.singlePlayerDesiredUIScale;
 
-            //Caps Max UI Zoom Out Level
-            Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale <= _config.MaxZoomOutLevelValue ? _config.MaxZoomOutLevelValue : Game1.options.singlePlayerDesiredUIScale;
+                //Caps Max UI Zoom Out Level
+                Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale <= modConfigs.MaxZoomOutLevelValue ? modConfigs.MaxZoomOutLevelValue : Game1.options.singlePlayerDesiredUIScale;
 
-            //this.Monitor.Log($"{Game1.options.singlePlayerDesiredUIScale}.", LogLevel.Debug);
-            Program.gamePtr.refreshWindowSettings();
+                //this.Monitor.Log($"{Game1.options.singlePlayerDesiredUIScale}.", LogLevel.Debug);
+                Program.gamePtr.refreshWindowSettings();
+            }
+            else
+            {
+                this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
+            }
         }
     }
 }
