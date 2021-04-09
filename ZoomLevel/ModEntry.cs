@@ -68,13 +68,21 @@ namespace ZoomLevel
                 //Caps Max Zoom Out Level
                 Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel <= modConfigs.MaxZoomOutLevelValue ? modConfigs.MaxZoomOutLevelValue : Game1.options.singlePlayerBaseZoomLevel;
 
+                //Monitor Current Zoom Level
                 //this.Monitor.Log($"{Game1.options.singlePlayerBaseZoomLevel}.", LogLevel.Debug);
-                Program.gamePtr.refreshWindowSettings();
             }
             else if (Context.IsSplitScreen)
             {
-                //this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
+                //Changes ZoomLevel
+                Game1.options.localCoopBaseZoomLevel = (float)Math.Round(Game1.options.localCoopBaseZoomLevel + amount, 2);
+
+                //Caps Max Zoom In Level
+                Game1.options.localCoopBaseZoomLevel = Game1.options.localCoopBaseZoomLevel >= modConfigs.MaxZoomInLevelValue ? modConfigs.MaxZoomInLevelValue : Game1.options.localCoopBaseZoomLevel;
+
+                //Caps Max Zoom Out Level
+                Game1.options.localCoopBaseZoomLevel = Game1.options.localCoopBaseZoomLevel <= modConfigs.MaxZoomOutLevelValue ? modConfigs.MaxZoomOutLevelValue : Game1.options.localCoopBaseZoomLevel;
             }
+            Program.gamePtr.refreshWindowSettings();
         }
 
         private void ChangeUILevel(float amount = 0)
@@ -90,13 +98,22 @@ namespace ZoomLevel
                 //Caps Max UI Zoom Out Level
                 Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale <= modConfigs.MaxZoomOutLevelValue ? modConfigs.MaxZoomOutLevelValue : Game1.options.singlePlayerDesiredUIScale;
 
+                //Monitor Current UI Level
                 //this.Monitor.Log($"{Game1.options.singlePlayerDesiredUIScale}.", LogLevel.Debug);
-                Program.gamePtr.refreshWindowSettings();
             }
             else if (Context.IsSplitScreen)
             {
-                //this.Monitor.Log("There's no support for splitscreen.", LogLevel.Info);
+                //Changes UI Zoom Level
+                Game1.options.localCoopDesiredUIScale = (float)Math.Round(Game1.options.localCoopDesiredUIScale + amount, 2);
+
+                //Caps Max UI Zoom In Level
+                Game1.options.localCoopDesiredUIScale = Game1.options.localCoopDesiredUIScale >= modConfigs.MaxZoomInLevelValue ? modConfigs.MaxZoomInLevelValue : Game1.options.localCoopDesiredUIScale;
+
+                //Caps Max UI Zoom Out Level
+                Game1.options.localCoopDesiredUIScale = Game1.options.localCoopDesiredUIScale <= modConfigs.MaxZoomOutLevelValue ? modConfigs.MaxZoomOutLevelValue : Game1.options.localCoopDesiredUIScale;
             }
+
+            Program.gamePtr.refreshWindowSettings();
         }
     }
 }
