@@ -17,9 +17,9 @@ By holding ``Left Trigger & Right Trigger`` and using the controls above, you ca
 
 In the mod folder open the file ``config.json``:
 ```
-  - "increaseZoomOrUI": the keys that increases the Zoom or UI
-  - "decreaseZoomOrUI": the key that decreases the zoom or UI
-  - "holdToChangeUIKeys": the key that you need to hold to change the UI instead of the zoom
+  - "IncreaseZoomOrUI": the keys that increases the Zoom or UI
+  - "DecreaseZoomOrUI": the key that decreases the zoom or UI
+  - "HoldToChangeUIKeys": the key that you need to hold to change the UI instead of the zoom
   - "SuppressControllerButton": when set to "true" it only changes the zoom level with the controller button and "false" to let the game also handle the button press
   - "ZoomLevelIncreaseValue": How much to increase the zoom level (needs to be a positive number)
   - "ZoomLevelDecreaseValue": How much to decrease the zoom level (needs to be a negative number)
