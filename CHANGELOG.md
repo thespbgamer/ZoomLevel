@@ -3,7 +3,7 @@
 ### Added
 
 - Changelog
-- Local vo-op functionality
+- Local co-op functionality
 
 ### Changed
 
