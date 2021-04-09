@@ -10,9 +10,9 @@ namespace ZoomLevel
 {
     internal class ModConfig
     {
-        public KeybindList increaseZoomOrUI { get; set; } = KeybindList.Parse("OemPeriod, RightStick");
-        public KeybindList decreaseZoomOrUI { get; set; } = KeybindList.Parse("OemComma, LeftStick");
-        public KeybindList holdToChangeUIKeys { get; set; } = KeybindList.Parse("LeftShift, RightShift, LeftTrigger + RightTrigger");
+        public KeybindList IncreaseZoomOrUI { get; set; } = KeybindList.Parse("OemPeriod, RightStick");
+        public KeybindList DecreaseZoomOrUI { get; set; } = KeybindList.Parse("OemComma, LeftStick");
+        public KeybindList HoldToChangeUIKeys { get; set; } = KeybindList.Parse("LeftShift, RightShift, LeftTrigger + RightTrigger");
 
         public bool SuppressControllerButton { get; set; } = true;
 

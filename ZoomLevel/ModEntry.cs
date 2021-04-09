@@ -25,25 +25,25 @@ namespace ZoomLevel
             if (!Context.IsWorldReady || !Context.IsPlayerFree) { return; }
             bool wasThePreviousButtonPressSucessfull = false;
 
-            if (modConfigs.holdToChangeUIKeys.IsDown())
+            if (modConfigs.HoldToChangeUIKeys.IsDown())
             {
-                if (modConfigs.increaseZoomOrUI.JustPressed())
+                if (modConfigs.IncreaseZoomOrUI.JustPressed())
                 {
                     ChangeUILevel(modConfigs.ZoomLevelIncreaseValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
-                else if (modConfigs.decreaseZoomOrUI.JustPressed())
+                else if (modConfigs.DecreaseZoomOrUI.JustPressed())
                 {
                     ChangeUILevel(modConfigs.ZoomLevelDecreaseValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
             }
-            else if (modConfigs.increaseZoomOrUI.JustPressed())
+            else if (modConfigs.IncreaseZoomOrUI.JustPressed())
             {
                 ChangeZoomLevel(modConfigs.ZoomLevelIncreaseValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
-            else if (modConfigs.decreaseZoomOrUI.JustPressed())
+            else if (modConfigs.DecreaseZoomOrUI.JustPressed())
             {
                 ChangeZoomLevel(modConfigs.ZoomLevelDecreaseValue);
                 wasThePreviousButtonPressSucessfull = true;
