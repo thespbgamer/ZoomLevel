@@ -2,7 +2,7 @@
 
 ### Added
 
-- Support for the optional Generic Mod Config Menu [Here](https://www.nexusmods.com/stardewvalley/mods/5098).
+- Support for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098).
 - Local co-op functionality
 
 ### Changed
