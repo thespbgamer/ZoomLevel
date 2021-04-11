@@ -1,3 +1,14 @@
+## [1.5.0] - 2021-04-11
+
+### Added
+
+- Support for the optional Generic Mod Config Menu [Here](https://www.nexusmods.com/stardewvalley/mods/5098).
+- Local co-op functionality
+
+### Changed
+
+- Config variable names
+
 ## [1.4.0] - 2021-04-09
 
 ### Added
@@ -54,7 +65,8 @@
 
 - Initial release
 
-[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.4.0...HEAD
+[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.5.0...HEAD
+[1.4.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.5.0
 [1.4.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.4.0
 [1.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.3.0
 [1.2.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.2.1

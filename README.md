@@ -23,8 +23,8 @@ In the mod folder open the file ``config.json``:
   - "SuppressControllerButton": when set to "true" it only changes the zoom level with the controller button and "false" to let the game also handle the button press
   - "ZoomLevelIncreaseValue": How much to increase the zoom level (needs to be a positive number)
   - "ZoomLevelDecreaseValue": How much to decrease the zoom level (needs to be a negative number)
-  - "MaxZoomOutLevelValue": The zoom out value cap (default at 35%)
-  - "MaxZoomInLevelValue": The zoom in value cap (default at 200%)
+  - "MaxZoomOutLevelAndUIValue": The zoom out value cap (default at 35%)
+  - "MaxZoomInLevelAndUIValue": The zoom in value cap (default at 200%)
 ```
 ## Based on:
 [This Mod](https://github.com/GuiNoya/SVMods/).
