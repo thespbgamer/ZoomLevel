@@ -19,8 +19,8 @@ namespace ZoomLevel
         public float ZoomLevelIncreaseValue { get; set; } = 0.05f;
         public float ZoomLevelDecreaseValue { get; set; } = -0.05f;
 
-        public float MaxZoomOutLevelValue { get; set; } = 0.35f;
+        public float MaxZoomOutLevelAndUIValue { get; set; } = 0.35f;
 
-        public float MaxZoomInLevelValue { get; set; } = 2.00f;
+        public float MaxZoomInLevelAndUIValue { get; set; } = 2.00f;
     }
 }
