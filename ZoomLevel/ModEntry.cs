@@ -27,8 +27,8 @@ namespace ZoomLevel
             var api = Helper.ModRegistry.GetApi<GenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
             api.RegisterModConfig(ModManifest, () => modConfigs = new ModConfig(), () => Helper.WriteConfig(modConfigs));
 
-            api.RegisterSimpleOption(ModManifest, "Increase Zoom or UI", "The keybind that increases the zoom or UI in-game.", () => modConfigs.IncreaseZoomOrUI, (KeybindList val) => modConfigs.IncreaseZoomOrUI = val);
-            api.RegisterSimpleOption(ModManifest, "Decrease Zoom or UI", "The keybind that decreases the zoom or UI in-game.", () => modConfigs.DecreaseZoomOrUI, (KeybindList val) => modConfigs.DecreaseZoomOrUI = val);
+            api.RegisterSimpleOption(ModManifest, "Increase zoom or UI", "The keybind that increases the zoom or UI in-game.", () => modConfigs.IncreaseZoomOrUI, (KeybindList val) => modConfigs.IncreaseZoomOrUI = val);
+            api.RegisterSimpleOption(ModManifest, "Decrease zoom or UI", "The keybind that decreases the zoom or UI in-game.", () => modConfigs.DecreaseZoomOrUI, (KeybindList val) => modConfigs.DecreaseZoomOrUI = val);
             api.RegisterSimpleOption(ModManifest, "Hold to change UI", "The keybind that you hold to change UI instead of the zoom.", () => modConfigs.HoldToChangeUIKeys, (KeybindList val) => modConfigs.HoldToChangeUIKeys = val);
 
             api.RegisterSimpleOption(ModManifest, "Suppress controller button", "If your inputs are supressed or not.", () => modConfigs.SuppressControllerButton, (bool val) => modConfigs.SuppressControllerButton = val);
