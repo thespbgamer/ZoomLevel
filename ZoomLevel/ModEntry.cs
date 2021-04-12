@@ -24,20 +24,24 @@ namespace ZoomLevel
 
         private void onLaunched(object sender, GameLaunchedEventArgs e)
         {
-            var api = Helper.ModRegistry.GetApi<GenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
-            api.RegisterModConfig(ModManifest, () => modConfigs = new ModConfig(), () => Helper.WriteConfig(modConfigs));
+            var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<GenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
 
-            api.RegisterSimpleOption(ModManifest, "Increase zoom or UI", "The keybind that increases the zoom or UI in-game.", () => modConfigs.IncreaseZoomOrUI, (KeybindList val) => modConfigs.IncreaseZoomOrUI = val);
-            api.RegisterSimpleOption(ModManifest, "Decrease zoom or UI", "The keybind that decreases the zoom or UI in-game.", () => modConfigs.DecreaseZoomOrUI, (KeybindList val) => modConfigs.DecreaseZoomOrUI = val);
-            api.RegisterSimpleOption(ModManifest, "Hold to change UI", "The keybind that you hold to change UI instead of the zoom.", () => modConfigs.HoldToChangeUIKeys, (KeybindList val) => modConfigs.HoldToChangeUIKeys = val);
+            if (genericModConfigMenuAPI != null)
+            {
+                genericModConfigMenuAPI.RegisterModConfig(ModManifest, () => modConfigs = new ModConfig(), () => Helper.WriteConfig(modConfigs));
 
-            api.RegisterSimpleOption(ModManifest, "Suppress controller button", "If your inputs are supressed or not.", () => modConfigs.SuppressControllerButton, (bool val) => modConfigs.SuppressControllerButton = val);
+                genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Increase zoom or UI", "The keybind that increases the zoom or UI in-game.", () => modConfigs.IncreaseZoomOrUI, (KeybindList val) => modConfigs.IncreaseZoomOrUI = val);
+                genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Decrease zoom or UI", "The keybind that decreases the zoom or UI in-game.", () => modConfigs.DecreaseZoomOrUI, (KeybindList val) => modConfigs.DecreaseZoomOrUI = val);
+                genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Hold to change UI", "The keybind that you hold to change UI instead of the zoom.", () => modConfigs.HoldToChangeUIKeys, (KeybindList val) => modConfigs.HoldToChangeUIKeys = val);
 
-            api.RegisterClampedOption(ModManifest, "Zoom level increase", "The amount of Zoom level increase.", () => modConfigs.ZoomLevelIncreaseValue, (float val) => modConfigs.ZoomLevelIncreaseValue = val, 0.01f, 0.50f);
-            api.RegisterClampedOption(ModManifest, "Zoom level decrease", "The amount of Zoom level decrease.", () => modConfigs.ZoomLevelDecreaseValue, (float val) => modConfigs.ZoomLevelDecreaseValue = val, -0.50f, -0.01f);
+                genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Suppress controller button", "If your inputs are supressed or not.", () => modConfigs.SuppressControllerButton, (bool val) => modConfigs.SuppressControllerButton = val);
 
-            api.RegisterClampedOption(ModManifest, "Max zoom out level and UI", "The value of the max zoom out level and UI.", () => modConfigs.MaxZoomOutLevelAndUIValue, (float val) => modConfigs.MaxZoomOutLevelAndUIValue = val, 0.15f, 1);
-            api.RegisterClampedOption(ModManifest, "Max zoom in level and UI", "The value of the max zoom in level and UI.", () => modConfigs.MaxZoomInLevelAndUIValue, (float val) => modConfigs.MaxZoomInLevelAndUIValue = val, 1, 2.5f);
+                genericModConfigMenuAPI.RegisterClampedOption(ModManifest, "Zoom level increase", "The amount of Zoom level increase.", () => modConfigs.ZoomLevelIncreaseValue, (float val) => modConfigs.ZoomLevelIncreaseValue = val, 0.01f, 0.50f);
+                genericModConfigMenuAPI.RegisterClampedOption(ModManifest, "Zoom level decrease", "The amount of Zoom level decrease.", () => modConfigs.ZoomLevelDecreaseValue, (float val) => modConfigs.ZoomLevelDecreaseValue = val, -0.50f, -0.01f);
+
+                genericModConfigMenuAPI.RegisterClampedOption(ModManifest, "Max zoom out level and UI", "The value of the max zoom out level and UI.", () => modConfigs.MaxZoomOutLevelAndUIValue, (float val) => modConfigs.MaxZoomOutLevelAndUIValue = val, 0.15f, 1);
+                genericModConfigMenuAPI.RegisterClampedOption(ModManifest, "Max zoom in level and UI", "The value of the max zoom in level and UI.", () => modConfigs.MaxZoomInLevelAndUIValue, (float val) => modConfigs.MaxZoomInLevelAndUIValue = val, 1, 2.5f);
+            }
         }
 
         private void Events_Input_ButtonPressed(object sender, ButtonPressedEventArgs e)
