@@ -2,7 +2,7 @@
 
 ### Added
 
-- Controll Zoom and UI levels anywhere if activated.
+- Control Zoom and UI levels anywhere if activated.
 
 ## [1.5.1] - 2021-04-12
 
