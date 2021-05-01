@@ -35,6 +35,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Hold to change UI", "The keybind that you hold to change UI instead of the zoom.", () => modConfigs.HoldToChangeUIKeys, (KeybindList val) => modConfigs.HoldToChangeUIKeys = val);
 
                 genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Suppress controller button", "If your inputs are supressed or not.", () => modConfigs.SuppressControllerButton, (bool val) => modConfigs.SuppressControllerButton = val);
+                genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Zoom and UI anywhere", "If activated you can control your zoom and UI level anywhere.", () => modConfigs.ZoomAndUIControlEverywhere, (bool val) => modConfigs.ZoomAndUIControlEverywhere = val);
 
                 genericModConfigMenuAPI.RegisterClampedOption(ModManifest, "Zoom level increase", "The amount of Zoom level increase.", () => modConfigs.ZoomLevelIncreaseValue, (float val) => modConfigs.ZoomLevelIncreaseValue = val, 0.01f, 0.50f);
                 genericModConfigMenuAPI.RegisterClampedOption(ModManifest, "Zoom level decrease", "The amount of Zoom level decrease.", () => modConfigs.ZoomLevelDecreaseValue, (float val) => modConfigs.ZoomLevelDecreaseValue = val, -0.50f, -0.01f);
@@ -46,7 +47,7 @@ namespace ZoomLevel
 
         private void Events_Input_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            if (!Context.IsWorldReady || !Context.IsPlayerFree) { return; }
+            if (!Context.IsWorldReady || (!Context.IsPlayerFree && !modConfigs.ZoomAndUIControlEverywhere)) { return; }
             bool wasThePreviousButtonPressSucessfull = false;
 
             if (modConfigs.HoldToChangeUIKeys.IsDown())

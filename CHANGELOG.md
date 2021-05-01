@@ -1,3 +1,9 @@
+## [1.6.0] - 2021-05-01
+
+### Added
+
+- Controll Zoom and UI levels anywhere if activated.
+
 ## [1.5.1] - 2021-04-12
 
 ### Fixed
@@ -71,7 +77,8 @@
 
 - Initial release
 
-[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.5.1...HEAD
+[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.6.0
 [1.5.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.5.1
 [1.5.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.5.0
 [1.4.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.4.0

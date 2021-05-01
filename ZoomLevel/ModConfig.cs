@@ -15,6 +15,7 @@ namespace ZoomLevel
         public KeybindList HoldToChangeUIKeys { get; set; } = KeybindList.Parse("LeftShift, RightShift, LeftTrigger + RightTrigger");
 
         public bool SuppressControllerButton { get; set; } = true;
+        public bool ZoomAndUIControlEverywhere { get; set; } = false;
 
         public float ZoomLevelIncreaseValue { get; set; } = 0.05f;
         public float ZoomLevelDecreaseValue { get; set; } = -0.05f;
