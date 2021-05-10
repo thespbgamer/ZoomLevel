@@ -13,6 +13,7 @@ namespace ZoomLevel
         public KeybindList IncreaseZoomOrUI { get; set; } = KeybindList.Parse("OemPeriod, RightStick");
         public KeybindList DecreaseZoomOrUI { get; set; } = KeybindList.Parse("OemComma, LeftStick");
         public KeybindList HoldToChangeUIKeys { get; set; } = KeybindList.Parse("LeftShift, RightShift, LeftTrigger + RightTrigger");
+        public KeybindList ResetZoomAndUI { get; set; } = KeybindList.Parse("Home");
 
         public bool SuppressControllerButton { get; set; } = true;
         public bool ZoomAndUIControlEverywhere { get; set; } = false;
