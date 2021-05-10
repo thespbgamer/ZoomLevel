@@ -33,6 +33,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Increase zoom or UI", "The keybind that increases the zoom or UI in-game.", () => modConfigs.IncreaseZoomOrUI, (KeybindList val) => modConfigs.IncreaseZoomOrUI = val);
                 genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Decrease zoom or UI", "The keybind that decreases the zoom or UI in-game.", () => modConfigs.DecreaseZoomOrUI, (KeybindList val) => modConfigs.DecreaseZoomOrUI = val);
                 genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Hold to change UI", "The keybind that you hold to change UI instead of the zoom.", () => modConfigs.HoldToChangeUIKeys, (KeybindList val) => modConfigs.HoldToChangeUIKeys = val);
+                genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Reset zoom and UI", "The keybind that resets both zoom and UI to 100%.", () => modConfigs.ResetZoomAndUI, (KeybindList val) => modConfigs.ResetZoomAndUI = val);
 
                 genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Suppress controller button", "If your inputs are supressed or not.", () => modConfigs.SuppressControllerButton, (bool val) => modConfigs.SuppressControllerButton = val);
                 genericModConfigMenuAPI.RegisterSimpleOption(ModManifest, "Zoom and UI anywhere", "If activated you can control your zoom and UI level anywhere.", () => modConfigs.ZoomAndUIControlEverywhere, (bool val) => modConfigs.ZoomAndUIControlEverywhere = val);
@@ -71,6 +72,11 @@ namespace ZoomLevel
             else if (modConfigs.DecreaseZoomOrUI.JustPressed())
             {
                 ChangeZoomLevel(modConfigs.ZoomLevelDecreaseValue);
+                wasThePreviousButtonPressSucessfull = true;
+            }
+            else if (modConfigs.ResetZoomAndUI.JustPressed())
+            {
+                ResetZoomAndUI();
                 wasThePreviousButtonPressSucessfull = true;
             }
 
@@ -138,6 +144,21 @@ namespace ZoomLevel
                 Game1.options.localCoopDesiredUIScale = Game1.options.localCoopDesiredUIScale <= modConfigs.MaxZoomOutLevelAndUIValue ? modConfigs.MaxZoomOutLevelAndUIValue : Game1.options.localCoopDesiredUIScale;
             }
 
+            Program.gamePtr.refreshWindowSettings();
+        }
+
+        private void ResetZoomAndUI()
+        {
+            if (!Context.IsSplitScreen)
+            {
+                Game1.options.singlePlayerBaseZoomLevel = 1.0f;
+                Game1.options.singlePlayerDesiredUIScale = 1.0f;
+            }
+            else
+            {
+                Game1.options.localCoopBaseZoomLevel = 1.0f;
+                Game1.options.localCoopDesiredUIScale = 1.0f;
+            }
             Program.gamePtr.refreshWindowSettings();
         }
     }
