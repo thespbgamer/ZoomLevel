@@ -7,6 +7,8 @@ If you use a controller, you can also adjust it by pressing the ``left stick`` t
 By holding ``Left Trigger & Right Trigger`` and using the controls above, you can change the UI Scale.
 
 
+By pressing ``Home`` to reset both values to 100%.
+
 ## Install:
 
 1. [Install the latest version of SMAPI](https://github.com/Pathoschild/SMAPI/releases).
@@ -21,11 +23,17 @@ In the mod folder open the file ``config.json``:
   - "DecreaseZoomOrUI": the key that decreases the zoom or UI
   - "HoldToChangeUIKeys": the key that you need to hold to change the UI instead of the zoom
   - "SuppressControllerButton": when set to "true" it only changes the zoom level with the controller button and "false" to let the game also handle the button press
+  - "ResetZoom": resets the zoom back to 100%
+  - "ResetUI": resets the UI back to 100%
+  - "ZoomAndUIControlEverywhere": if true then you can change your zoom and UI levels on menus, cutscenes, etc...
   - "ZoomLevelIncreaseValue": How much to increase the zoom level (needs to be a positive number)
   - "ZoomLevelDecreaseValue": How much to decrease the zoom level (needs to be a negative number)
   - "MaxZoomOutLevelAndUIValue": The zoom out value cap (default at 35%)
   - "MaxZoomInLevelAndUIValue": The zoom in value cap (default at 200%)
+  - "ResetZoomValue": The value of the zoom level reset (default at 1)
+  - "ResetUIValue": The value of the UI level reset (default at 1)
 ```
+
 ## Based on:
 [This Mod](https://github.com/GuiNoya/SVMods/).
 

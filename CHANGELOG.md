@@ -1,8 +1,14 @@
+## [1.7.0] - 2021-05-17
+
+### Added
+
+- Reset UI or Zoom.
+
 ## [1.6.0] - 2021-05-01
 
 ### Added
 
-- Controll Zoom and UI levels anywhere if activated.
+- Control Zoom and UI levels anywhere if activated.
 
 ## [1.5.1] - 2021-04-12
 
