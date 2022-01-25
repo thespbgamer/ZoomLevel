@@ -1,3 +1,9 @@
+## [1.8.0] - 2022-01-25
+
+### Improvements 
+
+- Added new API version.
+
 ## [1.7.0] - 2021-05-17
 
 ### Added
@@ -83,7 +89,8 @@
 
 - Initial release
 
-[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.7.0...HEAD
+[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.8.0...HEAD
+[1.8.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.8.0
 [1.7.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.7.0
 [1.6.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.6.0
 [1.5.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.5.1
