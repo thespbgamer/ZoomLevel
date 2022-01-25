@@ -2,7 +2,7 @@
 
 ### Improvements 
 
-- Added new API version.
+- Added support for the new API version.
 
 ## [1.7.0] - 2021-05-17
 
