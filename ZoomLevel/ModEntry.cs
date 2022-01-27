@@ -34,8 +34,8 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListIncreaseZoomOrUI, (KeybindList val) => modConfigs.KeybindListIncreaseZoomOrUI = val, "Zoom or UI Levels Increase".ToString, "Keybinds to Increase Zoom or UI Level.".ToString);
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListDecreaseZoomOrUI, (KeybindList val) => modConfigs.KeybindListDecreaseZoomOrUI = val, "Zoom or UI Levels Decrease".ToString, "Keybinds to Decrease Zoom or UI Level.".ToString);
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListResetZoomOrUI, (KeybindList val) => modConfigs.KeybindListResetZoomOrUI = val, "Zoom or UI Levels Reset".ToString, "Keybinds that you use to Reset the Zoom or UI Level.".ToString);
-                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListMaxZoom, (KeybindList val) => modConfigs.KeybindListMaxZoom = val, "Zoom or UI Max Levels".ToString, "Keybinds to Max the Zoom out or Maximize the UI.".ToString);
-                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListMinZoom, (KeybindList val) => modConfigs.KeybindListMinZoom = val, "Zoom or UI Min Levels".ToString, "Keybinds to Max the Zoom in or Minimize the UI.".ToString);
+                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListMaxZoomOrUI, (KeybindList val) => modConfigs.KeybindListMaxZoomOrUI = val, "Zoom or UI Max Levels".ToString, "Keybinds to Max the Zoom out or Maximize the UI.".ToString);
+                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListMinZoomOrUI, (KeybindList val) => modConfigs.KeybindListMinZoomOrUI = val, "Zoom or UI Min Levels".ToString, "Keybinds to Max the Zoom in or Minimize the UI.".ToString);
 
                 genericModConfigMenuAPI.AddSectionTitle(ModManifest, "Values:".ToString, "All the values that changes the Zoom Level and UI Level.".ToString);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => modConfigs.ZoomLevelIncreaseValue, (float val) => modConfigs.ZoomLevelIncreaseValue = val, "Zoom or UI Levels Increase".ToString, "The amount of Zoom or UI Level increase.".ToString, 0.01f, 0.50f,0.01f);
@@ -75,12 +75,12 @@ namespace ZoomLevel
                     ResetUI();
                     wasThePreviousButtonPressSucessfull = true;
                 }
-                else if (modConfigs.KeybindListMaxZoom.JustPressed())
+                else if (modConfigs.KeybindListMaxZoomOrUI.JustPressed())
                 {
                     CapUILevel(modConfigs.MaxZoomOutLevelAndUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
-                else if (modConfigs.KeybindListMinZoom.JustPressed())
+                else if (modConfigs.KeybindListMinZoomOrUI.JustPressed())
                 {
                     CapUILevel(modConfigs.MaxZoomInLevelAndUIValue);
                     wasThePreviousButtonPressSucessfull = true;
@@ -101,12 +101,12 @@ namespace ZoomLevel
                 ResetZoom();
                 wasThePreviousButtonPressSucessfull = true;
             }
-            else if (modConfigs.KeybindListMaxZoom.JustPressed())
+            else if (modConfigs.KeybindListMaxZoomOrUI.JustPressed())
             {
                 CapZoomLevel(modConfigs.MaxZoomOutLevelAndUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
-            else if (modConfigs.KeybindListMinZoom.JustPressed())
+            else if (modConfigs.KeybindListMinZoomOrUI.JustPressed())
             {
                 CapZoomLevel(modConfigs.MaxZoomInLevelAndUIValue);
                 wasThePreviousButtonPressSucessfull = true;

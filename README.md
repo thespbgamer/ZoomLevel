@@ -38,8 +38,8 @@ Here's what you can change:
   `KeybindListDecreaseZoomOrUI`    | `OemComma` aka `,` or `LeftStick`                               | Key to Decrease Zoom or UI Level.
   `KeybindListHoldToChangeUI`      | `LeftShift` or `RightShift` or `LeftTrigger and RightTrigger"`  | Key you need to hold to change the UI.
   `KeybindListResetZoomOrUI`       | `null` aka **nothing**                                          | Key to Reset the Zoom or UI Level.
-  `KeybindListMaxZoom`             | `null` aka **nothing**                                          | Key to Max the Zoom out or Maximize the UI.
-  `KeybindListMinZoom`             | `null` aka **nothing**                                          | Key to Max the Zoom in or Minimize the UI.
+  `KeybindListMaxZoomOrUI`         | `null` aka **nothing**                                          | Key to Max the Zoom out or Maximize the UI.
+  `KeybindListMinZoomOrUI`         | `null` aka **nothing**                                          | Key to Max the Zoom in or Minimize the UI.
   
 * Zoom and UI values:
 

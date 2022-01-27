@@ -1,3 +1,22 @@
+## [1.9.0] - 2022-01-27
+
+### Added
+
+- Max and Min UI or Zoom.
+
+### Changed
+
+- Config variable names
+
+### Improvements 
+
+- Updated API for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098).
+- README file
+
+### Fixed
+
+- Some text typos
+
 ## [1.8.0] - 2022-01-25
 
 ### Improvements 
@@ -89,7 +108,8 @@
 
 - Initial release
 
-[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.8.0...HEAD
+[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.9.0...HEAD
+[1.9.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.8.0
 [1.8.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.8.0
 [1.7.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.7.0
 [1.6.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.6.0

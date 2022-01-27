@@ -8,8 +8,8 @@ namespace ZoomLevel
         public KeybindList KeybindListIncreaseZoomOrUI { get; set; } = KeybindList.Parse("OemPeriod, RightStick");
         public KeybindList KeybindListDecreaseZoomOrUI { get; set; } = KeybindList.Parse("OemComma, LeftStick");
         public KeybindList KeybindListResetZoomOrUI { get; set; } = KeybindList.Parse("");
-        public KeybindList KeybindListMaxZoom { get; set; } = KeybindList.Parse("");
-        public KeybindList KeybindListMinZoom { get; set; } = KeybindList.Parse("");
+        public KeybindList KeybindListMaxZoomOrUI { get; set; } = KeybindList.Parse("");
+        public KeybindList KeybindListMinZoomOrUI { get; set; } = KeybindList.Parse("");
 
         public float ZoomLevelIncreaseValue { get; set; } = 0.05f;
         public float ZoomLevelDecreaseValue { get; set; } = -0.05f;
