@@ -109,7 +109,7 @@
 - Initial release
 
 [unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.9.0...HEAD
-[1.9.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.8.0
+[1.9.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.9.0
 [1.8.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.8.0
 [1.7.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.7.0
 [1.6.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.6.0
