@@ -11,7 +11,9 @@ namespace ZoomLevel
     public class ModEntry : Mod
     {
         private ModConfig modConfigs;
-  
+        private bool wasToggleUIDone = false;
+        private float previousUIValue = 1.0f;
+
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
@@ -36,6 +38,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListResetZoomOrUI, (KeybindList val) => modConfigs.KeybindListResetZoomOrUI = val, "Zoom or UI Levels Reset".ToString, "Keybinds that you use to Reset the Zoom or UI Level.".ToString);
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListMaxZoomOrUI, (KeybindList val) => modConfigs.KeybindListMaxZoomOrUI = val, "Zoom or UI Max Levels".ToString, "Keybinds to Max the Zoom out or Maximize the UI.".ToString);
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListMinZoomOrUI, (KeybindList val) => modConfigs.KeybindListMinZoomOrUI = val, "Zoom or UI Min Levels".ToString, "Keybinds to Max the Zoom in or Minimize the UI.".ToString);
+                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => modConfigs.KeybindListToggleUI, (KeybindList val) => modConfigs.KeybindListToggleUI = val, "Toggle UI Visibility".ToString, "Keybinds to toggle the UI Visibility.".ToString);
 
                 genericModConfigMenuAPI.AddSectionTitle(ModManifest, "Values:".ToString, "All the values that changes the Zoom Level and UI Level.".ToString);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => modConfigs.ZoomLevelIncreaseValue, (float val) => modConfigs.ZoomLevelIncreaseValue = val, "Zoom or UI Levels Increase".ToString, "The amount of Zoom or UI Level increase.".ToString, 0.01f, 0.50f,0.01f);
@@ -85,6 +88,10 @@ namespace ZoomLevel
                     CapUILevel(modConfigs.MaxZoomInLevelAndUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
+                else if (modConfigs.KeybindListToggleUI.JustPressed())
+                {
+                    ToggleUI();
+                }
             }
             else if (modConfigs.KeybindListIncreaseZoomOrUI.JustPressed())
             {
@@ -111,6 +118,10 @@ namespace ZoomLevel
                 CapZoomLevel(modConfigs.MaxZoomInLevelAndUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
+            else if (modConfigs.KeybindListToggleUI.JustPressed())
+            {
+                ToggleUI();
+            }
 
             if (modConfigs.SuppressControllerButton == true && wasThePreviousButtonPressSucessfull == true)
             {
@@ -118,9 +129,42 @@ namespace ZoomLevel
             }
         }
 
+        private void ToggleUI()
+        {
+            float uiValue = 0.0f;
+            
+            if(wasToggleUIDone == true)
+            {
+                uiValue = previousUIValue;
+            }
+            wasToggleUIDone = !wasToggleUIDone;
+
+            if (!Context.IsSplitScreen)
+            {
+                if (wasToggleUIDone == true)
+                {
+                    previousUIValue = Game1.options.singlePlayerDesiredUIScale;
+                }
+
+                //Changes ZoomLevel
+                Game1.options.singlePlayerDesiredUIScale = uiValue;
+            }
+            else if (Context.IsSplitScreen)
+            {
+                if (wasToggleUIDone == true)
+                {
+                    previousUIValue = Game1.options.localCoopDesiredUIScale;
+                }
+
+                //Changes ZoomLevel
+                Game1.options.localCoopDesiredUIScale = uiValue;
+            }
+            
+            RefreshWindow();
+        }
+
         private void CapZoomLevel(float zoomValue)
         {
-
 
             if (!Context.IsSplitScreen)
             {

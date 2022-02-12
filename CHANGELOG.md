@@ -1,3 +1,9 @@
+## [1.10.0] - 2022-02-12
+
+### Added
+
+- Toggle UI.
+
 ## [1.9.0] - 2022-01-27
 
 ### Added
@@ -108,7 +114,8 @@
 
 - Initial release
 
-[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.9.0...HEAD
+[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.10.0...HEAD
+[1.10.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.10.0
 [1.9.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.9.0
 [1.8.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.8.0
 [1.7.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.7.0

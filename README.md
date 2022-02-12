@@ -40,6 +40,7 @@ Here's what you can change:
   `KeybindListResetZoomOrUI`       | `null` aka **nothing**                                          | Key to Reset the Zoom or UI Level.
   `KeybindListMaxZoomOrUI`         | `null` aka **nothing**                                          | Key to Max the Zoom out or Maximize the UI.
   `KeybindListMinZoomOrUI`         | `null` aka **nothing**                                          | Key to Max the Zoom in or Minimize the UI.
+  `KeybindListToggleUI`            | `null` aka **nothing**                                          | Keybinds to toggle the UI Visibility.
   
 * Zoom and UI values:
 
