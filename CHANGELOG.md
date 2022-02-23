@@ -1,4 +1,4 @@
-## [1.12.0] - ????-??-??
+## [unreleased] - ????-??-??
 
 ### Improvements
 
@@ -131,7 +131,8 @@
 
 - Initial release
 
-[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.11.0...HEAD
+[unreleasedTabThatIMightUseLater]: https://github.com/thespbgamer/ZoomLevel/compare/v1.12.0...HEAD
+[1.12.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.12.0
 [1.11.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.11.0
 [1.10.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.10.0
 [1.9.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.9.0
