@@ -1,3 +1,13 @@
+## [1.11.0] - 2022-02-23
+
+### Added
+
+- Option that hides the UI at a certain zoom level.
+
+### Fixed
+
+- Some text typos
+
 ## [1.10.0] - 2022-02-12
 
 ### Added
@@ -114,7 +124,8 @@
 
 - Initial release
 
-[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.10.0...HEAD
+[unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/v1.11.0...HEAD
+[1.10.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.11.0
 [1.10.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.10.0
 [1.9.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.9.0
 [1.8.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.8.0

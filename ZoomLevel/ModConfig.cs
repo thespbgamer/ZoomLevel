@@ -11,6 +11,7 @@ namespace ZoomLevel
         public KeybindList KeybindListMaxZoomOrUI { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListMinZoomOrUI { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListToggleUI { get; set; } = KeybindList.Parse("");
+        public KeybindList KeybindListToggleHideUIWithCertainZoom { get; set; } = KeybindList.Parse("");
 
         public float ZoomLevelIncreaseValue { get; set; } = 0.05f;
         public float ZoomLevelDecreaseValue { get; set; } = -0.05f;
@@ -20,9 +21,11 @@ namespace ZoomLevel
         public float MaxZoomInLevelAndUIValue { get; set; } = 2.00f;
 
         public float ResetZoomOrUIValue { get; set; } = 1.00f;
+        public float ZoomLevelThatHidesUI { get; set; } = 0.35f;
 
         public bool SuppressControllerButton { get; set; } = true;
         public bool ZoomAndUIControlEverywhere { get; set; } = false;
+        public bool IsHideUIWithCertainZoom { get; set; } = false;
 
     }
 }
