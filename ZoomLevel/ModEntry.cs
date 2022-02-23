@@ -135,7 +135,6 @@ namespace ZoomLevel
             {
                 modConfigs.IsHideUIWithCertainZoom = !modConfigs.IsHideUIWithCertainZoom;
                 Game1.addHUDMessage(new HUDMessage("Hide UI With Certain Zoom is now: " + modConfigs.IsHideUIWithCertainZoom.ToString(), 2));
-
             }
 
             if (modConfigs.SuppressControllerButton == true && wasThePreviousButtonPressSucessfull == true)
@@ -146,33 +145,20 @@ namespace ZoomLevel
 
         private void CheckAndUpdateUIValues()
         {
-
-            if (!Context.IsSplitScreen)
+            if (modConfigs.IsHideUIWithCertainZoom == true)
             {
-                if (Game1.options.singlePlayerBaseZoomLevel <= modConfigs.ZoomLevelThatHidesUI && previousUIValueToggleUIWithCertainValue <= 0.0f)
+                if (Game1.options.desiredBaseZoomLevel <= modConfigs.ZoomLevelThatHidesUI && previousUIValueToggleUIWithCertainValue <= 0.0f)
                 {
-                    previousUIValueToggleUIWithCertainValue = Game1.options.singlePlayerDesiredUIScale;
-                    Game1.options.singlePlayerDesiredUIScale = 0.0f;
+                    previousUIValueToggleUIWithCertainValue = Game1.options.desiredUIScale;
+                    Game1.options.desiredUIScale = 0.0f;
                 }
-                else if (Game1.options.singlePlayerBaseZoomLevel > modConfigs.ZoomLevelThatHidesUI && previousUIValueToggleUIWithCertainValue > 0.0f)
+                else if (Game1.options.desiredBaseZoomLevel > modConfigs.ZoomLevelThatHidesUI && previousUIValueToggleUIWithCertainValue > 0.0f)
                 {
-                    Game1.options.singlePlayerDesiredUIScale = previousUIValueToggleUIWithCertainValue <= 0.0f ? 1.0f : previousUIValueToggleUIWithCertainValue;
+                    Game1.options.desiredUIScale = previousUIValueToggleUIWithCertainValue <= 0.0f ? 1.0f : previousUIValueToggleUIWithCertainValue;
                     previousUIValueToggleUIWithCertainValue = 0.0f;
                 }
+                RefreshWindow();
             }
-            else if (Context.IsSplitScreen)
-            {
-                if (Game1.options.localCoopBaseZoomLevel <= modConfigs.ZoomLevelThatHidesUI)
-                {
-                    previousUIValueToggleUIWithCertainValue = Game1.options.localCoopDesiredUIScale;
-                    Game1.options.localCoopDesiredUIScale = 0.0f;
-                }
-                else
-                {
-                    Game1.options.localCoopDesiredUIScale = previousUIValueToggleUIWithCertainValue <= 0.0f ? 1.0f : previousUIValueToggleUIWithCertainValue;
-                }
-            }
-            RefreshWindow();
         }
 
         private void ToggleUI()
@@ -185,26 +171,14 @@ namespace ZoomLevel
             }
             wasToggleUIDone = !wasToggleUIDone;
 
-            if (!Context.IsSplitScreen)
-            {
-                if (wasToggleUIDone == true)
-                {
-                    previousUIValueToggleUI = Game1.options.singlePlayerDesiredUIScale;
-                }
 
-                //Changes ZoomLevel
-                Game1.options.singlePlayerDesiredUIScale = uiValue;
-            }
-            else if (Context.IsSplitScreen)
+            if (wasToggleUIDone == true)
             {
-                if (wasToggleUIDone == true)
-                {
-                    previousUIValueToggleUI = Game1.options.localCoopDesiredUIScale;
-                }
-
-                //Changes ZoomLevel
-                Game1.options.localCoopDesiredUIScale = uiValue;
+                previousUIValueToggleUI = Game1.options.desiredUIScale;
             }
+
+            //Changes ZoomLevel
+            Game1.options.desiredUIScale = uiValue;
 
             RefreshWindow();
         }
@@ -212,119 +186,62 @@ namespace ZoomLevel
         private void CapZoomLevel(float zoomValue)
         {
 
-            if (!Context.IsSplitScreen)
-            {
-                //Changes ZoomLevel
-                Game1.options.singlePlayerBaseZoomLevel = zoomValue;
-            }
-            else if (Context.IsSplitScreen)
-            {
-                //Changes ZoomLevel
-                Game1.options.localCoopBaseZoomLevel = zoomValue;
-            }
+            Game1.options.desiredBaseZoomLevel = zoomValue;
+
             RefreshWindow();
+            CheckAndUpdateUIValues();
         }
 
         private void CapUILevel(float uiValue)
         {
+            Game1.options.desiredUIScale = uiValue;
 
-            if (!Context.IsSplitScreen)
-            {
-                //Changes ZoomLevel
-                Game1.options.singlePlayerDesiredUIScale = uiValue;
-            }
-            else if (Context.IsSplitScreen)
-            {
-                //Changes ZoomLevel
-                Game1.options.localCoopDesiredUIScale = uiValue;
-            }
             RefreshWindow();
         }
 
         private void ResetUI()
         {
-            if (!Context.IsSplitScreen)
-            {
-                Game1.options.singlePlayerDesiredUIScale = modConfigs.ResetZoomOrUIValue;
-            }
-            else
-            {
-                Game1.options.localCoopDesiredUIScale = modConfigs.ResetZoomOrUIValue;
-            }
+            Game1.options.desiredUIScale = modConfigs.ResetZoomOrUIValue;
+
             RefreshWindow();
         }
 
         private void ResetZoom()
         {
-            if (!Context.IsSplitScreen)
-            {
-                Game1.options.singlePlayerBaseZoomLevel = modConfigs.ResetZoomOrUIValue;
-            }
-            else
-            {
-                Game1.options.localCoopBaseZoomLevel = modConfigs.ResetZoomOrUIValue;
-            }
+            Game1.options.desiredBaseZoomLevel = modConfigs.ResetZoomOrUIValue;
+
             RefreshWindow();
         }
 
         private void ChangeZoomLevel(float amount = 0)
         {
 
-            if (!Context.IsSplitScreen)
-            {
-                //Changes ZoomLevel
-                Game1.options.singlePlayerBaseZoomLevel = (float)Math.Round(Game1.options.singlePlayerBaseZoomLevel + amount, 2);
+            //Changes ZoomLevel
+            Game1.options.desiredBaseZoomLevel = (float)Math.Round(Game1.options.desiredBaseZoomLevel + amount, 2);
 
-                //Caps Max Zoom In Level
-                Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel >= modConfigs.MaxZoomInLevelAndUIValue ? modConfigs.MaxZoomInLevelAndUIValue : Game1.options.singlePlayerBaseZoomLevel;
+            //Caps Max Zoom In Level
+            Game1.options.desiredBaseZoomLevel = Game1.options.desiredBaseZoomLevel >= modConfigs.MaxZoomInLevelAndUIValue ? modConfigs.MaxZoomInLevelAndUIValue : Game1.options.desiredBaseZoomLevel;
 
-                //Caps Max Zoom Out Level
-                Game1.options.singlePlayerBaseZoomLevel = Game1.options.singlePlayerBaseZoomLevel <= modConfigs.MaxZoomOutLevelAndUIValue ? modConfigs.MaxZoomOutLevelAndUIValue : Game1.options.singlePlayerBaseZoomLevel;
+            //Caps Max Zoom Out Level
+            Game1.options.desiredBaseZoomLevel = Game1.options.desiredBaseZoomLevel <= modConfigs.MaxZoomOutLevelAndUIValue ? modConfigs.MaxZoomOutLevelAndUIValue : Game1.options.desiredBaseZoomLevel;
 
-            }
-            else if (Context.IsSplitScreen)
-            {
-                //Changes ZoomLevel
-                Game1.options.localCoopBaseZoomLevel = (float)Math.Round(Game1.options.localCoopBaseZoomLevel + amount, 2);
 
-                //Caps Max Zoom In Level
-                Game1.options.localCoopBaseZoomLevel = Game1.options.localCoopBaseZoomLevel >= modConfigs.MaxZoomInLevelAndUIValue ? modConfigs.MaxZoomInLevelAndUIValue : Game1.options.localCoopBaseZoomLevel;
+            CheckAndUpdateUIValues();
 
-                //Caps Max Zoom Out Level
-                Game1.options.localCoopBaseZoomLevel = Game1.options.localCoopBaseZoomLevel <= modConfigs.MaxZoomOutLevelAndUIValue ? modConfigs.MaxZoomOutLevelAndUIValue : Game1.options.localCoopBaseZoomLevel;
-            }
-            if (modConfigs.IsHideUIWithCertainZoom == true)
-            {
-                CheckAndUpdateUIValues();
-            }
+
             RefreshWindow();
         }
 
         private void ChangeUILevel(float amount = 0)
         {
-            if (!Context.IsSplitScreen)
-            {
-                //Changes UI Zoom Level
-                Game1.options.singlePlayerDesiredUIScale = (float)Math.Round(Game1.options.singlePlayerDesiredUIScale + amount, 2);
+            //Changes UI Zoom Level
+            Game1.options.desiredUIScale = (float)Math.Round(Game1.options.desiredUIScale + amount, 2);
 
-                //Caps Max UI Zoom In Level
-                Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale >= modConfigs.MaxZoomInLevelAndUIValue ? modConfigs.MaxZoomInLevelAndUIValue : Game1.options.singlePlayerDesiredUIScale;
+            //Caps Max UI Zoom In Level
+            Game1.options.desiredUIScale = Game1.options.desiredUIScale >= modConfigs.MaxZoomInLevelAndUIValue ? modConfigs.MaxZoomInLevelAndUIValue : Game1.options.desiredUIScale;
 
-                //Caps Max UI Zoom Out Level
-                Game1.options.singlePlayerDesiredUIScale = Game1.options.singlePlayerDesiredUIScale <= modConfigs.MaxZoomOutLevelAndUIValue ? modConfigs.MaxZoomOutLevelAndUIValue : Game1.options.singlePlayerDesiredUIScale;
-
-            }
-            else if (Context.IsSplitScreen)
-            {
-                //Changes UI Zoom Level
-                Game1.options.localCoopDesiredUIScale = (float)Math.Round(Game1.options.localCoopDesiredUIScale + amount, 2);
-
-                //Caps Max UI Zoom In Level
-                Game1.options.localCoopDesiredUIScale = Game1.options.localCoopDesiredUIScale >= modConfigs.MaxZoomInLevelAndUIValue ? modConfigs.MaxZoomInLevelAndUIValue : Game1.options.localCoopDesiredUIScale;
-
-                //Caps Max UI Zoom Out Level
-                Game1.options.localCoopDesiredUIScale = Game1.options.localCoopDesiredUIScale <= modConfigs.MaxZoomOutLevelAndUIValue ? modConfigs.MaxZoomOutLevelAndUIValue : Game1.options.localCoopDesiredUIScale;
-            }
+            //Caps Max UI Zoom Out Level
+            Game1.options.desiredUIScale = Game1.options.desiredUIScale <= modConfigs.MaxZoomOutLevelAndUIValue ? modConfigs.MaxZoomOutLevelAndUIValue : Game1.options.desiredUIScale;
 
             RefreshWindow();
         }
@@ -332,21 +249,12 @@ namespace ZoomLevel
         private void RefreshWindow()
         {
             /*
-            if (!Context.IsSplitScreen)
-            {
-                //Monitor Current Zoom Level
-                this.Monitor.Log($"{Game1.options.singlePlayerBaseZoomLevel}.", LogLevel.Debug);
-                //Monitor Current UI Level
-                this.Monitor.Log($"{Game1.options.singlePlayerDesiredUIScale}.", LogLevel.Debug);
-            }
-            else if (Context.IsSplitScreen)
-            {
-                //Monitor Current Zoom Level
-                this.Monitor.Log($"{Game1.options.localCoopBaseZoomLevel}.", LogLevel.Debug);
-                //Monitor Current UI Level
-                this.Monitor.Log($"{Game1.options.localCoopDesiredUIScale}.", LogLevel.Debug);
-            }
+            //Monitor Current Zoom Level
+            this.Monitor.Log($"{Game1.options.desiredBaseZoomLevel}.", LogLevel.Debug);
+            //Monitor Current UI Level
+            this.Monitor.Log($"{Game1.options.desiredUIScale}.", LogLevel.Debug);
             */
+
             Program.gamePtr.refreshWindowSettings();
         }
     }

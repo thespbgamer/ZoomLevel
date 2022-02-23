@@ -1,3 +1,10 @@
+## [unreleased] - ????-??-??
+
+### Improvements
+
+- Major code optimizations
+
+
 ## [1.11.0] - 2022-02-23
 
 ### Added
