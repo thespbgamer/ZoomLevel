@@ -1,4 +1,8 @@
-## [unreleased] - ????-??-??
+## [1.12.0] - 2022-02-23
+
+### Added
+
+- Support for translations
 
 ### Improvements
 
