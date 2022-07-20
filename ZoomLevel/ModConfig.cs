@@ -26,6 +26,5 @@ namespace ZoomLevel
         public bool SuppressControllerButton { get; set; } = true;
         public bool ZoomAndUIControlEverywhere { get; set; } = false;
         public bool IsHideUIWithCertainZoom { get; set; } = false;
-
     }
 }
