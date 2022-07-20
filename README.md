@@ -9,9 +9,9 @@
 By holding ``Left Trigger & Right Trigger`` and using the controls above, you can change the UI Scale.
 
 ## Contents
-* [Installation](#install)
-* [Configure](#configure)
-* [Compatibility](#compatibility)
+* [Installation](#Installation)
+* [Configure](#Configure)
+* [Compatibility](#Compatibility)
 * [See also](#see-also)
 
 ## Installation
