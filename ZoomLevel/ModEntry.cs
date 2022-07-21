@@ -42,13 +42,13 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListMaxZoomOrUI, (KeybindList val) => configsForTheMod.KeybindListMaxZoomOrUI = val, Helper.Translation.Get("keybinds.ZoomOrUIMaxLevels.name").ToString, Helper.Translation.Get("keybinds.ZoomOrUIMaxLevels.description").ToString);
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListMinZoomOrUI, (KeybindList val) => configsForTheMod.KeybindListMinZoomOrUI = val, Helper.Translation.Get("keybinds.ZoomOrUIMinLevels.name").ToString, Helper.Translation.Get("keybinds.ZoomOrUIMinLevels.description").ToString);
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleUI, (KeybindList val) => configsForTheMod.KeybindListToggleUI = val, Helper.Translation.Get("keybinds.ToggleUIVisibility.name").ToString, Helper.Translation.Get("keybinds.ToggleUIVisibility.description").ToString);
-                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleHideUIWithCertainZoom, (KeybindList val) => configsForTheMod.KeybindListToggleHideUIWithCertainZoom = val, Helper.Translation.Get("keybinds.HideUIAtCertainZoom.name").ToString, Helper.Translation.Get("keybinds.HideUIAtCertainZoom.description").ToString);
+                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleHideUIWithCertainZoom, (KeybindList val) => configsForTheMod.KeybindListToggleHideUIWithCertainZoom = val, Helper.Translation.Get("keybinds.ToggleHideUIAtCertainZoom.name").ToString, Helper.Translation.Get("keybinds.ToggleHideUIAtCertainZoom.description").ToString);
 
                 genericModConfigMenuAPI.AddSectionTitle(ModManifest, Helper.Translation.Get("values.title.name").ToString, Helper.Translation.Get("values.title.description").ToString);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.ZoomLevelIncreaseValue, (float val) => configsForTheMod.ZoomLevelIncreaseValue = val, Helper.Translation.Get("values.ZoomOrUILevelsIncrease.name").ToString, Helper.Translation.Get("values.ZoomOrUILevelsIncrease.description").ToString, 0.01f, 0.50f, 0.01f);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.ZoomLevelDecreaseValue, (float val) => configsForTheMod.ZoomLevelDecreaseValue = val, Helper.Translation.Get("values.ZoomOrUILevelsDecrease.name").ToString, Helper.Translation.Get("values.ZoomOrUILevelsDecrease.description").ToString, -0.50f, -0.01f, 0.01f);
-                genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.MaxZoomOutLevelAndUIValue, (float val) => configsForTheMod.MaxZoomOutLevelAndUIValue = val, Helper.Translation.Get("values.ZoomOrUIMaxLevel.name").ToString, Helper.Translation.Get("values.ZoomOrUIMaxLevel.description").ToString, 0.15f, 1f, 0.01f);
-                genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.MaxZoomInLevelAndUIValue, (float val) => configsForTheMod.MaxZoomInLevelAndUIValue = val, Helper.Translation.Get("values.ZoomOrUIMinLevel.name").ToString, Helper.Translation.Get("values.ZoomOrUIMinLevel.description").ToString, 1f, 2.5f, 0.01f);
+                genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.MaxZoomInLevelAndUIValue, (float val) => configsForTheMod.MaxZoomInLevelAndUIValue = val, Helper.Translation.Get("values.ZoomOrUIMaxLevel.name").ToString, Helper.Translation.Get("values.ZoomOrUIMaxLevel.description").ToString, 1f, 2.5f, 0.01f);
+                genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.MaxZoomOutLevelAndUIValue, (float val) => configsForTheMod.MaxZoomOutLevelAndUIValue = val, Helper.Translation.Get("values.ZoomOrUIMinLevel.name").ToString, Helper.Translation.Get("values.ZoomOrUIMinLevel.description").ToString, 0.15f, 1f, 0.01f);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.ResetZoomOrUIValue, (float val) => configsForTheMod.ResetZoomOrUIValue = val, Helper.Translation.Get("values.ZoomOrUIResetLevel.name").ToString, Helper.Translation.Get("values.ZoomOrUIResetLevel.description").ToString, 0.15f, 2.5f, 0.01f);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.ZoomLevelThatHidesUI, (float val) => configsForTheMod.ZoomLevelThatHidesUI = val, Helper.Translation.Get("values.ZoomLevelThatHidesUI.name").ToString, Helper.Translation.Get("values.ZoomLevelThatHidesUI.description").ToString, 0.15f, 2.5f, 0.01f);
 
@@ -83,12 +83,12 @@ namespace ZoomLevel
                 }
                 else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
                 {
-                    CapUILevel(configsForTheMod.MaxZoomOutLevelAndUIValue);
+                    CapUILevel(configsForTheMod.MaxZoomInLevelAndUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
                 {
-                    CapUILevel(configsForTheMod.MaxZoomInLevelAndUIValue);
+                    CapUILevel(configsForTheMod.MaxZoomOutLevelAndUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListToggleUI.JustPressed())
@@ -119,12 +119,12 @@ namespace ZoomLevel
             }
             else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
             {
-                CapZoomLevel(configsForTheMod.MaxZoomOutLevelAndUIValue);
+                CapZoomLevel(configsForTheMod.MaxZoomInLevelAndUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
             {
-                CapZoomLevel(configsForTheMod.MaxZoomInLevelAndUIValue);
+                CapZoomLevel(configsForTheMod.MaxZoomOutLevelAndUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListToggleUI.JustPressed())
