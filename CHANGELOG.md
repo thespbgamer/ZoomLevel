@@ -6,7 +6,7 @@
 
 ### Improvements
 
-- Updated display values for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098) (thanks to Becks723)
+- Display values for the optional [Generic Mod Config Menu](https://www.nexusmods.com/stardewvalley/mods/5098) (thanks to Becks723)
 
 ### Fixed
 
