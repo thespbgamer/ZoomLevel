@@ -1,10 +1,10 @@
 ﻿{
   "Name": "ZoomLevel",
   "Author": "thespbgamer",
-  "Version": "1.13.0",
+  "Version": "1.14.0",
   "Description": "Change the Zoom and UI levels with a simple keybind.",
   "UniqueID": "thespbgamer.ZoomLevel",
   "EntryDll": "ZoomLevel.dll",
-  "MinimumApiVersion": "3.15.1",
+  "MinimumApiVersion": "3.18.1",
   "UpdateKeys": [ "GitHub:thespbgamer/ZoomLevel", "Nexus:7363" ]
 }

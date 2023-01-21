@@ -43,6 +43,8 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListMinZoomOrUI, (KeybindList val) => configsForTheMod.KeybindListMinZoomOrUI = val, () => Helper.Translation.Get("keybinds.ZoomOrUIMinLevels.name"), () => Helper.Translation.Get("keybinds.ZoomOrUIMinLevels.description"));
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleUI, (KeybindList val) => configsForTheMod.KeybindListToggleUI = val, () => Helper.Translation.Get("keybinds.ToggleUIVisibility.name"), () => Helper.Translation.Get("keybinds.ToggleUIVisibility.description"));
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleHideUIWithCertainZoom, (KeybindList val) => configsForTheMod.KeybindListToggleHideUIWithCertainZoom = val, () => Helper.Translation.Get("keybinds.ToggleHideUIAtCertainZoom.name"), () => Helper.Translation.Get("keybinds.ToggleHideUIAtCertainZoom.description"));
+                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListChangeZoomToApproximateCurrentMapSize, (KeybindList val) => configsForTheMod.KeybindListChangeZoomToApproximateCurrentMapSize = val, () => Helper.Translation.Get("keybinds.ChangeZoomToApproximateCurrentMapSize.name"), () => Helper.Translation.Get("keybinds.ChangeZoomToApproximateCurrentMapSize.description"));
+
 
                 genericModConfigMenuAPI.AddSectionTitle(ModManifest, () => Helper.Translation.Get("values.title.name"), () => Helper.Translation.Get("values.title.description"));
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.ZoomLevelIncreaseValue, (float val) => configsForTheMod.ZoomLevelIncreaseValue = val, () => Helper.Translation.Get("values.ZoomOrUILevelsIncrease.name"), () => Helper.Translation.Get("values.ZoomOrUILevelsIncrease.description"), 0.01f, 0.50f, 0.01f, FormatPercentage);
@@ -63,6 +65,7 @@ namespace ZoomLevel
         {
             if (!Context.IsWorldReady || (!Context.IsPlayerFree && !configsForTheMod.ZoomAndUIControlEverywhere)) { return; }
             bool wasThePreviousButtonPressSucessfull = false;
+
 
             if (configsForTheMod.KeybindListHoldToChangeUI.IsDown())
             {
@@ -137,10 +140,40 @@ namespace ZoomLevel
                 //Game1.addHUDMessage(new HUDMessage("Hide UI With Certain Zoom is now: " + configsForTheMod.IsHideUIWithCertainZoom.ToString(), 2));
                 Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.IsHideUIWithCertainZoom.ToString() }), 2));
             }
+            else if (configsForTheMod.KeybindListChangeZoomToApproximateCurrentMapSize.JustPressed())
+            {
+                ChangeZoomLevelToCurrentMapSize();
+                wasThePreviousButtonPressSucessfull = true;
+            }
+
+
+
 
             if (configsForTheMod.SuppressControllerButton == true && wasThePreviousButtonPressSucessfull == true)
             {
                 Helper.Input.Suppress(e.Button);
+            }
+        }
+
+        private void ChangeZoomLevelToCurrentMapSize()
+        {
+            if (Game1.currentLocation != null)
+            {
+                int mapWidth = Game1.currentLocation.map.DisplayWidth;
+                int mapHeight = Game1.currentLocation.map.DisplayHeight;
+                int screenWidth = Game1.graphics.GraphicsDevice.Viewport.Width;
+                int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
+                float zoomLevel;
+                if (mapWidth > mapHeight)
+                {
+                    zoomLevel = (float)screenWidth / (float)mapWidth;
+                }
+                else
+                {
+                    zoomLevel = (float)screenHeight / (float)mapHeight;
+                }
+                Game1.options.desiredBaseZoomLevel = zoomLevel;
+                RefreshWindow();
             }
         }
 
@@ -258,6 +291,7 @@ namespace ZoomLevel
         {
             return $"{val:0.#%}";
         }
+
     }
 
     //Generic Mod Config Menu API

@@ -1,3 +1,14 @@
+## [1.14.0] - 2023-01-21
+
+### Added
+
+- Ability to change to zoom level to the approximate current map size.
+
+### Changed
+
+- Minimum API version to 3.18.1
+
+
 ## [1.13.0] - 2022-07-24
 
 ### Added
@@ -150,6 +161,7 @@
 - Initial release
 
 [unreleasedTabThatIMightUseLater]: https://github.com/thespbgamer/ZoomLevel/compare/v1.13.0...HEAD
+[1.14.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.14.0
 [1.13.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.13.0
 [1.12.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.12.0
 [1.11.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.11.0

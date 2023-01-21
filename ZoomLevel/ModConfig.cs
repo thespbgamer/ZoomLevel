@@ -12,6 +12,7 @@ namespace ZoomLevel
         public KeybindList KeybindListMinZoomOrUI { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListToggleUI { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListToggleHideUIWithCertainZoom { get; set; } = KeybindList.Parse("");
+        public KeybindList KeybindListChangeZoomToApproximateCurrentMapSize { get; set; } = KeybindList.Parse("");
 
         public float ZoomLevelIncreaseValue { get; set; } = 0.05f;
         public float ZoomLevelDecreaseValue { get; set; } = -0.05f;

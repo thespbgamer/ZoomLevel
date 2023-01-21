@@ -17,6 +17,8 @@
   "keybinds.ToggleUIVisibility.description": "Keybinds to toggle the UI Visibility.",
   "keybinds.ToggleHideUIAtCertainZoom.name": "Toggle Hide UI at Certain Zoom",
   "keybinds.ToggleHideUIAtCertainZoom.description": "Keybinds to hides the UI at a certain Zoom Level.",
+  "keybinds.ChangeZoomToApproximateCurrentMapSize.name": "Zoom to Approximate Map Size",
+  "keybinds.ChangeZoomToApproximateCurrentMapSize.description": "Keybinds to change to zoom level to the approximate current map size.",
   "values.title.name": "Values:",
   "values.title.description": "All the values that changes the Zoom Level and UI Level.",
   "values.ZoomOrUILevelsIncrease.name": "Zoom or UI Levels Increase",

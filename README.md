@@ -32,16 +32,17 @@ Here's what you can change:
 
 * Player controls:
 
-  Setting Name                                        | Default Value                                                   | Description
-  :-------------------------------------------------- | :-------------------------------------------------------------- | :------------------
-  `KeybindListIncreaseZoomOrUI`                       | `OemPeriod` aka `.` or `RightStick`                             | Key to Increase Zoom or UI Level.
-  `KeybindListDecreaseZoomOrUI`                       | `OemComma` aka `,` or `LeftStick`                               | Key to Decrease Zoom or UI Level.
-  `KeybindListHoldToChangeUI`                         | `LeftShift` or `RightShift` or `LeftTrigger and RightTrigger"`  | Key you need to hold to change the UI.
-  `KeybindListResetZoomOrUI`                          | `null` aka **nothing**                                          | Key to Reset the Zoom or UI Level.
-  `KeybindListMaxZoomOrUI`                            | `null` aka **nothing**                                          | Key to Max the Zoom out or Maximize the UI.
-  `KeybindListMinZoomOrUI`                            | `null` aka **nothing**                                          | Key to Max the Zoom in or Minimize the UI.
-  `KeybindListToggleUI`                               | `null` aka **nothing**                                          | Keybinds to toggle the UI Visibility.
-  `KeybindListToggleHideUIWithCertainZoom`            | `null` aka **nothing**                                          | Keybinds to hides the UI at a certain Zoom Level.
+  Setting Name                                                   | Default Value                                                   | Description
+  :------------------------------------------------------------ | :-------------------------------------------------------------- | :-----------------------------------------------
+  `KeybindListIncreaseZoomOrUI`                                 | `OemPeriod` aka `.` or `RightStick`                             | Key to Increase Zoom or UI Level.
+  `KeybindListDecreaseZoomOrUI`                                 | `OemComma` aka `,` or `LeftStick`                               | Key to Decrease Zoom or UI Level.
+  `KeybindListHoldToChangeUI`                                   | `LeftShift` or `RightShift` or `LeftTrigger and RightTrigger"`  | Key you need to hold to change the UI.
+  `KeybindListResetZoomOrUI`                                    | `null` aka **nothing**                                          | Key to Reset the Zoom or UI Level.
+  `KeybindListMaxZoomOrUI`                                      | `null` aka **nothing**                                          | Key to Max the Zoom out or Maximize the UI.
+  `KeybindListMinZoomOrUI`                                      | `null` aka **nothing**                                          | Key to Max the Zoom in or Minimize the UI.
+  `KeybindListToggleUI`                                         | `null` aka **nothing**                                          | Keybinds to toggle the UI Visibility.
+  `KeybindListToggleHideUIWithCertainZoom`                      | `null` aka **nothing**                                          | Keybinds to hides the UI at a certain Zoom Level.
+  `KeybindListChangeZoomToApproximateCurrentMapSize`            | `null` aka **nothing**                                          | Keybinds to change to zoom level to the approximate current map size.
   
 * Zoom and UI values:
 
