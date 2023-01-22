@@ -53,5 +53,7 @@
   "others.ZoomAndUIAnywhere.description": "If activated you can control your Zoom and UI Levels anywhere.",
   "others.HideUIWithCertainZoom.name": "Hide UI with Certain Zoom",
   "others.HideUIWithCertainZoom.description": "If activated your UI hides when it reaches a certain zoom level.\nIt can be changed by the 'Toggle Hide UI at Certain Zoom'.",
+  "others.PressAnyButtonToCenterCamera.name": "Press Button to Center Camera",
+  "others.PressAnyButtonToCenterCamera.description": "If activated your camera centers if any key is pressed.\nIf not, you will need to press the 'Reset Camera Movement' key.",
   "hudMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}"
 }

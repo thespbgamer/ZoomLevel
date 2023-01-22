@@ -2,7 +2,11 @@
 
 ### Added
 
-- Ability to change the camera position
+- Ability to change the camera position, you can also reset it to the default position.
+
+### Fixed
+
+- UI not showing up when using the 'Reset UI' option with the option 'Hide UI at a certain zoom level' enabled
 
 
 ## [1.14.0] - 2023-01-21

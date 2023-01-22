@@ -63,6 +63,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.SuppressControllerButton, (bool val) => configsForTheMod.SuppressControllerButton = val, () => Helper.Translation.Get("others.SuppressControllerButtons.name"), () => Helper.Translation.Get("others.SuppressControllerButtons.description"));
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.ZoomAndUIControlEverywhere, (bool val) => configsForTheMod.ZoomAndUIControlEverywhere = val, () => Helper.Translation.Get("others.ZoomAndUIAnywhere.name"), () => Helper.Translation.Get("others.ZoomAndUIAnywhere.description"));
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.IsHideUIWithCertainZoom, (bool val) => configsForTheMod.IsHideUIWithCertainZoom = val, () => Helper.Translation.Get("others.HideUIWithCertainZoom.name"), () => Helper.Translation.Get("others.HideUIWithCertainZoom.description"));
+                genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.PressAnyButtonToCenterCamera, (bool val) => configsForTheMod.PressAnyButtonToCenterCamera = val, () => Helper.Translation.Get("others.PressAnyButtonToCenterCamera.name"), () => Helper.Translation.Get("others.PressAnyButtonToCenterCamera.description"));
             }
         }
 
@@ -184,7 +185,7 @@ namespace ZoomLevel
                 }
                 wasThePreviousButtonPressSucessfull = true;
             }
-            else if (configsForTheMod.KeybindListResetCameraMovement.JustPressed())
+            else if (Game1.viewportFreeze == true && (configsForTheMod.KeybindListResetCameraMovement.JustPressed() || configsForTheMod.PressAnyButtonToCenterCamera == true))
             {
                 Game1.viewportFreeze = false;
                 wasThePreviousButtonPressSucessfull = true;
@@ -282,6 +283,7 @@ namespace ZoomLevel
         private void ResetZoom()
         {
             Game1.options.desiredBaseZoomLevel = configsForTheMod.ResetZoomOrUIValue;
+            CheckAndUpdateUIValues();
 
             RefreshWindow();
         }

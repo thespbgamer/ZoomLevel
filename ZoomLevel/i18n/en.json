@@ -24,9 +24,9 @@
   "keybinds.CameraMovementRight.name": "Camera Movement Right",
   "keybinds.CameraMovementRight.description": "Changes camera a bit to the right and locks it.",
   "keybinds.CameraMovementUp.name": "Camera Movement Up",
-  "keybinds.CameraMovementUp.description": "Changes camera a bit to the up and locks it.",
+  "keybinds.CameraMovementUp.description": "Changes camera a bit up and locks it.",
   "keybinds.CameraMovementDown.name": "Camera Movement Down",
-  "keybinds.CameraMovementDown.description": "Changes camera a bit to the down and locks it.",
+  "keybinds.CameraMovementDown.description": "Changes camera a bit down and locks it.",
   "keybinds.CameraMovementReset.name": "Reset Camera Movement",
   "keybinds.CameraMovementReset.description": "Resets the camera movement and unlocks it.",
   "values.title.name": "Values:",
@@ -44,7 +44,7 @@
   "values.ZoomLevelThatHidesUI.name": "Zoom Level that Hides UI",
   "values.ZoomLevelThatHidesUI.description": "The value of the Zoom level that hides the UI.",
   "values.CameraMovementSpeed.name": "Camera Movement Speed",
-  "values.CameraMovementSpeed.description": "The ammount that the camera movement speed.",
+  "values.CameraMovementSpeed.description": "The speed that the camera moves.",
   "others.title.name": "Others:",
   "others.title.description": "All the other options that you can change.",
   "others.SuppressControllerButtons.name": "Suppress Controller Buttons",
@@ -53,5 +53,7 @@
   "others.ZoomAndUIAnywhere.description": "If activated you can control your Zoom and UI Levels anywhere.",
   "others.HideUIWithCertainZoom.name": "Hide UI with Certain Zoom",
   "others.HideUIWithCertainZoom.description": "If activated your UI hides when it reaches a certain zoom level.\nIt can be changed by the 'Toggle Hide UI at Certain Zoom'.",
+  "others.PressAnyButtonToCenterCamera.name": "Press Button to Center Camera",
+  "others.PressAnyButtonToCenterCamera.description": "If activated your camera centers if any key is pressed.\nIf not, you will need to press the 'Reset Camera Movement' key.",
   "hudMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}"
 }

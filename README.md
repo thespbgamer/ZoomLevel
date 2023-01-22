@@ -64,15 +64,16 @@ Here's what you can change:
 
 * Other options:
 
-  Setting Name                    | Default Value   | Description
-  :------------------------------ | :-------------- | :------------------
-  `SuppressControllerButton`      | `true`          | If your controller inputs are suppressed or not.
-  `ZoomAndUIControlEverywhere`    | `false`         | If activated you can control your Zoom and UI Level anywhere.
-  `IsHideUIWithCertainZoom`       | `false`         | If activated your UI hides when it reaches a certain zoom level.
+  Setting Name                         | Default Value   | Description
+  :----------------------------------- | :-------------- | :------------------
+  `SuppressControllerButton`           | `true`          | If your controller inputs are suppressed or not.
+  `ZoomAndUIControlEverywhere`         | `false`         | If activated you can control your Zoom and UI Level anywhere.
+  `IsHideUIWithCertainZoom`            | `false`         | If activated your UI hides when it reaches a certain zoom level.
+  `PressAnyButtonToCenterCamera`       | `true`          | If activated any key you press will center the Camera.
 
 ## Compatibility
 ZoomLevel is compatible with Stardew Valley 1.5+ on Linux/Mac/Windows, both single-player, local co-op and multiplayer.
 
 ## See also
-* [Nexus mod](http://www.nexusmods.com/stardewvalley/mods/7363/)
+* [Nexus mod](https://www.nexusmods.com/stardewvalley/mods/7363/?tab=files)
 * [The mod that this mod was based by](https://github.com/GuiNoya/SVMods/)
