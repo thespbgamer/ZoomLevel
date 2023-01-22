@@ -76,4 +76,5 @@ ZoomLevel is compatible with Stardew Valley 1.5+ on Linux/Mac/Windows, both sing
 
 ## See also
 * [Nexus mod](https://www.nexusmods.com/stardewvalley/mods/7363/?tab=files)
+* [CurseForge mod](https://www.curseforge.com/stardewvalley/mods/zoom-level/files)
 * [The mod that this mod was based by](https://github.com/GuiNoya/SVMods/)
