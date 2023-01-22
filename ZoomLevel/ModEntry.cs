@@ -21,13 +21,13 @@ namespace ZoomLevel
         {
             configsForTheMod = helper.ReadConfig<ModConfig>();
 
-            helper.Events.GameLoop.GameLaunched += onLaunched;
+            helper.Events.GameLoop.GameLaunched += OnLaunched;
             helper.Events.Input.ButtonPressed += this.Events_Input_ButtonPressed;
         }
 
-        private void onLaunched(object sender, GameLaunchedEventArgs e)
+        private void OnLaunched(object sender, GameLaunchedEventArgs e)
         {
-            var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<GenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
+            var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<IGenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
 
             if (genericModConfigMenuAPI != null)
 
@@ -197,7 +197,7 @@ namespace ZoomLevel
             }
         }
 
-        private void ChangeZoomLevelToCurrentMapSize()
+        private static void ChangeZoomLevelToCurrentMapSize()
         {
             if (Game1.currentLocation != null)
             {
@@ -266,7 +266,7 @@ namespace ZoomLevel
             CheckAndUpdateUIValues();
         }
 
-        private void CapUILevel(float uiValue)
+        private static void CapUILevel(float uiValue)
         {
             Game1.options.desiredUIScale = uiValue;
 
@@ -318,7 +318,7 @@ namespace ZoomLevel
             RefreshWindow();
         }
 
-        private void RefreshWindow()
+        private static void RefreshWindow()
         {
             /*
             //Monitor Current Zoom Level
@@ -340,7 +340,7 @@ namespace ZoomLevel
     namespace GenericModConfigMenu
     {
         /// <summary>The API which lets other mods add a config UI through Generic Mod Config Menu.</summary>
-        public interface GenericModConfigMenuAPI
+        public interface IGenericModConfigMenuAPI
         {
             /*********
             ** Methods

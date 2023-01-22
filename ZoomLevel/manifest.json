@@ -6,5 +6,12 @@
   "UniqueID": "thespbgamer.ZoomLevel",
   "EntryDll": "ZoomLevel.dll",
   "MinimumApiVersion": "3.18.1",
-  "UpdateKeys": [ "GitHub:thespbgamer/ZoomLevel", "Nexus:7363" ]
+  "UpdateKeys": [ "GitHub:thespbgamer/ZoomLevel", "Nexus:7363" ],
+  "Dependencies": [
+    {
+      "UniqueID": "spacechase0.GenericModConfigMenu",
+      "MinimumVersion": "1.10.0",
+      "IsRequired": false
+    }
+  ]
 }
