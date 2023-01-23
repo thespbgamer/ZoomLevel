@@ -70,6 +70,7 @@ Here's what you can change:
   `ZoomAndUIControlEverywhere`         | `false`         | If activated you can control your Zoom and UI Level anywhere.
   `IsHideUIWithCertainZoom`            | `false`         | If activated your UI hides when it reaches a certain zoom level.
   `PressAnyButtonToCenterCamera`       | `true`          | If activated any key you press will center the Camera.
+  `AutoZoomToMapSize`                  | `false`         | If activated it auto zooms to map size.
 
 ## Compatibility
 ZoomLevel is compatible with Stardew Valley 1.5+ on Linux/Mac/Windows, both single-player, local co-op and multiplayer.

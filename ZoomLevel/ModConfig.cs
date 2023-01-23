@@ -34,7 +34,8 @@ namespace ZoomLevel
         public bool SuppressControllerButton { get; set; } = true;
         public bool ZoomAndUIControlEverywhere { get; set; } = false;
         public bool IsHideUIWithCertainZoom { get; set; } = false;
-
         public bool PressAnyButtonToCenterCamera { get; set; } = true;
+
+        public bool AutoZoomToMapSize { get; set; } = false;
     }
 }

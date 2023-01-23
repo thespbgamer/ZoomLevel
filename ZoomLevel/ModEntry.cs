@@ -21,8 +21,28 @@ namespace ZoomLevel
         {
             configsForTheMod = helper.ReadConfig<ModConfig>();
 
-            helper.Events.GameLoop.GameLaunched += OnLaunched;
+            helper.Events.GameLoop.GameLaunched += this.OnLaunched;
             helper.Events.Input.ButtonPressed += this.Events_Input_ButtonPressed;
+
+            //On area change and on load save
+            helper.Events.Player.Warped += this.Player_Warped;
+            helper.Events.GameLoop.DayStarted += this.GameLoop_DayStarted;
+        }
+
+        private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
+        {
+            if (configsForTheMod.AutoZoomToMapSize == true)
+            {
+                ChangeZoomLevelToCurrentMapSize();
+            }
+        }
+
+        private void Player_Warped(object sender, WarpedEventArgs e)
+        {
+            if (configsForTheMod.AutoZoomToMapSize == true)
+            {
+                ChangeZoomLevelToCurrentMapSize();
+            }
         }
 
         private void OnLaunched(object sender, GameLaunchedEventArgs e)
@@ -64,6 +84,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.ZoomAndUIControlEverywhere, (bool val) => configsForTheMod.ZoomAndUIControlEverywhere = val, () => Helper.Translation.Get("others.ZoomAndUIAnywhere.name"), () => Helper.Translation.Get("others.ZoomAndUIAnywhere.description"));
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.IsHideUIWithCertainZoom, (bool val) => configsForTheMod.IsHideUIWithCertainZoom = val, () => Helper.Translation.Get("others.HideUIWithCertainZoom.name"), () => Helper.Translation.Get("others.HideUIWithCertainZoom.description"));
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.PressAnyButtonToCenterCamera, (bool val) => configsForTheMod.PressAnyButtonToCenterCamera = val, () => Helper.Translation.Get("others.PressAnyButtonToCenterCamera.name"), () => Helper.Translation.Get("others.PressAnyButtonToCenterCamera.description"));
+                genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.AutoZoomToMapSize, (bool val) => configsForTheMod.AutoZoomToMapSize = val, () => Helper.Translation.Get("others.AutoZoomToMapSize.name"), () => Helper.Translation.Get("others.AutoZoomToMapSize.description"));
             }
         }
 

@@ -2,7 +2,8 @@
 
 ### Added
 
-- Ability to change the camera position, you can also reset it to the default position.
+- Ability to change the camera position, you can also reset it to the default position
+- Auto Zoom to approximate map size
 
 ### Fixed
 
@@ -13,7 +14,7 @@
 
 ### Added
 
-- Ability to change to zoom level to the approximate current map size.
+- Ability to change to zoom level to the approximate current map size
 
 ### Changed
 
@@ -49,7 +50,7 @@
 
 ### Added
 
-- Option that hides the UI at a certain zoom level.
+- Option that hides the UI at a certain zoom level
 
 ### Fixed
 
@@ -59,13 +60,13 @@
 
 ### Added
 
-- Toggle UI.
+- Toggle UI
 
 ## [1.9.0] - 2022-01-27
 
 ### Added
 
-- Max and Min UI or Zoom.
+- Max and Min UI or Zoom
 
 ### Changed
 
@@ -73,7 +74,7 @@
 
 ### Improvements 
 
-- Updated API for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098).
+- Updated API for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098)
 - README file
 
 ### Fixed
@@ -84,32 +85,32 @@
 
 ### Improvements 
 
-- Added support for the new API version.
+- Added support for the new API version
 
 ## [1.7.0] - 2021-05-17
 
 ### Added
 
-- Reset UI or Zoom.
+- Reset UI or Zoom
 
 ## [1.6.0] - 2021-05-01
 
 ### Added
 
-- Control Zoom and UI levels anywhere if activated.
+- Control Zoom and UI levels anywhere if activated
 
 ## [1.5.1] - 2021-04-12
 
 ### Fixed
 
-- Support for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098).
+- Support for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098)
 - Some text typos
 
 ## [1.5.0] - 2021-04-11
 
 ### Added
 
-- Support for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098).
+- Support for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098)
 
 ### Changed
 
