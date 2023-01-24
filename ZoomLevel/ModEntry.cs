@@ -12,9 +12,13 @@ namespace ZoomLevel
     public class ModEntry : Mod
     {
         private ModConfig configsForTheMod;
-        private bool wasToggleUIDone = false;
-        private float previousUIValueToggleUI = 1.0f;
-        private float previousUIValueToggleUIWithCertainValue = -1.0f;
+
+        private bool wasThePreviousButtonPressSucessfull;
+        private bool wasToggleUIScaleClicked;
+        private bool wasZoomLevelChanged;
+
+        private float uiScaleBeforeTheHidding;
+        private float currentUIScale;
 
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
@@ -26,23 +30,7 @@ namespace ZoomLevel
 
             //On area change and on load save
             helper.Events.Player.Warped += this.Player_Warped;
-            helper.Events.GameLoop.DayStarted += this.GameLoop_DayStarted;
-        }
-
-        private void GameLoop_DayStarted(object sender, DayStartedEventArgs e)
-        {
-            if (configsForTheMod.AutoZoomToMapSize == true)
-            {
-                ChangeZoomLevelToCurrentMapSize();
-            }
-        }
-
-        private void Player_Warped(object sender, WarpedEventArgs e)
-        {
-            if (configsForTheMod.AutoZoomToMapSize == true)
-            {
-                ChangeZoomLevelToCurrentMapSize();
-            }
+            helper.Events.GameLoop.SaveLoaded += this.GameLoop_SaveLoaded;
         }
 
         private void OnLaunched(object sender, GameLaunchedEventArgs e)
@@ -88,10 +76,34 @@ namespace ZoomLevel
             }
         }
 
+        private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
+        {
+            uiScaleBeforeTheHidding = Game1.options.desiredUIScale;
+            wasThePreviousButtonPressSucessfull = false;
+            wasToggleUIScaleClicked = false;
+            wasZoomLevelChanged = false;
+
+            if (configsForTheMod.AutoZoomToMapSize == true)
+            {
+                ChangeZoomLevelToCurrentMapSize();
+            }
+        }
+
+        private void Player_Warped(object sender, WarpedEventArgs e)
+        {
+            if (configsForTheMod.AutoZoomToMapSize == true)
+            {
+                ChangeZoomLevelToCurrentMapSize();
+            }
+        }
+
         private void Events_Input_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
             if (!Context.IsWorldReady || (!Context.IsPlayerFree && !configsForTheMod.ZoomAndUIControlEverywhere)) { return; }
-            bool wasThePreviousButtonPressSucessfull = false;
+
+            wasThePreviousButtonPressSucessfull = false;
+            wasToggleUIScaleClicked = false;
+            wasZoomLevelChanged = false;
 
             if (configsForTheMod.KeybindListHoldToChangeUI.IsDown())
             {
@@ -107,28 +119,33 @@ namespace ZoomLevel
                 }
                 else if (configsForTheMod.KeybindListResetZoomOrUI.JustPressed())
                 {
-                    ResetUI();
+                    UpdateUIScale(configsForTheMod.ResetZoomOrUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
                 {
-                    CapUILevel(configsForTheMod.MaxZoomInLevelAndUIValue);
+                    UpdateUIScale(configsForTheMod.MaxZoomInLevelAndUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
                 {
-                    CapUILevel(configsForTheMod.MaxZoomOutLevelAndUIValue);
+                    UpdateUIScale(configsForTheMod.MaxZoomOutLevelAndUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListToggleUI.JustPressed())
                 {
-                    ToggleUI();
+                    ToggleUIScale();
+                    wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListToggleHideUIWithCertainZoom.JustPressed())
                 {
-                    configsForTheMod.IsHideUIWithCertainZoom = !configsForTheMod.IsHideUIWithCertainZoom;
-                    //Game1.addHUDMessage(new HUDMessage("Hide UI With Certain Zoom is now: " + configsForTheMod.IsHideUIWithCertainZoom.ToString(), 2));
-                    Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.IsHideUIWithCertainZoom.ToString() }), 2));
+                    ToggleHideWithUIWithCertainZoom();
+                    wasThePreviousButtonPressSucessfull = true;
+                }
+                else if (configsForTheMod.KeybindListChangeZoomToApproximateCurrentMapSize.JustPressed())
+                {
+                    ChangeZoomLevelToCurrentMapSize();
+                    wasThePreviousButtonPressSucessfull = true;
                 }
             }
             else if (configsForTheMod.KeybindListIncreaseZoomOrUI.JustPressed())
@@ -143,27 +160,29 @@ namespace ZoomLevel
             }
             else if (configsForTheMod.KeybindListResetZoomOrUI.JustPressed())
             {
-                ResetZoom();
+                UpdateZoomValue(configsForTheMod.ResetZoomOrUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
             {
-                CapZoomLevel(configsForTheMod.MaxZoomInLevelAndUIValue);
+                UpdateZoomValue(configsForTheMod.MaxZoomInLevelAndUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
             {
-                CapZoomLevel(configsForTheMod.MaxZoomOutLevelAndUIValue);
+                UpdateZoomValue(configsForTheMod.MaxZoomOutLevelAndUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListToggleUI.JustPressed())
             {
-                ToggleUI();
+                wasToggleUIScaleClicked = true;
+                ToggleUIScale();
+                wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListToggleHideUIWithCertainZoom.JustPressed())
             {
-                configsForTheMod.IsHideUIWithCertainZoom = !configsForTheMod.IsHideUIWithCertainZoom;
-                Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.IsHideUIWithCertainZoom.ToString() }), 2));
+                ToggleHideWithUIWithCertainZoom();
+                wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListChangeZoomToApproximateCurrentMapSize.JustPressed())
             {
@@ -218,7 +237,13 @@ namespace ZoomLevel
             }
         }
 
-        private static void ChangeZoomLevelToCurrentMapSize()
+        private void ToggleHideWithUIWithCertainZoom()
+        {
+            configsForTheMod.IsHideUIWithCertainZoom = !configsForTheMod.IsHideUIWithCertainZoom;
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.IsHideUIWithCertainZoom.ToString() }), 2));
+        }
+
+        private void ChangeZoomLevelToCurrentMapSize()
         {
             if (Game1.currentLocation != null)
             {
@@ -235,120 +260,88 @@ namespace ZoomLevel
                 {
                     zoomLevel = (float)screenHeight / (float)mapHeight;
                 }
-                Game1.options.desiredBaseZoomLevel = zoomLevel;
-                RefreshWindow();
+                UpdateZoomValue(zoomLevel);
             }
         }
 
-        private void CheckAndUpdateUIValues()
-        {
-            if (configsForTheMod.IsHideUIWithCertainZoom == true)
-            {
-                if (Game1.options.desiredBaseZoomLevel <= configsForTheMod.ZoomLevelThatHidesUI && previousUIValueToggleUIWithCertainValue <= 0.0f)
-                {
-                    previousUIValueToggleUIWithCertainValue = Game1.options.desiredUIScale;
-                    Game1.options.desiredUIScale = 0.0f;
-                }
-                else if (Game1.options.desiredBaseZoomLevel > configsForTheMod.ZoomLevelThatHidesUI && previousUIValueToggleUIWithCertainValue > 0.0f)
-                {
-                    Game1.options.desiredUIScale = previousUIValueToggleUIWithCertainValue <= 0.0f ? 1.0f : previousUIValueToggleUIWithCertainValue;
-                    previousUIValueToggleUIWithCertainValue = 0.0f;
-                }
-                RefreshWindow();
-            }
-        }
-
-        private void ToggleUI()
+        private void ToggleUIScale()
         {
             float uiValue = 0.0f;
 
-            if (wasToggleUIDone == true)
+            if ((configsForTheMod.IsHideUIWithCertainZoom == true && wasZoomLevelChanged == true))
             {
-                uiValue = previousUIValueToggleUI <= 0.0f ? 1.0f : previousUIValueToggleUI;
+                if (configsForTheMod.ZoomLevelThatHidesUI >= Game1.options.desiredBaseZoomLevel && currentUIScale > 0.0f)
+                {
+                    UpdateUIScale(uiValue);
+                }
+                else if (configsForTheMod.ZoomLevelThatHidesUI < Game1.options.desiredBaseZoomLevel && currentUIScale <= 0.0f)
+                {
+                    uiValue = uiScaleBeforeTheHidding;
+                    UpdateUIScale(uiValue);
+                }
             }
-            wasToggleUIDone = !wasToggleUIDone;
 
-            if (wasToggleUIDone == true)
+            if ((wasZoomLevelChanged == false && wasToggleUIScaleClicked == true))
             {
-                previousUIValueToggleUI = Game1.options.desiredUIScale;
+                if (currentUIScale > 0.0f)
+                {
+                    UpdateUIScale(uiValue);
+                }
+                else
+                {
+                    uiValue = uiScaleBeforeTheHidding;
+                    UpdateUIScale(uiValue);
+                }
             }
-
-            //Changes ZoomLevel
-            Game1.options.desiredUIScale = uiValue;
-
-            RefreshWindow();
-        }
-
-        private void CapZoomLevel(float zoomValue)
-        {
-            Game1.options.desiredBaseZoomLevel = zoomValue;
-
-            RefreshWindow();
-            CheckAndUpdateUIValues();
-        }
-
-        private static void CapUILevel(float uiValue)
-        {
-            Game1.options.desiredUIScale = uiValue;
-
-            RefreshWindow();
-        }
-
-        private void ResetUI()
-        {
-            Game1.options.desiredUIScale = configsForTheMod.ResetZoomOrUIValue;
-
-            RefreshWindow();
-        }
-
-        private void ResetZoom()
-        {
-            Game1.options.desiredBaseZoomLevel = configsForTheMod.ResetZoomOrUIValue;
-            CheckAndUpdateUIValues();
-
-            RefreshWindow();
         }
 
         private void ChangeZoomLevel(float amount = 0)
         {
-            //Changes ZoomLevel
-            Game1.options.desiredBaseZoomLevel = (float)Math.Round(Game1.options.desiredBaseZoomLevel + amount, 2);
+            float zoomLevelValue = (float)Math.Round(Game1.options.desiredBaseZoomLevel + amount, 2);
 
-            //Caps Max Zoom In Level
-            Game1.options.desiredBaseZoomLevel = Game1.options.desiredBaseZoomLevel >= configsForTheMod.MaxZoomInLevelAndUIValue ? configsForTheMod.MaxZoomInLevelAndUIValue : Game1.options.desiredBaseZoomLevel;
-
-            //Caps Max Zoom Out Level
-            Game1.options.desiredBaseZoomLevel = Game1.options.desiredBaseZoomLevel <= configsForTheMod.MaxZoomOutLevelAndUIValue ? configsForTheMod.MaxZoomOutLevelAndUIValue : Game1.options.desiredBaseZoomLevel;
-
-            CheckAndUpdateUIValues();
-
-            RefreshWindow();
+            UpdateZoomValue(zoomLevelValue);
         }
 
         private void ChangeUILevel(float amount = 0)
         {
-            //Changes UI Zoom Level
-            Game1.options.desiredUIScale = (float)Math.Round(Game1.options.desiredUIScale + amount, 2);
+            float uiScale = (float)Math.Round(Game1.options.desiredUIScale + amount, 2);
 
-            //Caps Max UI Zoom In Level
-            Game1.options.desiredUIScale = Game1.options.desiredUIScale >= configsForTheMod.MaxZoomInLevelAndUIValue ? configsForTheMod.MaxZoomInLevelAndUIValue : Game1.options.desiredUIScale;
-
-            //Caps Max UI Zoom Out Level
-            Game1.options.desiredUIScale = Game1.options.desiredUIScale <= configsForTheMod.MaxZoomOutLevelAndUIValue ? configsForTheMod.MaxZoomOutLevelAndUIValue : Game1.options.desiredUIScale;
-
-            RefreshWindow();
+            UpdateUIScale(uiScale);
         }
 
-        private static void RefreshWindow()
+        private void UpdateZoomValue(float zoomLevelValue)
         {
-            /*
-            //Monitor Current Zoom Level
-            this.Monitor.Log($"{Game1.options.desiredBaseZoomLevel}.", LogLevel.Debug);
-            //Monitor Current UI Level
-            this.Monitor.Log($"{Game1.options.desiredUIScale}.", LogLevel.Debug);
-            */
+            //Caps Max Zoom In Level
+            zoomLevelValue = zoomLevelValue >= configsForTheMod.MaxZoomInLevelAndUIValue ? configsForTheMod.MaxZoomInLevelAndUIValue : zoomLevelValue;
 
-            Program.gamePtr.refreshWindowSettings();
+            //Caps Max Zoom Out Level
+            zoomLevelValue = zoomLevelValue <= configsForTheMod.MaxZoomOutLevelAndUIValue ? configsForTheMod.MaxZoomOutLevelAndUIValue : zoomLevelValue;
+
+            //Changes ZoomLevel
+            Game1.options.desiredBaseZoomLevel = zoomLevelValue;
+            wasZoomLevelChanged = true;
+            ToggleUIScale();
+        }
+
+        private void UpdateUIScale(float uiScale)
+        {
+            if (uiScale != 0)
+            {
+                //Caps Max UI Scale
+                uiScale = uiScale >= configsForTheMod.MaxZoomInLevelAndUIValue ? configsForTheMod.MaxZoomInLevelAndUIValue : uiScale;
+
+                //Caps Min UI Scale
+                uiScale = uiScale <= configsForTheMod.MaxZoomOutLevelAndUIValue ? configsForTheMod.MaxZoomOutLevelAndUIValue : uiScale;
+            }
+            else
+            {
+                uiScaleBeforeTheHidding = Game1.options.desiredUIScale;
+            }
+
+            //Changes UI Scale
+            Game1.options.desiredUIScale = uiScale;
+
+            currentUIScale = Game1.options.desiredUIScale;
         }
 
         private string FormatPercentage(float val)

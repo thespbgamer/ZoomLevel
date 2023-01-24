@@ -5,6 +5,10 @@
 - Ability to change the camera position, you can also reset it to the default position
 - Auto Zoom to approximate map size
 
+### Improvements
+
+- Major code optimizations
+
 ### Fixed
 
 - UI not showing up when using the 'Reset UI' option with the option 'Hide UI at a certain zoom level' enabled
