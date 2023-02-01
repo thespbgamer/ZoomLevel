@@ -5,7 +5,7 @@
   "Description": "Change the Zoom and UI levels with a simple keybind.Now with camera position change!",
   "UniqueID": "thespbgamer.ZoomLevel",
   "EntryDll": "ZoomLevel.dll",
-  "MinimumApiVersion": "3.18.1",
+  "MinimumApiVersion": "3.18.2",
   "UpdateKeys": [ "GitHub:thespbgamer/ZoomLevel", "Nexus:7363", "CurseForge:714275" ],
   "Dependencies": [
     {

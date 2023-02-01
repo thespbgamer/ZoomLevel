@@ -12,6 +12,7 @@ By holding ``Left Trigger & Right Trigger`` and using the controls above, you ca
 * [Installation](#Installation)
 * [Configure](#Configure)
 * [Compatibility](#Compatibility)
+* [Changelog](#Changelog)
 * [See also](#see-also)
 
 ## Installation
@@ -50,22 +51,22 @@ Here's what you can change:
   `KeybindListResetCameraMovement`                       | `null` aka **nothing**                                          | Keybinds to reset the camera movement and unlocks it.
   
   
-* Zoom and UI values:
+* Zoom, UI and Camera values:
 
-  Setting Name                   | Default Value | Description
-  :----------------------------- | :------------ | :------------------
-  `ZoomLevelIncreaseValue`       |  0.05         | The amount of Zoom or UI Level increase.
-  `ZoomLevelDecreaseValue`       | -0.05         | The amount of Zoom or UI Level decrease.
-  `MaxZoomOutLevelAndUIValue`    |  0.35         | The value of the max Zoom out Level or Max UI.
-  `MaxZoomInLevelAndUIValue`     | -0.35         | The value of the max Zoom in Level or Min UI.
-  `ResetZoomOrUIValue`           |  1.00         | The value of the Zoom or UI level reset.
-  `ZoomLevelThatHidesUI`         |  0.35         | The value of the Zoom level that hides the UI.
-  `CameraMovementSpeed`          |  25           | The speed that the camera moves.
+  Setting Name                   | Default Value              | Description
+  :----------------------------- | :------------------------- | :--------------------------------------------
+  `ZoomLevelIncreaseValue`       |  0.05 aka **5%**           | The amount of Zoom or UI Level increase.
+  `ZoomLevelDecreaseValue`       | -0.05 aka **-5%**          | The amount of Zoom or UI Level decrease.
+  `MaxZoomOutLevelAndUIValue`    |  0.35 aka **35%**          | The value of the max Zoom out Level or Max UI.
+  `MaxZoomInLevelAndUIValue`     |  2.00 aka **200%**         | The value of the max Zoom in Level or Min UI.
+  `ResetZoomOrUIValue`           |  1.00 aka **100%**         | The value of the Zoom or UI level reset.
+  `ZoomLevelThatHidesUI`         |  0.35 aka **35%**          | The value of the Zoom level that hides the UI.
+  `CameraMovementSpeed`          |  25                        | The speed that the camera moves.
 
 * Other options:
 
   Setting Name                         | Default Value   | Description
-  :----------------------------------- | :-------------- | :------------------
+  :----------------------------------- | :-------------- | :-------------------------------------------------
   `SuppressControllerButton`           | `true`          | If your controller inputs are suppressed or not.
   `ZoomAndUIControlEverywhere`         | `false`         | If activated you can control your Zoom and UI Level anywhere.
   `IsHideUIWithCertainZoom`            | `false`         | If activated your UI hides when it reaches a certain zoom level.
@@ -74,6 +75,9 @@ Here's what you can change:
 
 ## Compatibility
 ZoomLevel is compatible with Stardew Valley 1.5+ on Linux/Mac/Windows, both single-player, local co-op and multiplayer.
+
+## Changelog
+* [Full Changelog](https://github.com/thespbgamer/ZoomLevel/blob/main/CHANGELOG.md#full-changelog)
 
 ## See also
 * [Nexus mod](https://www.nexusmods.com/stardewvalley/mods/7363/?tab=files)
