@@ -1,9 +1,8 @@
 name: Bug Report
-description: File a bug report
+description: Create a report to help improve the mod functionality
 title: "[Bug]: "
 labels: ["bug"]
-assignees:
-  - thespbgamer
+
 body:
   - type: textarea
     id: describe-the-bug
@@ -18,7 +17,11 @@ body:
     attributes:
       label: To Reproduce
       description: Steps to reproduce the behavior.
-      placeholder: 1. Go to '...' 2. Click on '....' 3. Do '....' 4. See error
+      placeholder: 
+        1. Go to '...' 
+        2. Click on '....' 
+        3. Do '....' 
+        4. See error
     validations:
       required: true
   - type: textarea
@@ -34,16 +37,9 @@ body:
     attributes:
       label: Version
       description: What version of the mod are you running?
-      placeholder: I'm on the version 2.0.0
+      placeholder: I'm on the latest version.
     validations:
       required: true
-  - type: textarea
-    id: attachments
-    attributes:
-      label: Attachments
-      description: If applicable, add screenshots to help explain your problem.
-    validations:
-      required: false
   - type: textarea
     id: settings
     attributes:
@@ -51,3 +47,11 @@ body:
       description: If applicable, add your settings of the mod here (if not using defaults, screenshots are fine for this).
     validations:
       required: true
+  - type: textarea
+    id: extra-attachments
+    attributes:
+      label: Extra Attachments
+      description: If applicable, add screenshots to help explain your problem.
+    validations:
+      required: false
+  
