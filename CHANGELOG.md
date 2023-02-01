@@ -1,4 +1,4 @@
-## [Unreleased] - ????-??-??
+## [2.0.0] - 2023-02-01
 
 ### Added
 
@@ -176,7 +176,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/1.14.0...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.0
 [1.15.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.15.0
 [1.14.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.14.0
 [1.13.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.13.0
