@@ -1,0 +1,37 @@
+name: Feature request
+description: Suggest an idea or improvement for the mod
+labels: ["enhancement"]
+
+body:
+  - type: textarea
+    id: describe-the-problem
+    attributes:
+      label: Is your feature request related to a problem? Please describe.
+      description: A clear and concise description of what the problem is.
+      placeholder: I'm always frustrated when ...
+    validations:
+      required: true
+  - type: textarea
+    id: describe-the-solution
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
+      placeholder: I would like to see ...
+    validations:
+      required: true
+  - type: textarea
+    id: describe-alternatives
+    attributes:
+      label: Describe alternatives you've considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+      placeholder: I've considered ...
+    validations:
+      required: false
+  - type: textarea
+    id: extra-attachments
+    attributes:
+      label: Extra Attachments
+      description: If applicable, add screenshots to help explain your new feature.
+    validations:
+      required: false
+  
