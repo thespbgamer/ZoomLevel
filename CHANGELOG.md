@@ -7,10 +7,16 @@
 - Toggle Any Key Reset Camera 
 - Toggle Auto Zoom
 
+### Improvements
+
+- Pages in the optional [Generic Mod Config Menu](https://www.nexusmods.com/stardewvalley/mods/5098)
+
+
 ### Changed
 
 - Smooth Camera position (no more spam the camera keys)
 - Default Camera speed
+- Options (check if keybinds are missing)
 
 ## [2.0.1] - 2023-02-02
 
