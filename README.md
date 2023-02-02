@@ -41,12 +41,12 @@ Here's what you can change:
   `KeybindListResetZoomOrUI`                             | `null` aka **nothing**                                          | Key to Reset the Zoom or UI Level.
   `KeybindListMaxZoomOrUI`                               | `null` aka **nothing**                                          | Key to Max the Zoom out or Maximize the UI.
   `KeybindListMinZoomOrUI`                               | `null` aka **nothing**                                          | Key to Max the Zoom in or Minimize the UI.
-  `KeybindListChangeZoomToApproximateCurrentMapSize`     | `null` aka **nothing**                                          | Keybinds to change to zoom level to the approximate current map size.
+  `KeybindListZoomToApproximateCurrentMapSize`           | `null` aka **nothing**                                          | Keybinds to change to zoom level to the approximate current map size.
   `KeybindListMovementCameraLeft`                        | `null` aka **nothing**                                          | Keybinds to change the camera a bit to the left and locks it.
   `KeybindListMovementCameraRight`                       | `null` aka **nothing**                                          | Keybinds to change the camera a bit to the right and locks it.
   `KeybindListMovementCameraUp`                          | `null` aka **nothing**                                          | Keybinds to change the camera a bit up and locks it.
   `KeybindListMovementCameraDown`                        | `null` aka **nothing**                                          | Keybinds to change the camera a bit down and locks it.
-  `KeybindListResetCameraMovement`                       | `null` aka **nothing**                                          | Keybinds to reset the camera movement and unlocks it.
+  `KeybindListMovementCameraReset`                       | `null` aka **nothing**                                          | Keybinds to reset the camera movement and unlocks it.
   `KeybindListToggleHideUIWithCertainZoom`               | `null` aka **nothing**                                          | Keybinds to hides the UI at a certain Zoom Level.
   `KeybindListToggleUI`                                  | `null` aka **nothing**                                          | Keybinds to toggle the UI Visibility.
   `KeybindListToggleAnyKeyToResetCamera`                 | `null` aka **nothing**                                          | Keybinds to toggle the 'Any Button Resets Camera'.
@@ -71,8 +71,8 @@ Here's what you can change:
   :----------------------------------- | :-------------- | :-------------------------------------------------
   `SuppressControllerButton`           | `true`          | If your controller inputs are suppressed or not.
   `AutoZoomToMapSize`                  | `false`         | If activated it auto zooms to map size.
-  `PressAnyButtonToCenterCamera`       | `true`          | If activated any key you press will center the Camera.
-  `IsHideUIWithCertainZoom`            | `false`         | If activated your UI hides when it reaches a certain zoom level.
+  `AnyButtonToCenterCamera`            | `true`          | If activated any key you press will center the Camera.
+  `HideUIWithCertainZoom`              | `false`         | If activated your UI hides when it reaches a certain zoom level.
   `ZoomAndUIControlEverywhere`         | `false`         | If activated you can control your Zoom and UI Level anywhere.
 
 ## Compatibility
