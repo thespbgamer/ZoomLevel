@@ -37,7 +37,7 @@ namespace ZoomLevel
 
         private void Events_Input_ButtonChanged(object sender, ButtonsChangedEventArgs e)
         {
-            if (configsForTheMod.KeybindListMovementCameraUp.IsDown())
+            if (configsForTheMod.KeybindListMovementCameraUp.IsDown() && !configsForTheMod.KeybindListMovementCameraDown.IsDown())
             {
                 if (Game1.viewport.Y > 0)
                 {
@@ -46,7 +46,7 @@ namespace ZoomLevel
                     Game1.viewport.Y -= configsForTheMod.CameraMovementSpeed;
                 }
             }
-            if (configsForTheMod.KeybindListMovementCameraDown.IsDown())
+            else if (configsForTheMod.KeybindListMovementCameraDown.IsDown() && !configsForTheMod.KeybindListMovementCameraUp.IsDown())
             {
                 if (Game1.viewport.Y < Game1.currentLocation.map.DisplayHeight - Game1.viewport.Height)
                 {
@@ -55,7 +55,7 @@ namespace ZoomLevel
                     Game1.viewport.Y += configsForTheMod.CameraMovementSpeed;
                 }
             }
-            if (configsForTheMod.KeybindListMovementCameraLeft.IsDown())
+            if (configsForTheMod.KeybindListMovementCameraLeft.IsDown() && !configsForTheMod.KeybindListMovementCameraRight.IsDown())
             {
                 if (Game1.viewport.X > 0)
                 {
@@ -64,7 +64,7 @@ namespace ZoomLevel
                     Game1.viewport.X -= configsForTheMod.CameraMovementSpeed;
                 }
             }
-            if (configsForTheMod.KeybindListMovementCameraRight.IsDown())
+            else if (configsForTheMod.KeybindListMovementCameraRight.IsDown() && !configsForTheMod.KeybindListMovementCameraLeft.IsDown())
             {
                 if (Game1.viewport.X < Game1.currentLocation.map.DisplayWidth - Game1.viewport.Width)
                 {
