@@ -15,6 +15,10 @@
   "keybinds.ZoomOrUIMinLevels.description": "Keybinds to Max the Zoom out or Minimize the UI.",
   "keybinds.ToggleUIVisibility.name": "Toggle UI Visibility",
   "keybinds.ToggleUIVisibility.description": "Keybinds to toggle the UI Visibility.",
+  "keybinds.ToggleAnyKeyToResetCamera.name": "Toggle Any Key Reset Camera",
+  "keybinds.ToggleAnyKeyToResetCamera.description": "Keybinds to toggle the 'Any Button Resets Camera'.",
+  "keybinds.ToggleAutoZoomMap.name": "Toggle Auto Zoom",
+  "keybinds.ToggleAutoZoomMap.description": "Keybinds to toggle the 'Auto Zoom to Map Size'.",
   "keybinds.ToggleHideUIAtCertainZoom.name": "Toggle Hide UI at Certain Zoom",
   "keybinds.ToggleHideUIAtCertainZoom.description": "Keybinds to hides the UI at a certain Zoom Level.",
   "keybinds.ChangeZoomToApproximateCurrentMapSize.name": "Zoom to Approximate Map Size",
@@ -57,5 +61,7 @@
   "others.PressAnyButtonToCenterCamera.description": "If activated your camera centers if any key is pressed.\nIf not, you will need to press the 'Reset Camera Movement' key.",
   "others.AutoZoomToMapSize.name": "Auto Zoom to Map Size",
   "others.AutoZoomToMapSize.description": "If activated it auto zooms to map size.\nIf not, it will not do that.",
-  "hudMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}"
+  "hudMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}",
+  "hudMessages.PressAnyKeyToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
+  "hudMessages.AutoZoomToMapSize.message": "Auto Zoom to Map Size is now: {{value}}"
 }

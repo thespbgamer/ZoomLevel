@@ -12,8 +12,9 @@ namespace ZoomLevel
         public KeybindList KeybindListMinZoomOrUI { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListToggleUI { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListToggleHideUIWithCertainZoom { get; set; } = KeybindList.Parse("");
+        public KeybindList KeybindListToggleAnyKeyToResetCamera { get; set; } = KeybindList.Parse("");
+        public KeybindList KeybindListToggleAutoZoomMap { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListChangeZoomToApproximateCurrentMapSize { get; set; } = KeybindList.Parse("");
-
         public KeybindList KeybindListMovementCameraLeft { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListMovementCameraRight { get; set; } = KeybindList.Parse("");
         public KeybindList KeybindListMovementCameraUp { get; set; } = KeybindList.Parse("");
@@ -29,7 +30,7 @@ namespace ZoomLevel
 
         public float ResetZoomOrUIValue { get; set; } = 1.00f;
         public float ZoomLevelThatHidesUI { get; set; } = 0.35f;
-        public int CameraMovementSpeed { get; set; } = 25;
+        public int CameraMovementSpeed { get; set; } = 15;
 
         public bool SuppressControllerButton { get; set; } = true;
         public bool ZoomAndUIControlEverywhere { get; set; } = false;
