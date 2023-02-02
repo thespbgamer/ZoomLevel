@@ -16,6 +16,7 @@ namespace ZoomLevel
         private bool wasThePreviousButtonPressSucessfull;
         private bool wasToggleUIScaleClicked;
         private bool wasZoomLevelChanged;
+        private bool wasCameraFrozen;
 
         private float uiScaleBeforeTheHidding;
         private float currentUIScale;
@@ -82,6 +83,7 @@ namespace ZoomLevel
             wasThePreviousButtonPressSucessfull = false;
             wasToggleUIScaleClicked = false;
             wasZoomLevelChanged = false;
+            wasCameraFrozen = false;
 
             if (configsForTheMod.AutoZoomToMapSize == true)
             {
@@ -193,6 +195,7 @@ namespace ZoomLevel
             {
                 if (Game1.viewport.Y > 0)
                 {
+                    wasCameraFrozen = true;
                     Game1.viewportFreeze = true;
                     Game1.viewport.Y -= configsForTheMod.CameraMovementSpeed;
                 }
@@ -202,6 +205,7 @@ namespace ZoomLevel
             {
                 if (Game1.viewport.Y < Game1.currentLocation.map.DisplayHeight - Game1.viewport.Height)
                 {
+                    wasCameraFrozen = true;
                     Game1.viewportFreeze = true;
                     Game1.viewport.Y += configsForTheMod.CameraMovementSpeed;
                 }
@@ -211,6 +215,7 @@ namespace ZoomLevel
             {
                 if (Game1.viewport.X > 0)
                 {
+                    wasCameraFrozen = true;
                     Game1.viewportFreeze = true;
                     Game1.viewport.X -= configsForTheMod.CameraMovementSpeed;
                 }
@@ -220,13 +225,15 @@ namespace ZoomLevel
             {
                 if (Game1.viewport.X < Game1.currentLocation.map.DisplayWidth - Game1.viewport.Width)
                 {
+                    wasCameraFrozen = true;
                     Game1.viewportFreeze = true;
                     Game1.viewport.X += configsForTheMod.CameraMovementSpeed;
                 }
                 wasThePreviousButtonPressSucessfull = true;
             }
-            else if (Game1.viewportFreeze == true && (configsForTheMod.KeybindListResetCameraMovement.JustPressed() || configsForTheMod.PressAnyButtonToCenterCamera == true))
+            else if (wasCameraFrozen == true && Game1.viewportFreeze == true && (configsForTheMod.KeybindListResetCameraMovement.JustPressed() || configsForTheMod.PressAnyButtonToCenterCamera == true))
             {
+                wasCameraFrozen = false;
                 Game1.viewportFreeze = false;
                 wasThePreviousButtonPressSucessfull = true;
             }

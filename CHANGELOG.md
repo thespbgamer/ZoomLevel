@@ -1,5 +1,18 @@
 # Full Changelog
 
+## [Unreleased] - ????-??-??
+
+## [2.0.1] - 2023-02-02
+
+### Changed
+
+- Minimum SMAPI version to 3.18.2
+
+### Fixed
+
+- Camera movement issues with some mods
+
+
 ## [2.0.0] - 2023-02-01
 
 ### Added
@@ -24,7 +37,7 @@
 
 ### Changed
 
-- Minimum API version to 3.18.1
+- Minimum SMAPI version to 3.18.1
 
 
 ## [1.13.0] - 2022-07-24
@@ -178,7 +191,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.0.0...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.0.1...HEAD
+[2.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.1
 [2.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.0
 [1.15.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.15.0
 [1.14.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.14.0
