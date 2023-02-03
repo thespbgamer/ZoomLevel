@@ -34,9 +34,9 @@ Here's what you can do:
   `toggle_Auto_Zoom_Map`								 | `null` aka **nothing**										   | Toggles the 'AutoZoomMap'.
   `toggle_Press_Any_Key_To_Reset_Camera`                 | `null` aka **nothing**										   | Toggles the 'PressAnyKeyToResetCamera'.
   `toggle_Hide_With_UI_With_Certain_Zoom`                | `null` aka **nothing**                                          | Toggles the 'HideWithUIWithCertainZoom'.
-  `reset_UI_and_Zoom`									 | `UIScale and zoomLevel` example **reset_UI_and_Zoom 0.90 0.75** | Resets the zoom and UI levels back to the default game values.Optional parameters are UI and Zoom values (in that order).
-  `reset_UI`											 | `UIScale` example **reset_UI 0.90**                             | Resets the UI scale.\nOptional parameter is the UI Scale value.
-  `reset_Zoom`											 | `zoomLevel` example **reset_Zoom 0.75**                         | Resets the Zoom Level.\nOptional parameter is the Zoom Level value.
+  `reset_UI_and_Zoom`									 | `UIScale and zoomLevel` example **reset_UI_and_Zoom 0.90 0.75** | Resets the zoom and UI levels back to the default game values. Optional parameters are UI and Zoom values (in that order).
+  `reset_UI`											 | `UIScale` example **reset_UI 0.90**                             | Resets the UI scale. Optional parameter is the UI Scale value.
+  `reset_Zoom`											 | `zoomLevel` example **reset_Zoom 0.75**                         | Resets the Zoom Level. Optional parameter is the Zoom Level value.
 
 ## Configure
 ### In-game settings
