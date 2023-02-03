@@ -18,6 +18,7 @@
 - Smooth Camera position (no more spam the camera keys)
 - Default Camera speed
 - Options (check if keybinds are missing)
+- Translations
 
 ## [2.0.1] - 2023-02-02
 
