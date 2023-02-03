@@ -10,6 +10,7 @@ By holding ``Left Trigger & Right Trigger`` and using the controls above, you ca
 
 ## Contents
 * [Installation](#Installation)
+* [Console Commands](#console-commands)
 * [Configure](#Configure)
 * [Compatibility](#Compatibility)
 * [Changelog](#Changelog)
@@ -20,6 +21,22 @@ By holding ``Left Trigger & Right Trigger`` and using the controls above, you ca
 2. Download the mod from [nexus mods](https://www.nexusmods.com/stardewvalley/mods/7363?tab=files) or from [github](https://github.com/thespbgamer/ZoomLevel/releases/).
 3. Unzip the mod folder into your Stardew Valley/Mods.
 4. Run the game using SMAPI.
+
+## Console Commands
+### In-game settings
+Once you have the game running (having a save loaded), you can use any of these commands at any time.
+
+Here's what you can do:
+
+  Command Name                                           | Optional Parameter(s)										   | Description
+  :----------------------------------------------------- | :-------------------------------------------------------------- | :-----------------------------------------------
+  `zoom_Level_List`										 | `null` aka **nothing**										   | Shows all the ZoomLevel console commands.
+  `toggle_Auto_Zoom_Map`								 | `null` aka **nothing**										   | Toggles the 'AutoZoomMap'.
+  `toggle_Press_Any_Key_To_Reset_Camera`                 | `null` aka **nothing**										   | Toggles the 'PressAnyKeyToResetCamera'.
+  `toggle_Hide_With_UI_With_Certain_Zoom`                | `null` aka **nothing**                                          | Toggles the 'HideWithUIWithCertainZoom'.
+  `reset_UI_and_Zoom`									 | `UIScale and zoomLevel` example **reset_UI_and_Zoom 0.90 0.75** | Resets the zoom and UI levels back to the default game values.Optional parameters are UI and Zoom values (in that order).
+  `reset_UI`											 | `UIScale` example **reset_UI 0.90**                             | Resets the UI scale.\nOptional parameter is the UI Scale value.
+  `reset_Zoom`											 | `zoomLevel` example **reset_Zoom 0.75**                         | Resets the Zoom Level.\nOptional parameter is the Zoom Level value.
 
 ## Configure
 ### In-game settings
