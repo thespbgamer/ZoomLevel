@@ -6,6 +6,7 @@
 
 - Toggle Any Key Reset Camera 
 - Toggle Auto Zoom
+- Console commands in some functions
 
 ### Improvements
 

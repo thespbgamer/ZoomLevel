@@ -20,8 +20,8 @@ namespace ZoomLevel
 
         private float uiScaleBeforeTheHidding;
         private float currentUIScale;
+        private float currentZoomLevel;
 
-        /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
             configsForTheMod = helper.ReadConfig<ModConfig>();
@@ -33,46 +33,14 @@ namespace ZoomLevel
             //On area change and on load save
             helper.Events.Player.Warped += this.Player_Warped;
             helper.Events.GameLoop.SaveLoaded += this.GameLoop_SaveLoaded;
-        }
 
-        private void Events_Input_ButtonChanged(object sender, ButtonsChangedEventArgs e)
-        {
-            if (configsForTheMod.KeybindListMovementCameraUp.IsDown() && !configsForTheMod.KeybindListMovementCameraDown.IsDown())
-            {
-                if (Game1.viewport.Y > 0)
-                {
-                    wasCameraFrozen = true;
-                    Game1.viewportFreeze = true;
-                    Game1.viewport.Y -= configsForTheMod.CameraMovementSpeed;
-                }
-            }
-            else if (configsForTheMod.KeybindListMovementCameraDown.IsDown() && !configsForTheMod.KeybindListMovementCameraUp.IsDown())
-            {
-                if (Game1.viewport.Y < Game1.currentLocation.map.DisplayHeight - Game1.viewport.Height)
-                {
-                    wasCameraFrozen = true;
-                    Game1.viewportFreeze = true;
-                    Game1.viewport.Y += configsForTheMod.CameraMovementSpeed;
-                }
-            }
-            if (configsForTheMod.KeybindListMovementCameraLeft.IsDown() && !configsForTheMod.KeybindListMovementCameraRight.IsDown())
-            {
-                if (Game1.viewport.X > 0)
-                {
-                    wasCameraFrozen = true;
-                    Game1.viewportFreeze = true;
-                    Game1.viewport.X -= configsForTheMod.CameraMovementSpeed;
-                }
-            }
-            else if (configsForTheMod.KeybindListMovementCameraRight.IsDown() && !configsForTheMod.KeybindListMovementCameraLeft.IsDown())
-            {
-                if (Game1.viewport.X < Game1.currentLocation.map.DisplayWidth - Game1.viewport.Width)
-                {
-                    wasCameraFrozen = true;
-                    Game1.viewportFreeze = true;
-                    Game1.viewport.X += configsForTheMod.CameraMovementSpeed;
-                }
-            }
+            helper.ConsoleCommands.Add("zoom_Level_List", String.Empty, this.ConsoleFunctionsList);
+            helper.ConsoleCommands.Add("toggle_Auto_Zoom_Map", String.Empty, this.ConsoleFunctionsList);
+            helper.ConsoleCommands.Add("toggle_Press_Any_Key_To_Reset_Camera", String.Empty, this.ConsoleFunctionsList);
+            helper.ConsoleCommands.Add("toggle_Hide_With_UI_With_Certain_Zoom", String.Empty, this.ConsoleFunctionsList);
+            helper.ConsoleCommands.Add("reset_UI_and_Zoom", String.Empty, this.ConsoleFunctionsList);
+            helper.ConsoleCommands.Add("reset_UI", String.Empty, this.ConsoleFunctionsList);
+            helper.ConsoleCommands.Add("reset_Zoom", String.Empty, this.ConsoleFunctionsList);
         }
 
         private void OnLaunched(object sender, GameLaunchedEventArgs e)
@@ -155,6 +123,46 @@ namespace ZoomLevel
             }
         }
 
+        private void Events_Input_ButtonChanged(object sender, ButtonsChangedEventArgs e)
+        {
+            if (configsForTheMod.KeybindListMovementCameraUp.IsDown() && !configsForTheMod.KeybindListMovementCameraDown.IsDown())
+            {
+                if (Game1.viewport.Y > 0)
+                {
+                    wasCameraFrozen = true;
+                    Game1.viewportFreeze = true;
+                    Game1.viewport.Y -= configsForTheMod.CameraMovementSpeed;
+                }
+            }
+            else if (configsForTheMod.KeybindListMovementCameraDown.IsDown() && !configsForTheMod.KeybindListMovementCameraUp.IsDown())
+            {
+                if (Game1.viewport.Y < Game1.currentLocation.map.DisplayHeight - Game1.viewport.Height)
+                {
+                    wasCameraFrozen = true;
+                    Game1.viewportFreeze = true;
+                    Game1.viewport.Y += configsForTheMod.CameraMovementSpeed;
+                }
+            }
+            if (configsForTheMod.KeybindListMovementCameraLeft.IsDown() && !configsForTheMod.KeybindListMovementCameraRight.IsDown())
+            {
+                if (Game1.viewport.X > 0)
+                {
+                    wasCameraFrozen = true;
+                    Game1.viewportFreeze = true;
+                    Game1.viewport.X -= configsForTheMod.CameraMovementSpeed;
+                }
+            }
+            else if (configsForTheMod.KeybindListMovementCameraRight.IsDown() && !configsForTheMod.KeybindListMovementCameraLeft.IsDown())
+            {
+                if (Game1.viewport.X < Game1.currentLocation.map.DisplayWidth - Game1.viewport.Width)
+                {
+                    wasCameraFrozen = true;
+                    Game1.viewportFreeze = true;
+                    Game1.viewport.X += configsForTheMod.CameraMovementSpeed;
+                }
+            }
+        }
+
         private void Events_Input_ButtonPressed(object sender, ButtonPressedEventArgs e)
         {
             if (!Context.IsWorldReady || (!Context.IsPlayerFree && !configsForTheMod.ZoomAndUIControlEverywhere)) { return; }
@@ -167,12 +175,12 @@ namespace ZoomLevel
             {
                 if (configsForTheMod.KeybindListIncreaseZoomOrUI.JustPressed())
                 {
-                    ChangeUILevel(configsForTheMod.ZoomLevelIncreaseValue);
+                    ChangeUIScale(configsForTheMod.ZoomLevelIncreaseValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListDecreaseZoomOrUI.JustPressed())
                 {
-                    ChangeUILevel(configsForTheMod.ZoomLevelDecreaseValue);
+                    ChangeUIScale(configsForTheMod.ZoomLevelDecreaseValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListResetZoomOrUI.JustPressed())
@@ -286,40 +294,19 @@ namespace ZoomLevel
         private void ToggleAutoZoomMap()
         {
             configsForTheMod.AutoZoomToMapSize = !configsForTheMod.AutoZoomToMapSize;
-            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.AutoZoomToMapSize.message", new { value = configsForTheMod.AutoZoomToMapSize.ToString() }), 2));
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.AutoZoomToMapSize.message", new { value = configsForTheMod.AutoZoomToMapSize.ToString() }), HUDMessage.newQuest_type));
         }
 
         private void TogglePressAnyKeyToResetCamera()
         {
             configsForTheMod.AnyButtonToCenterCamera = !configsForTheMod.AnyButtonToCenterCamera;
-            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.PressAnyKeyToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), 2));
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.PressAnyKeyToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), HUDMessage.newQuest_type));
         }
 
         private void ToggleHideWithUIWithCertainZoom()
         {
             configsForTheMod.HideUIWithCertainZoom = !configsForTheMod.HideUIWithCertainZoom;
-            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), 2));
-        }
-
-        private void ChangeZoomLevelToCurrentMapSize()
-        {
-            if (Game1.currentLocation != null)
-            {
-                int mapWidth = Game1.currentLocation.map.DisplayWidth;
-                int mapHeight = Game1.currentLocation.map.DisplayHeight;
-                int screenWidth = Game1.graphics.GraphicsDevice.Viewport.Width;
-                int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
-                float zoomLevel;
-                if (mapWidth > mapHeight)
-                {
-                    zoomLevel = (float)screenWidth / (float)mapWidth;
-                }
-                else
-                {
-                    zoomLevel = (float)screenHeight / (float)mapHeight;
-                }
-                UpdateZoomValue(zoomLevel);
-            }
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), HUDMessage.newQuest_type));
         }
 
         private void ToggleUIScale()
@@ -353,6 +340,27 @@ namespace ZoomLevel
             }
         }
 
+        private void ChangeZoomLevelToCurrentMapSize()
+        {
+            if (Game1.currentLocation != null)
+            {
+                int mapWidth = Game1.currentLocation.map.DisplayWidth;
+                int mapHeight = Game1.currentLocation.map.DisplayHeight;
+                int screenWidth = Game1.graphics.GraphicsDevice.Viewport.Width;
+                int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
+                float zoomLevel;
+                if (mapWidth > mapHeight)
+                {
+                    zoomLevel = (float)screenWidth / (float)mapWidth;
+                }
+                else
+                {
+                    zoomLevel = (float)screenHeight / (float)mapHeight;
+                }
+                UpdateZoomValue(zoomLevel);
+            }
+        }
+
         private void ChangeZoomLevel(float amount = 0)
         {
             float zoomLevelValue = (float)Math.Round(Game1.options.desiredBaseZoomLevel + amount, 2);
@@ -360,7 +368,7 @@ namespace ZoomLevel
             UpdateZoomValue(zoomLevelValue);
         }
 
-        private void ChangeUILevel(float amount = 0)
+        private void ChangeUIScale(float amount = 0)
         {
             float uiScale = (float)Math.Round(Game1.options.desiredUIScale + amount, 2);
 
@@ -377,6 +385,8 @@ namespace ZoomLevel
 
             //Changes ZoomLevel
             Game1.options.desiredBaseZoomLevel = zoomLevelValue;
+
+            currentZoomLevel = Game1.options.desiredBaseZoomLevel;
             wasZoomLevelChanged = true;
             ToggleUIScale();
         }
@@ -405,6 +415,76 @@ namespace ZoomLevel
         private string FormatPercentage(float val)
         {
             return $"{val:0.#%}";
+        }
+
+        private void ConsoleFunctionsList(string command, string[] args)
+        {
+            if (command.ToLower() == "zoom_Level_List".ToLower())
+            {
+                this.Monitor.Log($"\nzoom_Level_List → Shows all the ZoomLevel console commands.\n\n" +
+                    $"toggle_Auto_Zoom_Map → Toggles the 'AutoZoomMap'.\n\n" +
+                    $"toggle_Press_Any_Key_To_Reset_Camera → Toggles the 'PressAnyKeyToResetCamera'.\n\n" +
+                    $"toggle_Hide_With_UI_With_Certain_Zoom → Toggles the 'HideWithUIWithCertainZoom'.\n\n" +
+                    $"reset_UI_and_Zoom → Resets the zoom and UI levels back to the default game values.\nOptional parameters UI and Zoom values (in that order).\n\n" +
+                    $"reset_UI → Resets the UI scale.\nOptional parameter is the UI Scale value.\n\n" +
+                    $"reset_Zoom → Resets the Zoom Level.\nOptional parameter is the Zoom Level value.", LogLevel.Info);
+            }
+            else if (command.ToLower() == "toggle_Auto_Zoom_Map".ToLower())
+            {
+                this.ToggleAutoZoomMap();
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.AutoZoomToMapSize.message", new { value = configsForTheMod.AutoZoomToMapSize.ToString() }), LogLevel.Info);
+            }
+            else if (command.ToLower() == "toggle_Press_Any_Key_To_Reset_Camera".ToLower())
+            {
+                this.TogglePressAnyKeyToResetCamera();
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.PressAnyKeyToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), LogLevel.Info);
+            }
+            else if (command.ToLower() == "toggle_Hide_With_UI_With_Certain_Zoom".ToLower())
+            {
+                this.ToggleHideWithUIWithCertainZoom();
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), LogLevel.Info);
+            }
+            else if (command.ToLower() == "reset_UI_and_Zoom".ToLower())
+            {
+                float uiScaleValue = 1f;
+                float zoomLevelValue = 1f;
+                if (args.Length > 0 && float.TryParse(args[0], out float uiCustomScale))
+                {
+                    uiScaleValue = uiCustomScale;
+                }
+
+                if (args.Length > 1 && float.TryParse(args[1], out float zoomCustomLevel))
+                {
+                    zoomLevelValue = zoomCustomLevel;
+                }
+
+                UpdateUIScale(uiScaleValue);
+                UpdateZoomValue(zoomLevelValue);
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.resetUIAndZoom.message", new { ui = currentUIScale.ToString(), zoom = currentZoomLevel.ToString() }), LogLevel.Info);
+            }
+            else if (command.ToLower() == "reset_UI".ToLower())
+            {
+                float uiScaleValue = 1f;
+
+                if (args.Length > 0 && float.TryParse(args[0], out float uiCustomScale))
+                {
+                    uiScaleValue = uiCustomScale;
+                }
+
+                UpdateUIScale(uiScaleValue);
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.resetUI.message", new { value = currentUIScale.ToString() }), LogLevel.Info);
+            }
+            else if (command.ToLower() == "reset_Zoom".ToLower())
+            {
+                float zoomLevelValue = 1f;
+                if (args.Length > 0 && float.TryParse(args[0], out float zoomCustomLevel))
+                {
+                    zoomLevelValue = zoomCustomLevel;
+                }
+
+                UpdateZoomValue(zoomLevelValue);
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.resetZoom.message", new { value = currentZoomLevel.ToString() }), LogLevel.Info);
+            }
         }
     }
 

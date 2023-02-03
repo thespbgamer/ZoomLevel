@@ -88,5 +88,12 @@
 
   "hudMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}",
   "hudMessages.PressAnyKeyToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
-  "hudMessages.AutoZoomToMapSize.message": "Auto Zoom to Map Size is now: {{value}}"
+  "hudMessages.AutoZoomToMapSize.message": "Auto Zoom to Map Size is now: {{value}}",
+
+  "consoleMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}",
+  "consoleMessages.PressAnyKeyToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
+  "consoleMessages.AutoZoomToMapSize.message": "Auto Zoom to Map Size is now: {{value}}",
+  "consoleMessages.resetUIAndZoom.message": "UI Level is now at : {{ui}}\nZoom Level is now at: {{zoom}}",
+  "consoleMessages.resetZoom.message": "Zoom Level is now at: {{value}}",
+  "consoleMessages.resetUI.message": "UI Level is now at : {{value}}"
 }

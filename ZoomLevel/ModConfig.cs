@@ -2,7 +2,7 @@
 
 namespace ZoomLevel
 {
-    internal class ModConfig
+    public sealed class ModConfig
     {
         public KeybindList KeybindListHoldToChangeUI { get; set; } = KeybindList.Parse("LeftShift, RightShift, LeftTrigger + RightTrigger");
         public KeybindList KeybindListIncreaseZoomOrUI { get; set; } = KeybindList.Parse("OemPeriod, RightStick");
