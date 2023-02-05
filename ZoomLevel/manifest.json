@@ -2,7 +2,7 @@
   "Name": "Zoom Level",
   "Author": "thespbgamer",
   "Version": "2.1.0",
-  "Description": "Change the Zoom and UI levels with a simple keybind.Now with camera position change!",
+  "Description": "Change the Zoom and UI levels with a simple keybind. Now with camera position change!",
   "UniqueID": "thespbgamer.ZoomLevel",
   "EntryDll": "ZoomLevel.dll",
   "MinimumApiVersion": "3.18.2",
