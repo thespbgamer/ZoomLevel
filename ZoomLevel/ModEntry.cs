@@ -24,13 +24,13 @@ namespace ZoomLevel
         {
             configsForTheMod = helper.ReadConfig<ModConfig>();
 
-            helper.Events.GameLoop.GameLaunched += this.OnLaunched;
+            helper.Events.GameLoop.GameLaunched += this.Events_GameLoop_GameLaunched;
             helper.Events.Input.ButtonPressed += this.Events_Input_ButtonPressed;
             helper.Events.Input.ButtonsChanged += this.Events_Input_ButtonChanged;
 
             //On area change and on load save
-            helper.Events.Player.Warped += this.Player_Warped;
-            helper.Events.GameLoop.SaveLoaded += this.GameLoop_SaveLoaded;
+            helper.Events.Player.Warped += this.Events_Player_Warped;
+            helper.Events.GameLoop.SaveLoaded += this.Events_GameLoop_SaveLoaded;
 
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.zoomLevelList.name"), Helper.Translation.Get("consoleCommands.zoomLevelList.description"), this.ConsoleFunctionsList);
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.toggleAutoZoomMap.name"), Helper.Translation.Get("consoleCommands.toggleAutoZoomMap.description"), this.ConsoleFunctionsList);
@@ -41,7 +41,7 @@ namespace ZoomLevel
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.resetZoom.name"), Helper.Translation.Get("consoleCommands.resetZoom.description"), this.ConsoleFunctionsList);
         }
 
-        private void OnLaunched(object sender, GameLaunchedEventArgs e)
+        private void Events_GameLoop_GameLaunched(object sender, GameLaunchedEventArgs e)
         {
             var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<IGenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
 
@@ -99,7 +99,7 @@ namespace ZoomLevel
             }
         }
 
-        private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
+        private void Events_GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
             uiScaleBeforeTheHidding = Game1.options.desiredUIScale;
             wasThePreviousButtonPressSucessfull = false;
@@ -113,7 +113,7 @@ namespace ZoomLevel
             }
         }
 
-        private void Player_Warped(object sender, WarpedEventArgs e)
+        private void Events_Player_Warped(object sender, WarpedEventArgs e)
         {
             if (configsForTheMod.AutoZoomToCurrentMapSize == true)
             {
