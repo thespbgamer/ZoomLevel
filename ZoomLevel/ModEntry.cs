@@ -16,7 +16,7 @@ namespace ZoomLevel
         private bool wasZoomLevelChanged;
         private bool wasCameraFrozen;
 
-        private float uiScaleBeforeTheHidding;
+        private float uiScaleBeforeHiddingTheUI;
         private float currentUIScale;
         private float currentZoomLevel;
 
@@ -101,7 +101,7 @@ namespace ZoomLevel
 
         private void Events_GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
         {
-            uiScaleBeforeTheHidding = Game1.options.desiredUIScale;
+            uiScaleBeforeHiddingTheUI = Game1.options.desiredUIScale;
             wasThePreviousButtonPressSucessfull = false;
             wasToggleUIScaleClicked = false;
             wasZoomLevelChanged = false;
@@ -319,7 +319,7 @@ namespace ZoomLevel
                 }
                 else if (configsForTheMod.ZoomLevelThatHidesUI < Game1.options.desiredBaseZoomLevel && currentUIScale <= 0.0f)
                 {
-                    uiValue = uiScaleBeforeTheHidding;
+                    uiValue = uiScaleBeforeHiddingTheUI;
                     UpdateUIScale(uiValue);
                 }
             }
@@ -332,7 +332,7 @@ namespace ZoomLevel
                 }
                 else
                 {
-                    uiValue = uiScaleBeforeTheHidding;
+                    uiValue = uiScaleBeforeHiddingTheUI;
                     UpdateUIScale(uiValue);
                 }
             }
@@ -401,7 +401,7 @@ namespace ZoomLevel
             }
             else
             {
-                uiScaleBeforeTheHidding = Game1.options.desiredUIScale;
+                uiScaleBeforeHiddingTheUI = Game1.options.desiredUIScale;
             }
 
             //Changes UI Scale
