@@ -33,6 +33,8 @@
   "keybinds.MinZoomOrUI.tooltip": "Keybinds to Max the Zoom out or Minimize the UI.",
   "keybinds.ZoomToCurrentMapSize.displayedName": "Zoom to Approximate Map Size",
   "keybinds.ZoomToCurrentMapSize.tooltip": "Keybinds to change to zoom level to the approximate current map size.",
+  "keybinds.PresetZoomAndUIValues.displayedName": "Change UI & Zoom to Preset",
+  "keybinds.PresetZoomAndUIValues.tooltip": "Keybinds to change to zoom level and UI scale to the preset values.",
 
   "keybinds.MovementCameraUp.displayedName": "Camera Movement Up",
   "keybinds.MovementCameraUp.tooltip": "Changes camera a bit up and locks it.",
@@ -53,6 +55,8 @@
   "keybinds.ToggleAnyKeyToResetCamera.tooltip": "Keybinds to toggle the 'Any Button Resets Camera'.",
   "keybinds.ToggleAutoZoomToCurrentMapSize.displayedName": "Auto Zoom to Map Size",
   "keybinds.ToggleAutoZoomToCurrentMapSize.tooltip": "Keybinds to toggle the 'Auto Zoom to Map Size'.",
+  "keybinds.TogglePresetOnLoadSaveFile.displayedName": "Activate Preset On Load",
+  "keybinds.TogglePresetOnLoadSaveFile.tooltip": "Keybinds to toggle the 'PresetOnLoadSaveFile'.",
 
   "values.subtitle.main.displayedName": "Values:",
   "values.subtitle.main.tooltip": "All the values that changes the Zoom Level, UI Level and Camera.",
@@ -71,6 +75,10 @@
   "values.ZoomLevelThatHidesUI.tooltip": "The value of the Zoom level that hides the UI.",
   "values.CameraMovementSpeedValue.displayedName": "Camera Movement Speed",
   "values.CameraMovementSpeedValue.tooltip": "The speed that the camera moves.",
+  "values.PresetZoomLevelValue.displayedName": "Preset Zoom Level",
+  "values.PresetZoomLevelValue.tooltip": "The value of the preset Zoom level.",
+  "values.PresetUIScaleValue.displayedName": "Preset UI Scale",
+  "values.PresetUIScaleValue.tooltip": "The value of the preset UI Scale.",
 
   "miscellaneous.subtitle.main.displayedName": "Miscellaneous:",
   "miscellaneous.subtitle.main.tooltip": "All the other options that you can change.",
@@ -83,12 +91,15 @@
   "miscellaneous.AnyButtonToCenterCamera.tooltip": "If activated your camera centers if any key is pressed.\nIf not, you will need to press the 'Camera Movement Reset' key.",
   "miscellaneous.HideUIWithCertainZoom.displayedName": "Hide UI with Certain Zoom",
   "miscellaneous.HideUIWithCertainZoom.tooltip": "If activated your UI hides when it reaches a certain zoom level.",
+  "miscellaneous.PresetOnLoadSaveFile.displayedName": "Preset On Load Save",
+  "miscellaneous.PresetOnLoadSaveFile.tooltip": "If activated your preset values will update when the file loads.\nWith the values set on the value tabs.",
   "miscellaneous.ZoomAndUIControlEverywhere.displayedName": "Zoom and UI Anywhere",
   "miscellaneous.ZoomAndUIControlEverywhere.tooltip": "If activated you can control your Zoom and UI Levels anywhere.",
 
-  "hudMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}",
-  "hudMessages.PressAnyKeyToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
-  "hudMessages.AutoZoomToMapSize.message": "Auto Zoom to Map Size is now: {{value}}",
+  "hudMessages.AutoZoomToCurrentMapSize.message": "Auto Zoom to Map Size is now: {{value}}",
+  "hudMessages.AnyButtonToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
+  "hudMessages.HideUIWithCertainZoom.message": "Hide UI With Certain Zoom is now: {{value}}",
+  "hudMessages.PresetOnLoadSaveFile.message": "Preset On Load Save File is now: {{value}}",
 
   "consoleCommands.zoomLevelList.name": "zoom_Level_List",
   "consoleCommands.zoomLevelList.description": "\nUsage: zoom_Level_List",
@@ -106,9 +117,9 @@
   "consoleCommands.reset_Zoom.description": "\nUsage: reset_Zoom <zoom>\n- zoom: the decimal value zoom level.",
 
   "consoleMessages.listingOfCommands.message": "\nzoom_Level_List → Shows all the ZoomLevel console commands.\n\ntoggle_Auto_Zoom_Map → Toggles the 'AutoZoomMap'.\n\ntoggle_Press_Any_Key_To_Reset_Camera → Toggles the 'PressAnyKeyToResetCamera'.\n\ntoggle_Hide_With_UI_With_Certain_Zoom → Toggles the 'HideWithUIWithCertainZoom'.\n\nreset_UI_and_Zoom → Resets the zoom and UI levels back to the default game values.\nOptional parameters UI and Zoom values (in that order).\n\nreset_UI → Resets the UI scale.\nOptional parameter is the UI Scale value.\n\nreset_Zoom → Resets the Zoom Level.\nOptional parameter is the Zoom Level value.",
-  "consoleMessages.HideUIWithCertainZoomIs.message": "Hide UI With Certain Zoom is now: {{value}}",
-  "consoleMessages.PressAnyKeyToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
-  "consoleMessages.AutoZoomToMapSize.message": "Auto Zoom to Map Size is now: {{value}}",
+  "consoleMessages.AutoZoomToCurrentMapSize.message": "Auto Zoom to Map Size is now: {{value}}",
+  "consoleMessages.AnyButtonToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
+  "consoleMessages.HideUIWithCertainZoom.message": "Hide UI With Certain Zoom is now: {{value}}",
   "consoleMessages.resetUIAndZoom.message": "UI Level is now at : {{ui}}\nZoom Level is now at: {{zoom}}",
   "consoleMessages.resetZoom.message": "Zoom Level is now at: {{value}}",
   "consoleMessages.resetUI.message": "UI Level is now at : {{value}}"

@@ -45,5 +45,5 @@
   "miscellaneous.ZoomAndUIControlEverywhere.displayedName": "在任何地方缩放",
   "miscellaneous.ZoomAndUIControlEverywhere.tooltip": "在任何地方使用缩放功能。",
 
-  "hudMessages.HideUIWithCertainZoomIs.message": "“特定缩放隐藏UI界面”当前为：{{value}}。"
+  "hudMessages.HideUIWithCertainZoom.message": "“特定缩放隐藏UI界面”当前为：{{value}}。"
 }

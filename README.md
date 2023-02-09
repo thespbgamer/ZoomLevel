@@ -59,6 +59,7 @@ Here's what you can change:
   `KeybindListMaxZoomOrUI`                               | `null` aka **nothing**                                          | Key to Max the Zoom out or Maximize the UI.
   `KeybindListMinZoomOrUI`                               | `null` aka **nothing**                                          | Key to Max the Zoom in or Minimize the UI.
   `KeybindListZoomToCurrentMapSize`                      | `null` aka **nothing**                                          | Keybinds to change to zoom level to the approximate current map size.
+  `KeybindListPresetZoomAndUIValues`                     | `null` aka **nothing**                                          | Keybinds to change to zoom level and UI scale to the preset values.
   `KeybindListMovementCameraUp`                          | `null` aka **nothing**                                          | Keybinds to change the camera a bit up and locks it.
   `KeybindListMovementCameraDown`                        | `null` aka **nothing**                                          | Keybinds to change the camera a bit down and locks it.
   `KeybindListMovementCameraLeft`                        | `null` aka **nothing**                                          | Keybinds to change the camera a bit to the left and locks it.
@@ -68,6 +69,7 @@ Here's what you can change:
   `KeybindListToggleHideUIWithCertainZoom`               | `null` aka **nothing**                                          | Keybinds to hides the UI at a certain Zoom Level.
   `KeybindListToggleAnyKeyToResetCamera`                 | `null` aka **nothing**                                          | Keybinds to toggle the 'Any Button Resets Camera'.
   `KeybindListToggleAutoZoomToCurrentMapSize`            | `null` aka **nothing**                                          | Keybinds to toggle the 'Auto Zoom to Map Size'.
+  `TogglePresetOnLoadSaveFile`                           | `null` aka **nothing**                                          | Keybinds to toggle the 'PresetOnLoadSaveFile'.
   
   
 * Zoom, UI and Camera values:
@@ -81,6 +83,8 @@ Here's what you can change:
   `MinZoomOrUIValue`                 |  0.35 aka **35%**          | The value of the max Zoom out Level or Max UI.
   `ZoomLevelThatHidesUI`             |  0.35 aka **35%**          | The value of the Zoom level that hides the UI.
   `CameraMovementSpeedValue`         |  15                        | The speed that the camera moves.
+  `PresetZoomLevelValue`             |  0.86 aka **86%**          | The value of the preset Zoom level.
+  `PresetUIScaleValue`               |  0.75 aka **75%**          | The value of the preset UI Scale.
 
 * Other options:
 
@@ -90,7 +94,8 @@ Here's what you can change:
   `AutoZoomToCurrentMapSize`            | `false`         | If activated it auto zooms to map size.
   `AnyButtonToCenterCamera`             | `true`          | If activated any key you press will center the Camera.
   `HideUIWithCertainZoom`               | `false`         | If activated your UI hides when it reaches a certain zoom level.
-  `ZoomAndUIControlEverywhere`          | `false`         | If activated you can control your Zoom and UI Level anywhere.
+  `PresetOnLoadSaveFile`                | `false`         | If activated your UI hides when it reaches a certain zoom level.
+  `ZoomAndUIControlEverywhere`          | `false`         | If activated your preset values will update when the file loads with the values set on the value tabs.
 
 ## Compatibility
 ZoomLevel is compatible with Stardew Valley 1.5+ on Linux/Mac/Windows, both single-player, local co-op and multiplayer.

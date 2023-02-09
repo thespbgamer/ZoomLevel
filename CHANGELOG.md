@@ -14,7 +14,11 @@
     - reset_UI_and_Zoom (has optional parameters)
     - reset_UI (has optional parameters)
     - reset_Zoom (has optional parameters)
-
+- Presets
+     - Option to load a preset of UI Scale and Zoom Level
+         - Option to toggle the preset when the file is loaded
+         - Option to change the values of the UI Scale and Zoom Level
+        
 ### Improvements
 
 - Pages in the optional [Generic Mod Config Menu](https://www.nexusmods.com/stardewvalley/mods/5098)

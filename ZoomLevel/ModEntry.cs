@@ -64,6 +64,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListMaxZoomOrUI, (KeybindList val) => configsForTheMod.KeybindListMaxZoomOrUI = val, () => Helper.Translation.Get("keybinds.MaxZoomOrUI.displayedName"), () => Helper.Translation.Get("keybinds.MaxZoomOrUI.tooltip"));
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListMinZoomOrUI, (KeybindList val) => configsForTheMod.KeybindListMinZoomOrUI = val, () => Helper.Translation.Get("keybinds.MinZoomOrUI.displayedName"), () => Helper.Translation.Get("keybinds.MinZoomOrUI.tooltip"));
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListZoomToCurrentMapSize, (KeybindList val) => configsForTheMod.KeybindListZoomToCurrentMapSize = val, () => Helper.Translation.Get("keybinds.ZoomToCurrentMapSize.displayedName"), () => Helper.Translation.Get("keybinds.ZoomToCurrentMapSize.tooltip"));
+                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListPresetZoomAndUIValues, (KeybindList val) => configsForTheMod.KeybindListPresetZoomAndUIValues = val, () => Helper.Translation.Get("keybinds.PresetZoomAndUIValues.displayedName"), () => Helper.Translation.Get("keybinds.PresetZoomAndUIValues.tooltip"));
 
                 genericModConfigMenuAPI.AddSectionTitle(ModManifest, () => Helper.Translation.Get("keybinds.subtitle.camera.displayedName"), () => Helper.Translation.Get("keybinds.subtitle.camera.tooltip"));
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListMovementCameraUp, (KeybindList val) => configsForTheMod.KeybindListMovementCameraUp = val, () => Helper.Translation.Get("keybinds.MovementCameraUp.displayedName"), () => Helper.Translation.Get("keybinds.MovementCameraUp.tooltip"));
@@ -77,6 +78,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleHideUIWithCertainZoom, (KeybindList val) => configsForTheMod.KeybindListToggleHideUIWithCertainZoom = val, () => Helper.Translation.Get("keybinds.ToggleHideUIWithCertainZoom.displayedName"), () => Helper.Translation.Get("keybinds.ToggleHideUIWithCertainZoom.tooltip"));
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleAnyKeyToResetCamera, (KeybindList val) => configsForTheMod.KeybindListToggleAnyKeyToResetCamera = val, () => Helper.Translation.Get("keybinds.ToggleAnyKeyToResetCamera.displayedName"), () => Helper.Translation.Get("keybinds.ToggleAnyKeyToResetCamera.tooltip"));
                 genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListToggleAutoZoomToCurrentMapSize, (KeybindList val) => configsForTheMod.KeybindListToggleAutoZoomToCurrentMapSize = val, () => Helper.Translation.Get("keybinds.ToggleAutoZoomToCurrentMapSize.displayedName"), () => Helper.Translation.Get("keybinds.ToggleAutoZoomToCurrentMapSize.tooltip"));
+                genericModConfigMenuAPI.AddKeybindList(ModManifest, () => configsForTheMod.KeybindListTogglePresetOnLoadSaveFile, (KeybindList val) => configsForTheMod.KeybindListTogglePresetOnLoadSaveFile = val, () => Helper.Translation.Get("keybinds.TogglePresetOnLoadSaveFile.displayedName"), () => Helper.Translation.Get("keybinds.TogglePresetOnLoadSaveFile.tooltip"));
 
                 genericModConfigMenuAPI.AddPage(ModManifest, Helper.Translation.Get("pages.values.id"), () => Helper.Translation.Get("pages.values.pageTitle"));
                 genericModConfigMenuAPI.AddSectionTitle(ModManifest, () => Helper.Translation.Get("values.subtitle.main.displayedName"), () => Helper.Translation.Get("values.subtitle.main.tooltip"));
@@ -87,6 +89,8 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.MinZoomOrUIValue, (float val) => configsForTheMod.MinZoomOrUIValue = val, () => Helper.Translation.Get("values.MinZoomOrUIValue.displayedName"), () => Helper.Translation.Get("values.MinZoomOrUIValue.tooltip"), 0.15f, 1f, 0.01f, FormatPercentage);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.ZoomLevelThatHidesUI, (float val) => configsForTheMod.ZoomLevelThatHidesUI = val, () => Helper.Translation.Get("values.ZoomLevelThatHidesUI.displayedName"), () => Helper.Translation.Get("values.ZoomLevelThatHidesUI.tooltip"), 0.15f, 2.5f, 0.01f, FormatPercentage);
                 genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.CameraMovementSpeedValue, (int val) => configsForTheMod.CameraMovementSpeedValue = val, () => Helper.Translation.Get("values.CameraMovementSpeedValue.displayedName"), () => Helper.Translation.Get("values.CameraMovementSpeedValue.tooltip"), 5, 50, 1);
+                genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.PresetZoomLevelValue, (float val) => configsForTheMod.PresetZoomLevelValue = val, () => Helper.Translation.Get("values.PresetZoomLevelValue.displayedName"), () => Helper.Translation.Get("values.PresetZoomLevelValue.tooltip"), 0.15f, 2.5f, 0.01f, FormatPercentage);
+                genericModConfigMenuAPI.AddNumberOption(ModManifest, () => configsForTheMod.PresetUIScaleValue, (float val) => configsForTheMod.PresetUIScaleValue = val, () => Helper.Translation.Get("values.PresetUIScaleValue.displayedName"), () => Helper.Translation.Get("values.PresetUIScaleValue.tooltip"), 0.15f, 2.5f, 0.01f, FormatPercentage);
 
                 genericModConfigMenuAPI.AddPage(ModManifest, Helper.Translation.Get("pages.miscellaneous.id"), () => Helper.Translation.Get("pages.miscellaneous.pageTitle"));
 
@@ -95,6 +99,7 @@ namespace ZoomLevel
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.AutoZoomToCurrentMapSize, (bool val) => configsForTheMod.AutoZoomToCurrentMapSize = val, () => Helper.Translation.Get("miscellaneous.AutoZoomToCurrentMapSize.displayedName"), () => Helper.Translation.Get("miscellaneous.AutoZoomToCurrentMapSize.tooltip"));
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.AnyButtonToCenterCamera, (bool val) => configsForTheMod.AnyButtonToCenterCamera = val, () => Helper.Translation.Get("miscellaneous.AnyButtonToCenterCamera.displayedName"), () => Helper.Translation.Get("miscellaneous.AnyButtonToCenterCamera.tooltip"));
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.HideUIWithCertainZoom, (bool val) => configsForTheMod.HideUIWithCertainZoom = val, () => Helper.Translation.Get("miscellaneous.HideUIWithCertainZoom.displayedName"), () => Helper.Translation.Get("miscellaneous.HideUIWithCertainZoom.tooltip"));
+                genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.PresetOnLoadSaveFile, (bool val) => configsForTheMod.PresetOnLoadSaveFile = val, () => Helper.Translation.Get("miscellaneous.PresetOnLoadSaveFile.displayedName"), () => Helper.Translation.Get("miscellaneous.PresetOnLoadSaveFile.tooltip"));
                 genericModConfigMenuAPI.AddBoolOption(ModManifest, () => configsForTheMod.ZoomAndUIControlEverywhere, (bool val) => configsForTheMod.ZoomAndUIControlEverywhere = val, () => Helper.Translation.Get("miscellaneous.ZoomAndUIControlEverywhere.displayedName"), () => Helper.Translation.Get("miscellaneous.ZoomAndUIControlEverywhere.tooltip"));
             }
         }
@@ -110,6 +115,11 @@ namespace ZoomLevel
             if (configsForTheMod.AutoZoomToCurrentMapSize == true)
             {
                 ChangeZoomLevelToCurrentMapSize();
+            }
+
+            if (configsForTheMod.PresetOnLoadSaveFile == true)
+            {
+                PresetZoomAndUIValues();
             }
         }
 
@@ -196,6 +206,10 @@ namespace ZoomLevel
                     UpdateUIScale(configsForTheMod.MinZoomOrUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
+                else if (configsForTheMod.KeybindListPresetZoomAndUIValues.JustPressed())
+                {
+                    PresetZoomAndUIValues();
+                }
                 else if (configsForTheMod.KeybindListToggleUIVisibility.JustPressed())
                 {
                     wasToggleUIScaleClicked = true;
@@ -206,6 +220,10 @@ namespace ZoomLevel
                 {
                     ToggleHideWithUIWithCertainZoom();
                     wasThePreviousButtonPressSucessfull = true;
+                }
+                else if (configsForTheMod.KeybindListTogglePresetOnLoadSaveFile.JustPressed())
+                {
+                    TogglePresetOnLoadSaveFile();
                 }
                 else if (configsForTheMod.KeybindListZoomToCurrentMapSize.JustPressed())
                 {
@@ -235,18 +253,22 @@ namespace ZoomLevel
             }
             else if (configsForTheMod.KeybindListResetZoomOrUI.JustPressed())
             {
-                UpdateZoomValue(configsForTheMod.ResetZoomOrUIValue);
+                UpdateZoomLevel(configsForTheMod.ResetZoomOrUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
             {
-                UpdateZoomValue(configsForTheMod.MaxZoomOrUIValue);
+                UpdateZoomLevel(configsForTheMod.MaxZoomOrUIValue);
                 wasThePreviousButtonPressSucessfull = true;
             }
             else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
             {
-                UpdateZoomValue(configsForTheMod.MinZoomOrUIValue);
+                UpdateZoomLevel(configsForTheMod.MinZoomOrUIValue);
                 wasThePreviousButtonPressSucessfull = true;
+            }
+            else if (configsForTheMod.KeybindListPresetZoomAndUIValues.JustPressed())
+            {
+                PresetZoomAndUIValues();
             }
             else if (configsForTheMod.KeybindListToggleUIVisibility.JustPressed())
             {
@@ -266,6 +288,10 @@ namespace ZoomLevel
             else if (configsForTheMod.KeybindListToggleAutoZoomToCurrentMapSize.JustPressed())
             {
                 ToggleAutoZoomMap();
+            }
+            else if (configsForTheMod.KeybindListTogglePresetOnLoadSaveFile.JustPressed())
+            {
+                TogglePresetOnLoadSaveFile();
             }
             else if (configsForTheMod.KeybindListZoomToCurrentMapSize.JustPressed())
             {
@@ -292,19 +318,19 @@ namespace ZoomLevel
         private void ToggleAutoZoomMap()
         {
             configsForTheMod.AutoZoomToCurrentMapSize = !configsForTheMod.AutoZoomToCurrentMapSize;
-            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.AutoZoomToMapSize.message", new { value = configsForTheMod.AutoZoomToCurrentMapSize.ToString() }), HUDMessage.newQuest_type));
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.AutoZoomToCurrentMapSize.message", new { value = configsForTheMod.AutoZoomToCurrentMapSize.ToString() }), HUDMessage.newQuest_type));
         }
 
         private void TogglePressAnyKeyToResetCamera()
         {
             configsForTheMod.AnyButtonToCenterCamera = !configsForTheMod.AnyButtonToCenterCamera;
-            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.PressAnyKeyToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), HUDMessage.newQuest_type));
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.AnyButtonToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), HUDMessage.newQuest_type));
         }
 
         private void ToggleHideWithUIWithCertainZoom()
         {
             configsForTheMod.HideUIWithCertainZoom = !configsForTheMod.HideUIWithCertainZoom;
-            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), HUDMessage.newQuest_type));
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.HideUIWithCertainZoom.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), HUDMessage.newQuest_type));
         }
 
         private void ToggleUIScale()
@@ -338,6 +364,18 @@ namespace ZoomLevel
             }
         }
 
+        private void TogglePresetOnLoadSaveFile()
+        {
+            configsForTheMod.PresetOnLoadSaveFile = !configsForTheMod.PresetOnLoadSaveFile;
+            Game1.addHUDMessage(new HUDMessage(Helper.Translation.Get("hudMessages.PresetOnLoadSaveFile.message", new { value = configsForTheMod.PresetOnLoadSaveFile.ToString() }), HUDMessage.newQuest_type));
+        }
+
+        private void PresetZoomAndUIValues()
+        {
+            UpdateUIScale(configsForTheMod.PresetUIScaleValue);
+            UpdateZoomLevel(configsForTheMod.PresetZoomLevelValue);
+        }
+
         private void ChangeZoomLevelToCurrentMapSize()
         {
             if (Game1.currentLocation != null)
@@ -355,25 +393,26 @@ namespace ZoomLevel
                 {
                     zoomLevel = (float)screenHeight / (float)mapHeight;
                 }
-                UpdateZoomValue(zoomLevel);
+
+                UpdateZoomLevel(zoomLevel);
             }
         }
 
-        private void ChangeZoomLevel(float amount = 0)
+        private void ChangeZoomLevel(float amountToAdd = 0)
         {
-            float zoomLevelValue = (float)Math.Round(Game1.options.desiredBaseZoomLevel + amount, 2);
+            float zoomLevelValue = (float)Math.Round(Game1.options.desiredBaseZoomLevel + amountToAdd, 2);
 
-            UpdateZoomValue(zoomLevelValue);
+            UpdateZoomLevel(zoomLevelValue);
         }
 
-        private void ChangeUIScale(float amount = 0)
+        private void ChangeUIScale(float amountToAdd = 0)
         {
-            float uiScale = (float)Math.Round(Game1.options.desiredUIScale + amount, 2);
+            float uiScale = (float)Math.Round(Game1.options.desiredUIScale + amountToAdd, 2);
 
             UpdateUIScale(uiScale);
         }
 
-        private void UpdateZoomValue(float zoomLevelValue)
+        private void UpdateZoomLevel(float zoomLevelValue)
         {
             //Caps Max Zoom In Level
             zoomLevelValue = zoomLevelValue >= configsForTheMod.MaxZoomOrUIValue ? configsForTheMod.MaxZoomOrUIValue : zoomLevelValue;
@@ -382,7 +421,7 @@ namespace ZoomLevel
             zoomLevelValue = zoomLevelValue <= configsForTheMod.MinZoomOrUIValue ? configsForTheMod.MinZoomOrUIValue : zoomLevelValue;
 
             //Changes ZoomLevel
-            Game1.options.desiredBaseZoomLevel = zoomLevelValue;
+            Game1.options.desiredBaseZoomLevel = (float)Math.Round(zoomLevelValue, 2);
 
             currentZoomLevel = Game1.options.desiredBaseZoomLevel;
             wasZoomLevelChanged = true;
@@ -424,17 +463,17 @@ namespace ZoomLevel
             else if (command.ToLower() == Helper.Translation.Get("consoleCommands.toggleAutoZoomMap.name"))
             {
                 this.ToggleAutoZoomMap();
-                this.Monitor.Log(Helper.Translation.Get("consoleMessages.AutoZoomToMapSize.message", new { value = configsForTheMod.AutoZoomToCurrentMapSize.ToString() }), LogLevel.Info);
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.AutoZoomToCurrentMapSize.message", new { value = configsForTheMod.AutoZoomToCurrentMapSize.ToString() }), LogLevel.Info);
             }
             else if (command.ToLower() == Helper.Translation.Get("consoleCommands.togglePressAnyKeyToResetCamera.name"))
             {
                 this.TogglePressAnyKeyToResetCamera();
-                this.Monitor.Log(Helper.Translation.Get("consoleMessages.PressAnyKeyToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), LogLevel.Info);
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.AnyButtonToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), LogLevel.Info);
             }
             else if (command.ToLower() == Helper.Translation.Get("consoleCommands.toggleHideWithUIWithCertainZoom.name"))
             {
                 this.ToggleHideWithUIWithCertainZoom();
-                this.Monitor.Log(Helper.Translation.Get("consoleMessages.HideUIWithCertainZoomIs.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), LogLevel.Info);
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.HideUIWithCertainZoom.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), LogLevel.Info);
             }
             else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetUIAndZoom.name"))
             {
@@ -451,7 +490,7 @@ namespace ZoomLevel
                 }
 
                 UpdateUIScale(uiScaleValue);
-                UpdateZoomValue(zoomLevelValue);
+                UpdateZoomLevel(zoomLevelValue);
                 this.Monitor.Log(Helper.Translation.Get("consoleMessages.resetUIAndZoom.message", new { ui = currentUIScale.ToString(), zoom = currentZoomLevel.ToString() }), LogLevel.Info);
             }
             else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetUI.name"))
@@ -474,7 +513,7 @@ namespace ZoomLevel
                     zoomLevelValue = zoomCustomLevel;
                 }
 
-                UpdateZoomValue(zoomLevelValue);
+                UpdateZoomLevel(zoomLevelValue);
                 this.Monitor.Log(Helper.Translation.Get("consoleMessages.resetZoom.message", new { value = currentZoomLevel.ToString() }), LogLevel.Info);
             }
         }
