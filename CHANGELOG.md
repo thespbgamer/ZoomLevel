@@ -7,10 +7,10 @@
 - Toggle Any Key Reset Camera 
 - Toggle Auto Zoom
 - Console commands in some functions
-    - zoom_Level_List
     - toggle_Auto_Zoom_Map
     - toggle_Press_Any_Key_To_Reset_Camera
     - toggle_Hide_With_UI_With_Certain_Zoom
+    - toggle_Preset_On_Load_Save_File
     - reset_UI_and_Zoom (has optional parameters)
     - reset_UI (has optional parameters)
     - reset_Zoom (has optional parameters)

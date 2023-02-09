@@ -30,10 +30,10 @@ Here's what you can do:
 
   Command Name                                           | Optional Parameter(s)										   | Description
   :----------------------------------------------------- | :-------------------------------------------------------------- | :-----------------------------------------------
-  `zoom_Level_List`										 | `null` aka **nothing**										   | Shows all the ZoomLevel console commands.
   `toggle_Auto_Zoom_Map`								 | `null` aka **nothing**										   | Toggles the 'AutoZoomMap'.
   `toggle_Press_Any_Key_To_Reset_Camera`                 | `null` aka **nothing**										   | Toggles the 'PressAnyKeyToResetCamera'.
   `toggle_Hide_With_UI_With_Certain_Zoom`                | `null` aka **nothing**                                          | Toggles the 'HideWithUIWithCertainZoom'.
+  `toggle_Preset_On_Load_Save_File`                      | `null` aka **nothing**                                          | Toggles the 'PresetOnLoadSaveFile'.
   `reset_UI_and_Zoom`									 | `UIScale and zoomLevel` example **reset_UI_and_Zoom 0.90 0.75** | Resets the zoom and UI levels back to the default game values. Optional parameters are UI and Zoom values (in that order).
   `reset_UI`											 | `UIScale` example **reset_UI 0.90**                             | Resets the UI scale. Optional parameter is the UI Scale value.
   `reset_Zoom`											 | `zoomLevel` example **reset_Zoom 0.75**                         | Resets the Zoom Level. Optional parameter is the Zoom Level value.

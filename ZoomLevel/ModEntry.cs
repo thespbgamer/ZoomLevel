@@ -32,10 +32,10 @@ namespace ZoomLevel
             helper.Events.Player.Warped += this.Events_Player_Warped;
             helper.Events.GameLoop.SaveLoaded += this.Events_GameLoop_SaveLoaded;
 
-            helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.zoomLevelList.name"), Helper.Translation.Get("consoleCommands.zoomLevelList.description"), this.ConsoleFunctionsList);
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.toggleAutoZoomMap.name"), Helper.Translation.Get("consoleCommands.toggleAutoZoomMap.description"), this.ConsoleFunctionsList);
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.togglePressAnyKeyToResetCamera.name"), Helper.Translation.Get("consoleCommands.togglePressAnyKeyToResetCamera.description"), this.ConsoleFunctionsList);
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.toggleHideWithUIWithCertainZoom.name"), Helper.Translation.Get("consoleCommands.toggleHideWithUIWithCertainZoom.description"), this.ConsoleFunctionsList);
+            helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.togglePresetOnLoadSaveFile.name"), Helper.Translation.Get("consoleCommands.togglePresetOnLoadSaveFile.description"), this.ConsoleFunctionsList);
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.resetUIAndZoom.name"), Helper.Translation.Get("consoleCommands.resetUIAndZoom.description"), this.ConsoleFunctionsList);
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.resetUI.name"), Helper.Translation.Get("consoleCommands.resetUI.description"), this.ConsoleFunctionsList);
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.resetZoom.name"), Helper.Translation.Get("consoleCommands.resetZoom.description"), this.ConsoleFunctionsList);
@@ -456,26 +456,27 @@ namespace ZoomLevel
 
         private void ConsoleFunctionsList(string command, string[] args)
         {
-            if (command.ToLower() == Helper.Translation.Get("consoleCommands.zoomLevelList.name"))
-            {
-                this.Monitor.Log(Helper.Translation.Get("consoleMessages.listingOfCommands.message"), LogLevel.Info);
-            }
-            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.toggleAutoZoomMap.name"))
+            if (command.ToLower() == Helper.Translation.Get("consoleCommands.toggleAutoZoomMap.name").ToString().ToLower())
             {
                 this.ToggleAutoZoomMap();
                 this.Monitor.Log(Helper.Translation.Get("consoleMessages.AutoZoomToCurrentMapSize.message", new { value = configsForTheMod.AutoZoomToCurrentMapSize.ToString() }), LogLevel.Info);
             }
-            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.togglePressAnyKeyToResetCamera.name"))
+            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.togglePressAnyKeyToResetCamera.name").ToString().ToLower())
             {
                 this.TogglePressAnyKeyToResetCamera();
                 this.Monitor.Log(Helper.Translation.Get("consoleMessages.AnyButtonToCenterCamera.message", new { value = configsForTheMod.AnyButtonToCenterCamera.ToString() }), LogLevel.Info);
             }
-            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.toggleHideWithUIWithCertainZoom.name"))
+            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.toggleHideWithUIWithCertainZoom.name").ToString().ToLower())
             {
                 this.ToggleHideWithUIWithCertainZoom();
                 this.Monitor.Log(Helper.Translation.Get("consoleMessages.HideUIWithCertainZoom.message", new { value = configsForTheMod.HideUIWithCertainZoom.ToString() }), LogLevel.Info);
             }
-            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetUIAndZoom.name"))
+            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.togglePresetOnLoadSaveFile.name").ToString().ToLower())
+            {
+                this.TogglePresetOnLoadSaveFile();
+                this.Monitor.Log(Helper.Translation.Get("consoleMessages.PresetOnLoadSaveFile.message", new { value = configsForTheMod.PresetOnLoadSaveFile.ToString() }), LogLevel.Info);
+            }
+            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetUIAndZoom.name").ToString().ToLower())
             {
                 float uiScaleValue = 1f;
                 float zoomLevelValue = 1f;
@@ -493,7 +494,7 @@ namespace ZoomLevel
                 UpdateZoomLevel(zoomLevelValue);
                 this.Monitor.Log(Helper.Translation.Get("consoleMessages.resetUIAndZoom.message", new { ui = currentUIScale.ToString(), zoom = currentZoomLevel.ToString() }), LogLevel.Info);
             }
-            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetUI.name"))
+            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetUI.name").ToString().ToLower())
             {
                 float uiScaleValue = 1f;
 
@@ -505,7 +506,7 @@ namespace ZoomLevel
                 UpdateUIScale(uiScaleValue);
                 this.Monitor.Log(Helper.Translation.Get("consoleMessages.resetUI.message", new { value = currentUIScale.ToString() }), LogLevel.Info);
             }
-            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetZoom.name"))
+            else if (command.ToLower() == Helper.Translation.Get("consoleCommands.resetZoom.name").ToString().ToLower())
             {
                 float zoomLevelValue = 1f;
                 if (args.Length > 0 && float.TryParse(args[0], out float zoomCustomLevel))

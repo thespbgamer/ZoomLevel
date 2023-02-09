@@ -101,14 +101,14 @@
   "hudMessages.HideUIWithCertainZoom.message": "Hide UI With Certain Zoom is now: {{value}}",
   "hudMessages.PresetOnLoadSaveFile.message": "Preset On Load Save File is now: {{value}}",
 
-  "consoleCommands.zoomLevelList.name": "zoom_Level_List",
-  "consoleCommands.zoomLevelList.description": "\nUsage: zoom_Level_List",
   "consoleCommands.toggleAutoZoomMap.name": "toggle_Auto_Zoom_Map",
   "consoleCommands.toggleAutoZoomMap.description": "\nUsage: toggle_Auto_Zoom_Map",
   "consoleCommands.togglePressAnyKeyToResetCamera.name": "toggle_Press_Any_Key_To_Reset_Camera",
   "consoleCommands.togglePressAnyKeyToResetCamera.description": "\nUsage: toggle_Press_Any_Key_To_Reset_Camera",
   "consoleCommands.toggleHideWithUIWithCertainZoom.name": "toggle_Hide_With_UI_With_Certain_Zoom",
   "consoleCommands.toggleHideWithUIWithCertainZoom.description": "\nUsage: toggle_Hide_With_UI_With_Certain_Zoom",
+  "consoleCommands.togglePresetOnLoadSaveFile.name": "toggle_Preset_On_Load_Save_File",
+  "consoleCommands.togglePresetOnLoadSaveFile.description": "\nUsage: toggle_Preset_On_Load_Save_File",
   "consoleCommands.resetUIAndZoom.name": "reset_UI_and_Zoom",
   "consoleCommands.resetUIAndZoom.description": "\nUsage: reset_UI_and_Zoom <ui> <zoom>\n- ui: the decimal value UI scale.\n- zoom: the decimal value zoom level.",
   "consoleCommands.resetUI.name": "reset_UI",
@@ -116,10 +116,10 @@
   "consoleCommands.resetZoom.name": "reset_Zoom",
   "consoleCommands.reset_Zoom.description": "\nUsage: reset_Zoom <zoom>\n- zoom: the decimal value zoom level.",
 
-  "consoleMessages.listingOfCommands.message": "\nzoom_Level_List → Shows all the ZoomLevel console commands.\n\ntoggle_Auto_Zoom_Map → Toggles the 'AutoZoomMap'.\n\ntoggle_Press_Any_Key_To_Reset_Camera → Toggles the 'PressAnyKeyToResetCamera'.\n\ntoggle_Hide_With_UI_With_Certain_Zoom → Toggles the 'HideWithUIWithCertainZoom'.\n\nreset_UI_and_Zoom → Resets the zoom and UI levels back to the default game values.\nOptional parameters UI and Zoom values (in that order).\n\nreset_UI → Resets the UI scale.\nOptional parameter is the UI Scale value.\n\nreset_Zoom → Resets the Zoom Level.\nOptional parameter is the Zoom Level value.",
   "consoleMessages.AutoZoomToCurrentMapSize.message": "Auto Zoom to Map Size is now: {{value}}",
   "consoleMessages.AnyButtonToCenterCamera.message": "Press Any Key to center camera is now: {{value}}",
   "consoleMessages.HideUIWithCertainZoom.message": "Hide UI With Certain Zoom is now: {{value}}",
+  "consoleMessages.PresetOnLoadSaveFile.message": "Preset On Load Save File is now: {{value}}",
   "consoleMessages.resetUIAndZoom.message": "UI Level is now at : {{ui}}\nZoom Level is now at: {{zoom}}",
   "consoleMessages.resetZoom.message": "Zoom Level is now at: {{value}}",
   "consoleMessages.resetUI.message": "UI Level is now at : {{value}}"
