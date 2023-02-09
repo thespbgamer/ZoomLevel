@@ -421,7 +421,7 @@ namespace ZoomLevel
             zoomLevelValue = zoomLevelValue <= configsForTheMod.MinZoomOrUIValue ? configsForTheMod.MinZoomOrUIValue : zoomLevelValue;
 
             //Changes ZoomLevel
-            Game1.options.desiredBaseZoomLevel = (float)Math.Round(zoomLevelValue, 2);
+            Game1.options.desiredBaseZoomLevel = RoundUp(zoomLevelValue, 2);
 
             currentZoomLevel = Game1.options.desiredBaseZoomLevel;
             wasZoomLevelChanged = true;
@@ -452,6 +452,12 @@ namespace ZoomLevel
         private string FormatPercentage(float val)
         {
             return $"{val:0.#%}";
+        }
+
+        public static float RoundUp(float input, int places)
+        {
+            float multiplier = (float)Math.Pow(10, Convert.ToDouble(places));
+            return (float)(Math.Ceiling(input * multiplier) / multiplier);
         }
 
         private void ConsoleFunctionsList(string command, string[] args)
