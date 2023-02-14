@@ -1,6 +1,6 @@
 # Full Changelog
 
-## [Unreleased] - ????-??-??
+## [2.1.0] - 2023-02-14
 
 ### Added
 
@@ -220,7 +220,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.0.1...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.1.0...HEAD
+[2.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.1.0
 [2.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.1
 [2.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.0
 [1.15.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/1.15.0
