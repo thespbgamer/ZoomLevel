@@ -2,11 +2,30 @@
 
   <PropertyGroup>
 	  <TargetFramework>net5.0</TargetFramework>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <AnalysisLevel>latest</AnalysisLevel>
+	  <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>9999</WarningLevel>
+    <NoWarn />
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <WarningLevel>9999</WarningLevel>
+    <NoWarn />
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\CHANGELOG.md" Link="CHANGELOG.md" />
-		<None Include="..\README.md" Link="README.md" />
+		<None Include="..\README.md" Link="README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
   <ItemGroup>

@@ -9,7 +9,7 @@ namespace ZoomLevel
 {
     public class ModEntry : Mod
     {
-        private ModConfig configsForTheMod;
+        private ModConfig configsForTheMod = new();
 
         private bool wasThePreviousButtonPressSucessfull;
         private bool wasToggleUIScaleClicked;
@@ -41,7 +41,7 @@ namespace ZoomLevel
             helper.ConsoleCommands.Add(Helper.Translation.Get("consoleCommands.resetZoom.name"), Helper.Translation.Get("consoleCommands.resetZoom.description"), this.ConsoleFunctionsList);
         }
 
-        private void Events_GameLoop_GameLaunched(object sender, GameLaunchedEventArgs e)
+        private void Events_GameLoop_GameLaunched(object? sender, GameLaunchedEventArgs e)
         {
             var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<IGenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
 
@@ -104,7 +104,7 @@ namespace ZoomLevel
             }
         }
 
-        private void Events_GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e)
+        private void Events_GameLoop_SaveLoaded(object? sender, SaveLoadedEventArgs e)
         {
             uiScaleBeforeHiddingTheUI = Game1.options.desiredUIScale;
             wasThePreviousButtonPressSucessfull = false;
@@ -123,7 +123,7 @@ namespace ZoomLevel
             }
         }
 
-        private void Events_Player_Warped(object sender, WarpedEventArgs e)
+        private void Events_Player_Warped(object? sender, WarpedEventArgs e)
         {
             if (configsForTheMod.AutoZoomToCurrentMapSize == true)
             {
@@ -131,7 +131,7 @@ namespace ZoomLevel
             }
         }
 
-        private void Events_Input_ButtonChanged(object sender, ButtonsChangedEventArgs e)
+        private void Events_Input_ButtonChanged(object? sender, ButtonsChangedEventArgs e)
         {
             if (configsForTheMod.KeybindListMovementCameraUp.IsDown() && !configsForTheMod.KeybindListMovementCameraDown.IsDown())
             {
@@ -171,7 +171,7 @@ namespace ZoomLevel
             }
         }
 
-        private void Events_Input_ButtonPressed(object sender, ButtonPressedEventArgs e)
+        private void Events_Input_ButtonPressed(object? sender, ButtonPressedEventArgs e)
         {
             if (!Context.IsWorldReady || (!Context.IsPlayerFree && !configsForTheMod.ZoomAndUIControlEverywhere)) { return; }
 
