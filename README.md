@@ -15,7 +15,7 @@
 - [Installation](#installation)
 - [Console Commands](#console-commands)
   - [In-game settings](#in-game-settings)
-- [Configure](#configure)
+- [Configuration](#configuration)
   - [In-game settings](#in-game-settings-1)
   - [`config.json` file](#configjson-file)
 - [Compatibility](#compatibility)
@@ -47,7 +47,7 @@ Here's what you can do:
 | `reset_UI`                              | `UIScale` example **reset_UI 0.90**                             | Resets the UI scale. Optional parameter is the UI Scale value.                                                             |
 | `reset_Zoom`                            | `zoomLevel` example **reset_Zoom 0.75**                         | Resets the Zoom Level. Optional parameter is the Zoom Level value.                                                         |
 
-## Configure
+## Configuration
 
 ### In-game settings
 
