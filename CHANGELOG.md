@@ -4,25 +4,24 @@
 
 ### Added
 
-- Toggle Any Key Reset Camera 
+- Toggle Any Key Reset Camera
 - Toggle Auto Zoom
 - Console commands in some functions
-    - toggle_Auto_Zoom_Map
-    - toggle_Press_Any_Key_To_Reset_Camera
-    - toggle_Hide_With_UI_With_Certain_Zoom
-    - toggle_Preset_On_Load_Save_File
-    - reset_UI_and_Zoom (has optional parameters)
-    - reset_UI (has optional parameters)
-    - reset_Zoom (has optional parameters)
+  - toggle_Auto_Zoom_Map
+  - toggle_Press_Any_Key_To_Reset_Camera
+  - toggle_Hide_With_UI_With_Certain_Zoom
+  - toggle_Preset_On_Load_Save_File
+  - reset_UI_and_Zoom (has optional parameters)
+  - reset_UI (has optional parameters)
+  - reset_Zoom (has optional parameters)
 - Preset
-     - Option to load a preset of UI Scale and Zoom Level
-         - Option to toggle the preset when the file is loaded
-         - Option to change the values of the UI Scale and Zoom Level
-        
+  - Option to load a preset of UI Scale and Zoom Level
+    - Option to toggle the preset when the file is loaded
+    - Option to change the values of the UI Scale and Zoom Level
+
 ### Improvements
 
 - Pages in the optional [Generic Mod Config Menu](https://www.nexusmods.com/stardewvalley/mods/5098)
-
 
 ### Changed
 
@@ -41,7 +40,6 @@
 
 - Camera movement issues with some mods
 
-
 ## [2.0.0] - 2023-02-01
 
 ### Added
@@ -57,7 +55,6 @@
 
 - UI not showing up when using the 'Reset UI' option with the option 'Hide UI at a certain zoom level' enabled
 
-
 ## [1.14.0] - 2023-01-21
 
 ### Added
@@ -67,7 +64,6 @@
 ### Changed
 
 - Minimum SMAPI version to 3.18.1
-
 
 ## [1.13.0] - 2022-07-24
 
@@ -92,7 +88,6 @@
 ### Improvements
 
 - Major code optimizations
-
 
 ## [1.11.0] - 2022-02-23
 
@@ -120,7 +115,7 @@
 
 - Config variable names
 
-### Improvements 
+### Improvements
 
 - Updated API for the optional Generic Mod Config Menu → [Here](https://www.nexusmods.com/stardewvalley/mods/5098)
 - README file
@@ -131,7 +126,7 @@
 
 ## [1.8.0] - 2022-01-25
 
-### Improvements 
+### Improvements
 
 - Added support for the new API version
 
