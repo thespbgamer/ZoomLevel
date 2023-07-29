@@ -29,7 +29,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-	<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.0" />
+	<PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
   </ItemGroup>
 
 </Project>
