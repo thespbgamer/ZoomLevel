@@ -1,5 +1,12 @@
 # Full Changelog
 
+## [2.2.0] - 2023-07-30
+
+### Improvements
+
+- Updated dependencies and removed deprecated files
+- Embedded `.pdb` data into the DLL, which fixes error line numbers in Linux/macOS logs (thanks to [Pathoschild](https://github.com/Pathoschild))
+
 ## [2.1.0] - 2023-02-14
 
 ### Added
@@ -69,15 +76,15 @@
 
 ### Added
 
-- Chinese simplified translations (thanks to Becks723)
+- Chinese simplified translations (thanks to [Becks723](https://github.com/Becks723))
 
 ### Improvements
 
-- Display values for the optional [Generic Mod Config Menu](https://www.nexusmods.com/stardewvalley/mods/5098) (thanks to Becks723)
+- Display values for the optional [Generic Mod Config Menu](https://www.nexusmods.com/stardewvalley/mods/5098) (thanks to [Becks723](https://github.com/Becks723))
 
 ### Fixed
 
-- Some text typos (thanks to Becks723)
+- Some text typos (thanks to [Becks723](https://github.com/Becks723))
 
 ## [1.12.0] - 2022-07-20
 
