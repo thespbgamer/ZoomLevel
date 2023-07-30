@@ -223,6 +223,7 @@
 - Initial release
 
 [Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.1.0...HEAD
+[2.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.2.0
 [2.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.1.0
 [2.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.1
 [2.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.0
