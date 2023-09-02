@@ -46,6 +46,11 @@ namespace ZoomLevel
 
         private void Events_GameLoop_GameLaunched(object? sender, GameLaunchedEventArgs e)
         {
+            MakeMenusInGenericModMenu();
+        }
+
+        private void MakeMenusInGenericModMenu()
+        {
             var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<IGenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
 
             if (genericModConfigMenuAPI != null)
@@ -184,29 +189,34 @@ namespace ZoomLevel
 
             if (configsForTheMod.KeybindListHoldToChangeUI.IsDown())
             {
+                HandleUI();
+            }
+
+            if (wasThePreviousButtonPressSucessfull == false)
+            {
                 if (configsForTheMod.KeybindListIncreaseZoomOrUI.JustPressed())
                 {
-                    ChangeUIScale(configsForTheMod.ZoomOrUILevelIncreaseValue);
+                    ChangeZoomLevel(configsForTheMod.ZoomOrUILevelIncreaseValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListDecreaseZoomOrUI.JustPressed())
                 {
-                    ChangeUIScale(configsForTheMod.ZoomOrUILevelDecreaseValue);
+                    ChangeZoomLevel(configsForTheMod.ZoomOrUILevelDecreaseValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListResetZoomOrUI.JustPressed())
                 {
-                    UpdateUIScale(configsForTheMod.ResetZoomOrUIValue);
+                    UpdateZoomLevel(configsForTheMod.ResetZoomOrUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
                 {
-                    UpdateUIScale(configsForTheMod.MaxZoomOrUIValue);
+                    UpdateZoomLevel(configsForTheMod.MaxZoomOrUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
                 {
-                    UpdateUIScale(configsForTheMod.MinZoomOrUIValue);
+                    UpdateZoomLevel(configsForTheMod.MinZoomOrUIValue);
                     wasThePreviousButtonPressSucessfull = true;
                 }
                 else if (configsForTheMod.KeybindListPresetZoomAndUIValues.JustPressed())
@@ -224,6 +234,14 @@ namespace ZoomLevel
                     ToggleHideWithUIWithCertainZoom();
                     wasThePreviousButtonPressSucessfull = true;
                 }
+                else if (configsForTheMod.KeybindListToggleAnyKeyToResetCamera.JustPressed())
+                {
+                    TogglePressAnyKeyToResetCamera();
+                }
+                else if (configsForTheMod.KeybindListToggleAutoZoomToCurrentMapSize.JustPressed())
+                {
+                    ToggleAutoZoomMap();
+                }
                 else if (configsForTheMod.KeybindListTogglePresetOnLoadSaveFile.JustPressed())
                 {
                     TogglePresetOnLoadSaveFile();
@@ -237,84 +255,49 @@ namespace ZoomLevel
                 {
                     //Do nothing
                 }
-                else if (wasCameraFrozen == true && Game1.viewportFreeze == true && (configsForTheMod.KeybindListMovementCameraReset.JustPressed() == true || configsForTheMod.AnyButtonToCenterCamera == true))
+                else if (wasCameraFrozen == true && Game1.viewportFreeze == true && (configsForTheMod.KeybindListMovementCameraReset.JustPressed() == true || (configsForTheMod.AnyButtonToCenterCamera == true)))
                 {
-                    wasCameraFrozen = false;
-                    Game1.viewportFreeze = false;
-                    wasThePreviousButtonPressSucessfull = true;
+                    if (!configsForTheMod.KeybindListHoldToChangeUI.JustPressed() && !configsForTheMod.KeybindListHoldToChangeUI.IsDown())
+                    {
+                        wasCameraFrozen = false;
+                        Game1.viewportFreeze = false;
+                        wasThePreviousButtonPressSucessfull = true;
+                    }
                 }
-            }
-            else if (configsForTheMod.KeybindListIncreaseZoomOrUI.JustPressed())
-            {
-                ChangeZoomLevel(configsForTheMod.ZoomOrUILevelIncreaseValue);
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListDecreaseZoomOrUI.JustPressed())
-            {
-                ChangeZoomLevel(configsForTheMod.ZoomOrUILevelDecreaseValue);
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListResetZoomOrUI.JustPressed())
-            {
-                UpdateZoomLevel(configsForTheMod.ResetZoomOrUIValue);
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
-            {
-                UpdateZoomLevel(configsForTheMod.MaxZoomOrUIValue);
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
-            {
-                UpdateZoomLevel(configsForTheMod.MinZoomOrUIValue);
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListPresetZoomAndUIValues.JustPressed())
-            {
-                PresetZoomAndUIValues();
-            }
-            else if (configsForTheMod.KeybindListToggleUIVisibility.JustPressed())
-            {
-                wasToggleUIScaleClicked = true;
-                ToggleUIScale();
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListToggleHideUIWithCertainZoom.JustPressed())
-            {
-                ToggleHideWithUIWithCertainZoom();
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListToggleAnyKeyToResetCamera.JustPressed())
-            {
-                TogglePressAnyKeyToResetCamera();
-            }
-            else if (configsForTheMod.KeybindListToggleAutoZoomToCurrentMapSize.JustPressed())
-            {
-                ToggleAutoZoomMap();
-            }
-            else if (configsForTheMod.KeybindListTogglePresetOnLoadSaveFile.JustPressed())
-            {
-                TogglePresetOnLoadSaveFile();
-            }
-            else if (configsForTheMod.KeybindListZoomToCurrentMapSize.JustPressed())
-            {
-                ChangeZoomLevelToCurrentMapSize();
-                wasThePreviousButtonPressSucessfull = true;
-            }
-            else if (configsForTheMod.KeybindListMovementCameraUp.JustPressed() || configsForTheMod.KeybindListMovementCameraDown.JustPressed() || configsForTheMod.KeybindListMovementCameraLeft.JustPressed() || configsForTheMod.KeybindListMovementCameraRight.JustPressed())
-            {
-                //Do nothing
-            }
-            else if (wasCameraFrozen == true && Game1.viewportFreeze == true && (configsForTheMod.KeybindListMovementCameraReset.JustPressed() == true || configsForTheMod.AnyButtonToCenterCamera == true))
-            {
-                wasCameraFrozen = false;
-                Game1.viewportFreeze = false;
-                wasThePreviousButtonPressSucessfull = true;
             }
 
             if (configsForTheMod.SuppressControllerButtons == true && wasThePreviousButtonPressSucessfull == true)
             {
                 Helper.Input.Suppress(e.Button);
+            }
+        }
+
+        private void HandleUI()
+        {
+            if (configsForTheMod.KeybindListIncreaseZoomOrUI.JustPressed())
+            {
+                ChangeUIScale(configsForTheMod.ZoomOrUILevelIncreaseValue);
+                wasThePreviousButtonPressSucessfull = true;
+            }
+            else if (configsForTheMod.KeybindListDecreaseZoomOrUI.JustPressed())
+            {
+                ChangeUIScale(configsForTheMod.ZoomOrUILevelDecreaseValue);
+                wasThePreviousButtonPressSucessfull = true;
+            }
+            else if (configsForTheMod.KeybindListResetZoomOrUI.JustPressed())
+            {
+                UpdateUIScale(configsForTheMod.ResetZoomOrUIValue);
+                wasThePreviousButtonPressSucessfull = true;
+            }
+            else if (configsForTheMod.KeybindListMaxZoomOrUI.JustPressed())
+            {
+                UpdateUIScale(configsForTheMod.MaxZoomOrUIValue);
+                wasThePreviousButtonPressSucessfull = true;
+            }
+            else if (configsForTheMod.KeybindListMinZoomOrUI.JustPressed())
+            {
+                UpdateUIScale(configsForTheMod.MinZoomOrUIValue);
+                wasThePreviousButtonPressSucessfull = true;
             }
         }
 

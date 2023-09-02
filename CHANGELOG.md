@@ -1,5 +1,13 @@
 # Full Changelog
 
+## [2.3.0] - 2023-09-02
+
+### Improvements
+
+- Code optimizations
+- Now you can press or hold the UI key when moving the camera
+- Updated requirements
+
 ## [2.2.0] - 2023-07-30
 
 ### Improvements
@@ -222,7 +230,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.1.0...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.3.0...HEAD
+[2.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.3.0
 [2.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.2.0
 [2.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.1.0
 [2.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.0.1
