@@ -1,5 +1,13 @@
 # Full Changelog
 
+## [2.3.1] - 2023-11-12
+
+### Improvements
+
+- Code optimizations
+- Updated requirements
+
+
 ## [2.3.0] - 2023-09-02
 
 ### Improvements
@@ -230,7 +238,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.3.0...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.3.1...HEAD
+[2.3.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.3.1
 [2.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.3.0
 [2.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.2.0
 [2.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.1.0
