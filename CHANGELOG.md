@@ -1,5 +1,13 @@
 # Full Changelog
 
+## [3.0.0] - 2024-03-19
+
+### Changes
+
+- Compatible with 1.6.0
+- Updated requirements
+
+
 ## [2.3.1] - 2023-11-12
 
 ### Improvements
@@ -238,7 +246,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/2.3.1...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/3.0.0...HEAD
+[3.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.0.0
 [2.3.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.3.1
 [2.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.3.0
 [2.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.2.0
