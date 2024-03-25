@@ -1,5 +1,12 @@
 # Full Changelog
 
+## [3.2.0] - 2024-03-25
+
+### Changes
+
+- Added Portuguese translations (thanks to [Maatsuki](https://www.nexusmods.com/stardewvalley/users/59340891))
+
+
 ## [3.1.0] - 2024-03-24
 
 ### Changes
@@ -252,7 +259,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/3.1.0...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/3.2.0...HEAD
+[3.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.2.0
 [3.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.1.0
 [3.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.0.0
 [2.3.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/2.3.1
