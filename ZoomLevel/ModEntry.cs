@@ -50,7 +50,7 @@ namespace ZoomLevel
 
         private void MakeMenusInGenericModMenu()
         {
-            var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<IGenericModConfigMenuAPI>("spacechase0.GenericModConfigMenu");
+            var genericModConfigMenuAPI = Helper.ModRegistry.GetApi<IGenericModConfigMenuApi>("spacechase0.GenericModConfigMenu");
 
             if (genericModConfigMenuAPI != null)
 
