@@ -108,16 +108,15 @@ Here's what you can change:
   | `PresetOnLoadSaveFile`       | `false`       | If activated your UI hides when it reaches a certain zoom level.                                       |
   | `ZoomAndUIControlEverywhere` | `false`       | If activated your preset values will update when the file loads with the values set on the value tabs. |
 
-  - Randomizer options:
+- Randomizer options:
 
-  | Setting Name                  | Default Value | Description                                                                                            |
-  | :---------------------------  | :------------ | :----------------------------------------------------------------------------------------------------- |
-  | `RandomizerEnableGlobal`      | `false`       | If you want to enable randomizer at all.                                                               |
-  | `RandomizerSeedValue`         | -1            | Seed for the randomizer (-1 means no seed). Needs file reload to use new seed value.                   |
-  | `RandomizerEnableUIChanges`   | `false`       | If the randomizer also randomizes UI scale.                                                            |
-  | `RandomizerEnableOnMapChange` | `true`        | If it randomizes on map change.                                                                        |
-  | `RandomizerEnableOnMapLoad`   | `false`       | If it randomizes on map load.                                                                          |
-
+  | Setting Name                  | Default Value | Description                                                                          |
+  | :---------------------------- | :------------ | :----------------------------------------------------------------------------------- |
+  | `RandomizerEnableGlobal`      | `false`       | If you want to enable randomizer at all.                                             |
+  | `RandomizerSeedValue`         | -1            | Seed for the randomizer (-1 means no seed). Needs file reload to use new seed value. |
+  | `RandomizerEnableUIChanges`   | `false`       | If the randomizer also randomizes UI scale.                                          |
+  | `RandomizerEnableOnMapChange` | `true`        | If it randomizes on map change.                                                      |
+  | `RandomizerEnableOnMapLoad`   | `false`       | If it randomizes on map load.                                                        |
 
 ## Compatibility
 
