@@ -42,9 +42,7 @@ namespace ZoomLevel
     public bool PresetOnLoadSaveFile { get; set; } = false;
     public bool ZoomAndUIControlEverywhere { get; set; } = false;
 
-    //Randomizer settings
     public bool RandomizerEnableGlobal { get; set; } = false;
-
     public int RandomizerSeedValue { get; set; } = -1;
     public bool RandomizerEnableUIChanges { get; set; } = false;
     public bool RandomizerEnableOnMapChange { get; set; } = true;

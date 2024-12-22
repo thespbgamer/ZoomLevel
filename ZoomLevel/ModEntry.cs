@@ -9,7 +9,7 @@ namespace ZoomLevel
   public partial class ModEntry : Mod
   {
     private ModConfig configsForTheMod = new();
-    public Random globalRNG = new();
+    public Random? globalRNG = null;
 
     private bool wasThePreviousButtonPressSucessfull;
     private bool wasToggleUIScaleClicked;
@@ -139,22 +139,7 @@ namespace ZoomLevel
         PresetZoomAndUIValues();
       }
 
-      if (configsForTheMod.RandomizerEnableGlobal)
-      {
-        if (configsForTheMod.RandomizerSeedValue >= 0)
-        {
-          globalRNG = new(configsForTheMod.RandomizerSeedValue);
-        }
-
-        if (configsForTheMod.RandomizerEnableOnMapLoad)
-        {
-          UpdateZoomLevel(GenerateNextRangedFloat(configsForTheMod.MinZoomOrUIValue, configsForTheMod.MaxZoomOrUIValue));
-          if (configsForTheMod.RandomizerEnableUIChanges)
-          {
-            UpdateUIScale(GenerateNextRangedFloat(configsForTheMod.MinZoomOrUIValue, configsForTheMod.MaxZoomOrUIValue));
-          }
-        }
-      }
+      CheckRandomizer();
     }
 
     private void Events_Player_Warped(object? sender, WarpedEventArgs e)
@@ -164,14 +149,7 @@ namespace ZoomLevel
         ChangeZoomLevelToCurrentMapSize();
       }
 
-      if (configsForTheMod.RandomizerEnableGlobal && configsForTheMod.RandomizerEnableOnMapChange)
-      {
-        UpdateZoomLevel(GenerateNextRangedFloat(configsForTheMod.MinZoomOrUIValue, configsForTheMod.MaxZoomOrUIValue));
-        if (configsForTheMod.RandomizerEnableUIChanges)
-        {
-          UpdateUIScale(GenerateNextRangedFloat(configsForTheMod.MinZoomOrUIValue, configsForTheMod.MaxZoomOrUIValue));
-        }
-      }
+      CheckRandomizer();
     }
 
     private void Events_Input_ButtonChanged(object? sender, ButtonsChangedEventArgs e)
@@ -546,8 +524,31 @@ namespace ZoomLevel
       }
     }
 
+    private void CheckRandomizer()
+    {
+      if (configsForTheMod.RandomizerEnableGlobal && configsForTheMod.RandomizerEnableOnMapChange)
+      {
+        if (configsForTheMod.RandomizerSeedValue >= 0 && globalRNG == null)
+        {
+          globalRNG = new(configsForTheMod.RandomizerSeedValue);
+        }
+        else globalRNG ??= new();
+
+        UpdateZoomLevel(GenerateNextRangedFloat(configsForTheMod.MinZoomOrUIValue, configsForTheMod.MaxZoomOrUIValue));
+        if (configsForTheMod.RandomizerEnableUIChanges)
+        {
+          UpdateUIScale(GenerateNextRangedFloat(configsForTheMod.MinZoomOrUIValue, configsForTheMod.MaxZoomOrUIValue));
+        }
+      }
+    }
+
     private float GenerateNextRangedFloat(float min, float max)
     {
+      if (globalRNG == null)
+      {
+        Random random = new();
+        return (float)random.NextDouble() * (max - min) + min;
+      }
       return (float)globalRNG.NextDouble() * (max - min) + min;
     }
   }
