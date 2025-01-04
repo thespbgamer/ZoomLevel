@@ -1,5 +1,10 @@
 # Full Changelog
 
+## [Unreleased] - 2025-01-05
+
+### Updated
+- Chinese simplified translations (thanks to [BlackRosePetals](https://github.com/BlackRosePetals))
+
 ## [4.0.0] - 2025-01-04
 
 ### Added
@@ -274,6 +279,7 @@
 - Initial release
 
 [Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.0.0...HEAD
+[4.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.1
 [4.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.0
 [3.2.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.2.1
 [3.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.2.0
