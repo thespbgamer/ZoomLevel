@@ -1,10 +1,10 @@
 # Full Changelog
 
-## [Unreleased] - ????-??-??
+## [4.0.0] - 2025-01-04
 
 ### Added
 
-- Randomizer mode
+- Randomizer mode (basic)
 
 ### Changed
 
@@ -273,7 +273,7 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/3.2.1...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.0.0...HEAD
 [4.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.0
 [3.2.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.2.1
 [3.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.2.0
