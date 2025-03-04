@@ -1,5 +1,10 @@
 # Full Changelog
 
+## [4.1.0] - 2025-03-04
+
+### Added
+- French  translations (thanks to [FabLeKebab](https://github.com/FabLeKebab))
+
 ## [4.0.1] - 2025-01-05
 
 ### Updated
@@ -278,7 +283,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.0.1...HEAD
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.1.0...
+[4.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.1.0
 [4.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.1
 [4.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.0
 [3.2.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/3.2.1
