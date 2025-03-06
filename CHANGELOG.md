@@ -1,13 +1,21 @@
 # Full Changelog
 
+## [4.2.0] - 2024-03-06
+
+### Changes
+
+- Updated Portuguese translations (thanks to [Maatsuki](https://www.nexusmods.com/stardewvalley/users/59340891))
+
 ## [4.1.0] - 2025-03-04
 
 ### Added
-- French  translations (thanks to [FabLeKebab](https://github.com/FabLeKebab))
+
+- French translations (thanks to [FabLeKebab](https://github.com/FabLeKebab))
 
 ## [4.0.1] - 2025-01-05
 
 ### Updated
+
 - Chinese simplified translations (thanks to [BlackRosePetals](https://github.com/BlackRosePetals))
 
 ## [4.0.0] - 2025-01-04
@@ -283,7 +291,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.1.0...
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.2.0...
+[4.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.2.0
 [4.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.1.0
 [4.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.1
 [4.0.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.0
