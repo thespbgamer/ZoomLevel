@@ -19,6 +19,7 @@
   - [In-game settings](#in-game-settings-1)
   - [`config.json` file](#configjson-file)
 - [Compatibility](#compatibility)
+- [Translation Progress](#translation-progress)
 - [Changelog](#changelog)
 - [See also](#see-also)
 
@@ -122,6 +123,33 @@ Here's what you can change:
 
 ZoomLevel is compatible with Stardew Valley 1.5+ on Linux/Mac/Windows, both single-player, local co-op and multiplayer.
 
+## Translation Progress
+
+The mod can be translated into any language supported by the game.
+
+Contributions are welcome! See [Modding:Translations](https://stardewvalleywiki.com/Modding:Translations)
+on the wiki for help contributing translations.
+
+(❑ = untranslated, ↻ = partly translated, ✓ = fully translated)
+
+| Language    | Status                           | Code                         |
+| ----------- | :------------------------------- | ---------------------------- |
+| English     | [✓](ZoomLevel/i18n/default.json) | `default.json` and `en.json` |
+| Chinese     | [✓](ZoomLevel/i18n/zh.json)      | `zh.json`                    |
+| French      | [✓](ZoomLevel/i18n/fr.json)      | `fr.json`                    |
+| German      | [❑](ZoomLevel/i18n/de.json)      | `de.json`                    |
+| Hungarian   | [❑](ZoomLevel/i18n/hu.json)      | `hu.json`                    |
+| Italian     | [❑](ZoomLevel/i18n/it.json)      | `it.json`                    |
+| Japanese    | [❑](ZoomLevel/i18n/ja.json)      | `ja.json`                    |
+| Korean      | [❑](ZoomLevel/i18n/ko.json)      | `ko.json`                    |
+| [Polish]    | [❑](ZoomLevel/i18n/pl.json)      | `pl.json`                    |
+| Portuguese  | [✓](ZoomLevel/i18n/pt.json)      | `pt.json`                    |
+| Russian     | [❑](ZoomLevel/i18n/ru.json)      | `ru.json`                    |
+| Spanish     | [❑](ZoomLevel/i18n/es.json)      | `es.json`                    |
+| [Thai]      | [❑](ZoomLevel/i18n/th.json)      | `th.json`                    |
+| Turkish     | [❑](ZoomLevel/i18n/tr.json)      | `tr.json`                    |
+| [Ukrainian] | [❑](ZoomLevel/i18n/uk.json)      | `uk.json`                    |
+
 ## Changelog
 
 - [Full Changelog](https://github.com/thespbgamer/ZoomLevel/blob/main/CHANGELOG.md#full-changelog)
@@ -131,3 +159,7 @@ ZoomLevel is compatible with Stardew Valley 1.5+ on Linux/Mac/Windows, both sing
 - [Nexus mod](https://www.nexusmods.com/stardewvalley/mods/7363/?tab=files)
 - [CurseForge mod](https://www.curseforge.com/stardewvalley/mods/zoom-level/files)
 - [The mod that this mod was based by](https://github.com/GuiNoya/SVMods/)
+
+[Polish]: https://www.nexusmods.com/stardewvalley/mods/3616
+[Thai]: https://www.nexusmods.com/stardewvalley/mods/7052
+[Ukrainian]: https://www.nexusmods.com/stardewvalley/mods/8427
