@@ -8,7 +8,7 @@
 
 ### Changed
 
-- Update package 'Pathoschild.Stardew.ModBuildConfig' from 4.1.1 to 4.4.0 />
+- Update package 'Pathoschild.Stardew.ModBuildConfig' from 4.1.1 to 4.4.0
 - Update minimum version for SMAPI and GenericModConfigMenu
 
 ## [4.2.0] - 2024-03-06
