@@ -145,7 +145,7 @@ on the wiki for help contributing translations.
 | [Polish]    | [❑](ZoomLevel/i18n/pl.json)      | `pl.json`                    |
 | Portuguese  | [✓](ZoomLevel/i18n/pt.json)      | `pt.json`                    |
 | Russian     | [❑](ZoomLevel/i18n/ru.json)      | `ru.json`                    |
-| Spanish     | [❑](ZoomLevel/i18n/es.json)      | `es.json`                    |
+| Spanish     | [✓](ZoomLevel/i18n/es.json)      | `es.json`                    |
 | [Thai]      | [❑](ZoomLevel/i18n/th.json)      | `th.json`                    |
 | Turkish     | [❑](ZoomLevel/i18n/tr.json)      | `tr.json`                    |
 | [Ukrainian] | [❑](ZoomLevel/i18n/uk.json)      | `uk.json`                    |

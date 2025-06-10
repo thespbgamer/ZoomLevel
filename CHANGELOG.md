@@ -1,5 +1,16 @@
 # Full Changelog
 
+## [4.3.0] - 2025-06-10
+
+### Added
+
+- Spanish translations (thanks to [Neutrovertido](https://github.com/Neutrovertido))
+
+### Changed
+
+- Update package 'Pathoschild.Stardew.ModBuildConfig' from 4.1.1 to 4.4.0 />
+- Update minimum version for SMAPI and GenericModConfigMenu
+
 ## [4.2.0] - 2024-03-06
 
 ### Changes
@@ -291,7 +302,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.2.0...
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.3.0...
+[4.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.3.0
 [4.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.2.0
 [4.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.1.0
 [4.0.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.0.1
