@@ -1,5 +1,11 @@
 # Full Changelog
 
+## [4.4.0] - 2025-07-27
+
+### Added
+
+- Options to zoom up to 1000%
+
 ## [4.3.0] - 2025-06-10
 
 ### Added
@@ -302,7 +308,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.3.0...
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.4.0...
+[4.4.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.4.0
 [4.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.3.0
 [4.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.2.0
 [4.1.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.1.0
