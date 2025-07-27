@@ -2,7 +2,7 @@
 
 ## [4.4.0] - 2025-07-27
 
-### Added
+### Changed
 
 - Options to zoom up to 1000%
 
