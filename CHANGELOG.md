@@ -1,5 +1,11 @@
 # Full Changelog
 
+## [4.5.0] - 2025-11-01
+
+### Added
+
+- Partial Russian translations (thanks to [k1llm3sixy](https://github.com/k1llm3sixy))
+
 ## [4.4.0] - 2025-07-27
 
 ### Changed
@@ -308,7 +314,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.4.0...
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.5.0...
+[4.5.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.5.0
 [4.4.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.4.0
 [4.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.3.0
 [4.2.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.2.0
