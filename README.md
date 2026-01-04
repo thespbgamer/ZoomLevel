@@ -1,17 +1,20 @@
-## Description and Features
+## Description and Features <!-- omit in toc -->
 
-**ZoomLevel** is a [Stardew Valley](http://stardewvalley.net/) mod based on [this mod](https://github.com/GuiNoya/SVMods/) and it allows you to change and adjust the zoom level and UI levels of the game.
+**ZoomLevel** is a [Stardew Valley](http://stardewvalley.net/) mod based on [this mod](https://github.com/GuiNoya/SVMods/) and it allows you to change and adjust both the zoom level and UI Scale levels of the game. It works in single-player, local co-op and multiplayer.
 
-- You can increase zoom level with `, (comma)` and decrease it with `. (period)`.<br>
-  By holding `Left Shift` or `Right Shift` and using the controls above, you can change the UI Scale.
+### Changing the "Zoom level" <!-- omit in toc -->
+- **Keyboard:** Increase with `. (period)`, decrease with `, (comma)`.
+- **Controller:** Increase by pressing `right stick`, decrease by pressing `left stick`.
 
-- If you use a controller, you can also adjust it by pressing the `left stick` to decrease the zoom and `right stick` to increases the zoom.<br>
-  By holding `Left Trigger & Right Trigger` and using the controls above, you can change the UI Scale.
+### Changing the "UI Scale" <!-- omit in toc -->
+- **Keyboard:** Hold `Left Shift` or `Right Shift`, and then use `. (period)` to increase, or `, (comma)` to decrease.
+- **Controller:** Hold `Left Trigger & Right Trigger` at the same time, and then use `right stick` to increase, or `left stick` to decrease.
 
-## Contents
+> [!NOTE]
+> Keep in mind that the only way to go beyond the default zoom levels is through the custom keybinds mentioned above. Trying to increase the zoom levels through the "normal" in-game settings won't work.
 
-- [Description and Features](#description-and-features)
-- [Contents](#contents)
+## Contents <!-- omit in toc -->
+
 - [Installation](#installation)
 - [Console Commands](#console-commands)
   - [In-game settings](#in-game-settings)
