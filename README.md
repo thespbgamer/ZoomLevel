@@ -1,4 +1,4 @@
-## Description and Features <!-- omit in toc -->
+## Description and Features
 
 **ZoomLevel** is a [Stardew Valley](http://stardewvalley.net/) mod based on [this mod](https://github.com/GuiNoya/SVMods/) and it allows you to change and adjust both the zoom level and UI Scale levels of the game. It works in single-player, local co-op and multiplayer.
 
@@ -13,8 +13,10 @@
 > [!NOTE]
 > Keep in mind that the only way to go beyond the default zoom levels is through the custom keybinds mentioned above. Trying to increase the zoom levels through the "normal" in-game settings won't work.
 
-## Contents <!-- omit in toc -->
+## Contents
 
+- [Description and Features](#description-and-features)
+- [Contents](#contents)
 - [Installation](#installation)
 - [Console Commands](#console-commands)
   - [In-game settings](#in-game-settings)
