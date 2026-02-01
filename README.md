@@ -3,10 +3,12 @@
 **ZoomLevel** is a [Stardew Valley](http://stardewvalley.net/) mod based on [this mod](https://github.com/GuiNoya/SVMods/) and it allows you to change and adjust both the zoom level and UI Scale levels of the game. It works in single-player, local co-op and multiplayer.
 
 ### Changing the "Zoom level" <!-- omit in toc -->
+
 - **Keyboard:** Increase with `. (period)`, decrease with `, (comma)`.
 - **Controller:** Increase by pressing `right stick`, decrease by pressing `left stick`.
 
 ### Changing the "UI Scale" <!-- omit in toc -->
+
 - **Keyboard:** Hold `Left Shift` or `Right Shift`, and then use `. (period)` to increase, or `, (comma)` to decrease.
 - **Controller:** Hold `Left Trigger & Right Trigger` at the same time, and then use `right stick` to increase, or `left stick` to decrease.
 
@@ -20,12 +22,15 @@
 - [Installation](#installation)
 - [Console Commands](#console-commands)
   - [In-game settings](#in-game-settings)
+
 - [Configuration](#configuration)
   - [In-game settings](#in-game-settings-1)
   - [`config.json` file](#configjson-file)
+
 - [Compatibility](#compatibility)
 - [Translation Progress](#translation-progress)
 - [Changelog](#changelog)
+- [Developer Info / SDK Installation](#developer-info--sdk-installation)
 - [See also](#see-also)
 
 ## Installation
@@ -158,6 +163,16 @@ on the wiki for help contributing translations.
 ## Changelog
 
 - [Full Changelog](https://github.com/thespbgamer/ZoomLevel/blob/main/CHANGELOG.md#full-changelog)
+
+## Developer Info / SDK Installation
+
+If you plan to build or modify the **ZoomLevel** mod yourself, you’ll need the **.NET SDK** installed. On Linux, you can install it via Snap:
+
+```bash
+sudo snap install dotnet-sdk --classic --channel 8.0/stable
+```
+
+For more detailed instructions and other platforms, see the official Microsoft documentation: [Install .NET SDK](https://learn.microsoft.com/en-us/dotnet/core/install/linux-snap-sdk).
 
 ## See also
 
