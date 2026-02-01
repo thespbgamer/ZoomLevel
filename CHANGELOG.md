@@ -1,5 +1,11 @@
 # Full Changelog
 
+## [4.5.1] - 2026-02-01
+
+### Changes
+
+- Updated requirements
+
 ## [4.5.0] - 2025-11-01
 
 ### Added
@@ -314,7 +320,8 @@
 
 - Initial release
 
-[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.5.0...
+[Unreleased]: https://github.com/thespbgamer/ZoomLevel/compare/4.5.1...
+[4.5.1]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.5.1
 [4.5.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.5.0
 [4.4.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.4.0
 [4.3.0]: https://github.com/thespbgamer/ZoomLevel/releases/tag/4.3.0
