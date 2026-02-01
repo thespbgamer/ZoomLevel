@@ -1,6 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <!-- <GamePath>/mnt/DISK_NAME/SteamLibrary/steamapps/common/Stardew Valley/</GamePath> -->
+  </PropertyGroup>
+
+  <PropertyGroup>
 	  <TargetFramework>net6.0</TargetFramework>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <AnalysisLevel>latest</AnalysisLevel>
